@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Anmelden – DJK Admin</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<script>try{var t=localStorage.getItem("djk-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="admin">
+<header class="site-head admin-head">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="../assets/icon-512.png" width="40" height="40" alt=""><span>DJK Admin<small>Website-Verwaltung</small></span></a>
+    <nav class="admin-nav" aria-label="Admin"><a href="statistik.html">Statistik</a><a href="cms/">Inhalte</a><a href="../index.html">Zur Website</a><a href="/api/logout">Abmelden</a></nav>
+  </div>
+  <span class="stripe" aria-hidden="true"></span>
+</header>
+<main id="main">
+<section class="wrap section login-wrap">
+  <form class="login" method="post" action="/api/login">
+    <h1>Anmelden</h1>
+    <p id="login-msg" class="login-msg" role="alert" hidden></p>
+    <label for="passwort">Passwort</label>
+    <input id="passwort" name="passwort" type="password" autocomplete="current-password" required minlength="12">
+    <button class="btn btn-red" type="submit">Anmelden</button>
+    <p class="crumb">Nur für die Website-Verwaltung des Vereins. Die Anmeldung gilt 12 Stunden.</p>
+  </form>
+</section>
+</main>
+<script>
+(function(){var p=new URLSearchParams(location.search),m=document.getElementById("login-msg"),t={passwort:"Das Passwort stimmt nicht. Bitte noch einmal versuchen.",gesperrt:"Zu viele Versuche. Bitte in 15 Minuten erneut versuchen.",einrichtung:"Der Login ist noch nicht eingerichtet: ADMIN_PASSWORD_HASH und SESSION_SECRET fehlen in Cloudflare."};
+var k=p.get("fehler");if(k&&t[k]){m.textContent=t[k];m.hidden=false}if(p.get("abgemeldet")){m.textContent="Du bist abgemeldet.";m.hidden=false;m.classList.add("ok")}})();
+</script>
+</body>
+</html>

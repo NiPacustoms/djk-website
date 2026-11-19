@@ -1,0 +1,9 @@
+# Cloudflare Pages: Website aus dist/, Functions aus functions/, Statistik in D1
+name = "djk-spvgg-herten"
+pages_build_output_dir = "dist"
+compatibility_date = "2025-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "djk-statistik"
+database_id = "00000000-0000-0000-0000-000000000000" # nach wrangler d1 create ersetzen

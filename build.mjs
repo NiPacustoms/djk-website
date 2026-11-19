@@ -3,9 +3,25 @@
 import fs from "node:fs";
 import path from "node:path";
 import * as D from "./data.mjs";
+import { writeAdmin } from "./admin.mjs";
+import sharp from "sharp";
 
 const ROOT = path.dirname(new URL(import.meta.url).pathname);
 const SIZES = JSON.parse(fs.readFileSync(path.join(ROOT, "sizes.json"), "utf8"));
+// CMS-Uploads (content/uploads) automatisch als WebP in passender Größe aufbereiten
+const upKey = (name) => "up-" + name.replace(/\.[a-z0-9]+$/i, "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+{
+  const upDir = path.join(ROOT, "content/uploads");
+  if (fs.existsSync(upDir)) for (const f of fs.readdirSync(upDir)) {
+    if (!/\.(jpe?g|png|webp|avif|gif)$/i.test(f)) continue;
+    const key = upKey(f), target = path.join(ROOT, "assets/img", key + ".webp");
+    if (!fs.existsSync(target) || fs.statSync(target).mtimeMs < fs.statSync(path.join(upDir, f)).mtimeMs) {
+      await sharp(path.join(upDir, f)).rotate().resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true }).webp({ quality: 74 }).toFile(target);
+    }
+    const m = await sharp(target).metadata();
+    SIZES[key] = [m.width, m.height];
+  }
+}
 const CSS = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
 const JS = fs.readFileSync(path.join(ROOT, "main.js"), "utf8");
 const SITE_URL = "https://www.djkspvggherten.de";
@@ -20,6 +36,7 @@ const yearText = (t) => (t.years[0] === t.years[1] ? `Jg. ${t.years[0]}` : `Jg. 
 const fmtDate = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
 
 function img(key, alt, { cls = "", eager = false, sizes = "" } = {}) {
+  if (key && /[\/.]/.test(key)) key = upKey(path.basename(key));
   const s = SIZES[key];
   if (!s) throw new Error("Bild fehlt: " + key);
   return `<img src="assets/img/${key}.webp" width="${s[0]}" height="${s[1]}" alt="${esc(alt)}"${cls ? ` class="${cls}"` : ""}${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${sizes ? ` sizes="${sizes}"` : ""}>`;
@@ -197,7 +214,7 @@ ${script}`;
   // Vorschau: Startseite ohne eigenes Dokumentgerüst (wird beim Veröffentlichen ergänzt)
   if (mode === "preview" && home) return `${headInner}\n${bodyInner}\n`;
   return `<!doctype html>
-<html lang="de">
+<html lang="de"${mode === "dist" ? ' data-analytics="on"' : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -811,22 +828,26 @@ pages.push({
 pages.push({
   file: "datenschutz.html", title: "Datenschutz",
   desc: "Datenschutzerklärung der DJK Spvgg Herten 07 e.V.",
-  body: `${pageHead("Datenschutzerklärung", "Diese Website setzt keine Cookies, nutzt kein Tracking und lädt keine Inhalte von Drittanbietern. Schriften und Bilder liegen auf unserem eigenen Server.")}
+  body: `${pageHead("Datenschutzerklärung", "Diese Website setzt bei Besuchern keine Cookies, nutzt keine Analyse- oder Werbedienste von Drittanbietern und speichert keine IP-Adressen. Schriften und Bilder liegen auf unserem eigenen Server.")}
 <section class="wrap section prose" style="padding-top:0">
   <h2>1. Verantwortlicher</h2>
   <p>${esc(club.name)}, ${club.address.slice(1).join(", ")}<br>vertreten durch den Vorstand<br>E-Mail: ${mailA(club.mail.gv)}</p>
   <h2>2. Aufruf der Website und Hosting</h2>
   <p>Beim Aufruf unserer Seiten verarbeitet der Webserver automatisch Zugriffsdaten: IP-Adresse, Datum und Uhrzeit, aufgerufene Datei, übertragene Datenmenge, Browser und Betriebssystem sowie die zuvor besuchte Seite. Das ist technisch nötig, um die Website auszuliefern und ihre Sicherheit zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO). Die Daten werden nicht mit anderen Daten zusammengeführt und spätestens nach sieben Tagen gelöscht, sofern sie nicht zur Aufklärung eines Sicherheitsvorfalls benötigt werden.</p>
   <p>Die Website wird bei einem externen Dienstleister gehostet, mit dem wir einen Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO geschlossen haben. <span class="note" style="display:inline;padding:.1rem .4rem">Vor Veröffentlichung Name und Sitz des Hosting-Anbieters ergänzen.</span></p>
-  <h2>3. Keine Cookies, kein Tracking</h2>
-  <p>Wir setzen keine Cookies, keine Analyse- oder Werbedienste und keine eingebetteten Inhalte von Drittanbietern (z. B. Karten, Videos, Social-Media-Plugins) ein.</p>
-  <h2>4. Kontakt per E-Mail oder Telefon</h2>
+  <h2>3. Keine Cookies, keine Drittanbieter</h2>
+  <p>Wir setzen bei Besuchern keine Cookies, keine Analyse- oder Werbedienste von Drittanbietern und keine eingebetteten Inhalte von Drittanbietern (z. B. Karten, Videos, Social-Media-Plugins) ein. Nur für angemeldete Administratoren der Website wird ein technisch notwendiges Sitzungs-Cookie gesetzt.</p>
+  <h2>4. Eigene, anonyme Reichweitenmessung</h2>
+  <p>Um zu verstehen, welche Inhalte gebraucht werden, zählen wir Seitenaufrufe mit einer eigenen Lösung auf unserem Server. Erfasst werden: aufgerufene Seite, Zeitpunkt, die Domain der zuvor besuchten Website, Gerätetyp (Handy, Tablet, Computer) und Browsersprache sowie anonyme Nutzungsereignisse (z. B. im Teamfinder eingegebenes Geburtsjahr, Suchbegriffe der Website-Suche, Klick auf einen Kalender- oder Kontaktlink, ohne die Nummer oder Adresse selbst).</p>
+  <p>Es werden <b>keine Cookies</b> gesetzt, keine Daten auf eurem Gerät gespeichert und <b>keine IP-Adressen gespeichert</b>. Um Besucher eines Tages zählen zu können, wird aus IP-Adresse, Browserkennung und einem täglich neu erzeugten Zufallswert ein Prüfwert (Hash) gebildet. Der Zufallswert wird nach spätestens zwei Tagen gelöscht, danach kann niemand mehr einen Bezug zu einer Person herstellen. Ist in eurem Browser „Do Not Track“ oder „Global Privacy Control“ aktiviert, erfassen wir nichts.</p>
+  <p>Rechtsgrundlage ist unser berechtigtes Interesse an einer bedarfsgerechten Website (Art. 6 Abs. 1 lit. f DSGVO). Da nicht auf euer Endgerät zugegriffen wird, ist keine Einwilligung nach § 25 TDDDG nötig. Die Ereignisse werden nach 13 Monaten gelöscht. Die Auswertung sehen nur die Administratoren des Vereins.</p>
+  <h2>5. Kontakt per E-Mail oder Telefon</h2>
   <p>Wenn ihr uns per E-Mail oder Telefon kontaktiert, verarbeiten wir eure Angaben zur Bearbeitung der Anfrage (Art. 6 Abs. 1 lit. b bzw. f DSGVO). Wir löschen sie, wenn die Anfrage erledigt ist und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
-  <h2>5. Links zu sozialen Netzwerken</h2>
+  <h2>6. Links zu sozialen Netzwerken</h2>
   <p>Wir verlinken auf unsere Auftritte bei Instagram und Facebook. Erst wenn ihr einem Link folgt, werden Daten an den jeweiligen Anbieter (Meta Platforms Ireland Ltd.) übertragen. Für den Betrieb unserer Facebook-Seiten sind wir gemeinsam mit Meta verantwortlich (Art. 26 DSGVO). Informationen dazu: <a href="https://www.facebook.com/privacy/policy/" rel="noopener">Datenschutzrichtlinie von Meta</a>.</p>
-  <h2>6. Fotos</h2>
+  <h2>7. Fotos</h2>
   <p>Mannschafts- und Veranstaltungsfotos veröffentlichen wir auf Grundlage der Einwilligung der Abgebildeten bzw. ihrer Erziehungsberechtigten (Art. 6 Abs. 1 lit. a DSGVO). Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden, eine Mail an ${mailA(club.mail.gv)} genügt.</p>
-  <h2>7. Eure Rechte</h2>
+  <h2>8. Eure Rechte</h2>
   <p>Ihr habt das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 15–21 DSGVO). Außerdem könnt ihr euch bei einer Aufsichtsbehörde beschweren, in NRW bei der Landesbeauftragten für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Kavalleriestr. 2–4, 40213 Düsseldorf.</p>
   <p class="crumb">Stand: ${new Date().toLocaleDateString("de-DE", { month: "long", year: "numeric" })}</p>
 </section>`,
@@ -1043,11 +1064,12 @@ const MANIFEST = JSON.stringify({
 }, null, 2);
 const SW = `// Offline-Unterstützung: Seiten zuerst aus dem Netz, Dateien zuerst aus dem Cache.
 const C = "djk-v${Date.now()}";
-const PRE = ${JSON.stringify(["./", "index.html", ...pages.map((p) => p.file).filter((f) => f !== "index.html"), "assets/site.css", "assets/main.js", "assets/icon-512.png"])};
+const PRE = ${JSON.stringify(["./", "index.html", ...pages.map((p) => p.file).filter((f) => f !== "index.html" && !f.startsWith("team-")), "assets/site.css", "assets/main.js", "assets/icon-512.png"])};
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(C).then((c) => c.addAll(PRE)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== C).map((k) => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", (e) => {
   const r = e.request; if (r.method !== "GET" || new URL(r.url).origin !== location.origin) return;
+  const u = new URL(r.url); if (u.pathname.startsWith("/api/") || u.pathname.startsWith("/admin")) return;
   if (r.mode === "navigate") { e.respondWith(fetch(r).then((res) => { const cp = res.clone(); caches.open(C).then((c) => c.put(r, cp)); return res; }).catch(() => caches.match(r).then((m) => m || caches.match("index.html")))); return; }
   e.respondWith(caches.match(r).then((m) => m || fetch(r).then((res) => { if (res.ok) { const cp = res.clone(); caches.open(C).then((c) => c.put(r, cp)); } return res; })));
 });
@@ -1070,10 +1092,31 @@ for (const mode of ["dist", "preview"]) {
     fs.rmSync(path.join(out, "assets/fonts"), { recursive: true, force: true });
   }
   for (const p of pages) fs.writeFileSync(path.join(out, p.file), page(p, mode));
+  const teamNames = Object.fromEntries([...D.youthTeams.map((t) => [t.id, t.name]), ...D.girlsTeams.map((t) => [t.id, t.name]), ...D.ladies.teams.map((t) => [slugOf(t.name), t.name]), ...D.seniors.flatMap((g) => g.teams.map((t) => [slugOf(t.name), t.name])), ...D.gym.groups.map((g) => [g.id, g.name])]);
+  writeAdmin(out, mode, { CSS, pages, teams: teamNames, esc });
   if (mode === "dist") {
     const today = new Date().toISOString().slice(0, 10);
-    fs.writeFileSync(path.join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${SITE_URL}/${p.home ? "" : p.file}</loc><lastmod>${today}</lastmod></url>`).join("\n")}\n</urlset>\n`);
-    fs.writeFileSync(path.join(out, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+    fs.writeFileSync(path.join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.filter((p) => p.file !== "404.html").map((p) => `  <url><loc>${SITE_URL}/${p.home ? "" : p.file}</loc><lastmod>${today}</lastmod></url>`).join("\n")}\n</urlset>\n`);
+    fs.writeFileSync(path.join(out, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+    // Sicherheits-Header für Cloudflare Pages
+    fs.writeFileSync(path.join(out, "_headers"), [
+      "/*",
+      "  X-Content-Type-Options: nosniff",
+      "  Referrer-Policy: strict-origin-when-cross-origin",
+      "  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()",
+      "  Strict-Transport-Security: max-age=31536000; includeSubDomains",
+      "  X-Frame-Options: DENY",
+      "  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "/admin/cms/*",
+      "  ! Content-Security-Policy",
+      "  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: blob: https://*.githubusercontent.com https://avatars.githubusercontent.com; font-src 'self' data: https://unpkg.com; connect-src 'self' https://api.github.com https://github.com https://unpkg.com https://*.githubusercontent.com; frame-ancestors 'none'",
+      "/assets/*",
+      "  Cache-Control: public, max-age=604800",
+      "/assets/kalender/*",
+      "  Content-Type: text/calendar; charset=utf-8",
+      "  Cache-Control: public, max-age=3600",
+      "",
+    ].join("\n"));
     // Weiterleitungen der alten Wix-Adressen (Netlify / Cloudflare Pages)
     const R = [["/verein", "/verein.html"], ["/an-undabmeldung", "/mitgliedschaft.html"], ["/vereinsheim", "/vereinsheim.html"], ["/spielst%C3%A4tte", "/verein.html#spielstaette"], ["/spielstätte", "/verein.html#spielstaette"], ["/kinder-jugendschutzkonzept", "/kinderschutz.html"], ["/jugendabteilung", "/jugend.html"], ["/katzenbuschladies", "/damen.html"], ["/senioren", "/senioren.html"], ["/turner", "/turnen.html"], ["/fanshop", "/fanshop.html"], ["/fanartikel", "/fanshop.html"], ["/trainingszubeh%C3%B6r", "/fanshop.html"], ["/trainingszubehör", "/fanshop.html"], ["/sale", "/fanshop.html"], ["/sponsoren", "/sponsoren.html"], ["/kontakt", "/kontakt.html"], ["/impressum", "/impressum.html"], ["/datenschutz", "/datenschutz.html"], ["/blank-2", "/fanshop.html"], ["/wiederrufsrecht", "/fanshop.html"], ["/blog", "/news.html"], ["/post/*", "/news.html"]];
     fs.writeFileSync(path.join(out, "_redirects"), R.map(([a, b]) => `${a} ${b} 301`).join("\n") + "\n");

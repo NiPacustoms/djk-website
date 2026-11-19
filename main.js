@@ -1,4 +1,22 @@
 (function () {
+  // Anonyme Statistik (nur auf der echten Website, ohne Cookies, respektiert "Do Not Track")
+  var ANALYTICS = document.documentElement.getAttribute("data-analytics") === "on" && navigator.doNotTrack !== "1" && !navigator.globalPrivacyControl;
+  var track = window.djkTrack = function (type, label, value) {
+    if (!ANALYTICS) return;
+    var body = JSON.stringify({ t: type, p: location.pathname, r: type === "view" ? document.referrer : "", w: window.innerWidth, l: label || "", v: value == null ? "" : String(value) });
+    try { if (!navigator.sendBeacon || !navigator.sendBeacon("/api/hit", new Blob([body], { type: "application/json" }))) fetch("/api/hit", { method: "POST", body: body, keepalive: true }); } catch (e) {}
+  };
+  track("view");
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href]"); if (!a) return;
+    var h = a.getAttribute("href");
+    if (/\.ics$/.test(h)) track("calendar", h.split("/").pop().replace(".ics", ""));
+    else if (/^tel:/.test(h)) track("contact", "Telefon");
+    else if (/^mailto:/.test(h)) track("contact", "Mail " + h.slice(7).split("?")[0].split("@")[0]);
+    else if (/^https?:/.test(h) && a.hostname !== location.hostname) track("outbound", a.hostname.replace(/^www\./, ""));
+  });
+  window.addEventListener("appinstalled", function () { track("install"); });
+
   // Mobiles Menü
   var btn = document.querySelector(".menu-btn");
   var nav = document.getElementById("nav");
@@ -66,7 +84,12 @@
       var cur = document.getElementById("sr-" + sel); if (cur) cur.scrollIntoView({ block: "nearest" });
       q.setAttribute("aria-activedescendant", "sr-" + sel);
     };
-    q.addEventListener("input", run);
+    var searchTimer;
+    q.addEventListener("input", function () {
+      run();
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(function () { var v = q.value.trim(); if (v.length >= 2) track("search", v.slice(0, 40), hits.length); }, 1500);
+    });
     q.addEventListener("keydown", function (e) {
       if (e.key === "ArrowDown") { e.preventDefault(); move(1); }
       else if (e.key === "ArrowUp") { e.preventDefault(); move(-1); }
@@ -86,6 +109,7 @@
     b.addEventListener("click", function () {
       var url = b.dataset.url, title = b.dataset.title;
       var done = function (t) { b.textContent = t; setTimeout(function () { b.textContent = "Beitrag teilen"; }, 2200); };
+      track("share", url.split("#")[1] || "");
       if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); return; }
       if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () { done("Link kopiert"); }, function () { done(url); });
       else done(url);
@@ -260,10 +284,13 @@
     else if (!boys.length) html += note("Für Jahrgang " + y + " ist bei den Junioren gerade kein Team gelistet. Schreibt an " + '<a href="mailto:' + D.mail + '">' + D.mail + "</a>, wir finden eine Lösung.");
     if (!html) html = note("Für dieses Alter haben wir gerade kein passendes Angebot. Schreibt uns trotzdem gern.");
     out.innerHTML = html;
+    clearTimeout(finderTimer);
+    if (finderTouched) finderTimer = setTimeout(function () { track("finder", String(y), (boys.length + girls.length) + " Fußball, " + gym.length + " Turnen"); }, 1200);
   }
-  input.addEventListener("input", render);
+  var finderTimer, finderTouched = false;
+  input.addEventListener("input", function () { finderTouched = true; render(); });
   document.querySelectorAll("[data-step]").forEach(function (b) {
-    b.addEventListener("click", function () { input.value = (parseInt(input.value, 10) || 2018) + parseInt(b.dataset.step, 10); render(); });
+    b.addEventListener("click", function () { finderTouched = true; input.value = (parseInt(input.value, 10) || 2018) + parseInt(b.dataset.step, 10); render(); });
   });
   render();
 })();

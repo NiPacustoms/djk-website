@@ -1,0 +1,841 @@
+# Redaktionssystem (Sveltia CMS) für die DJK-Website.
+# Änderungen werden als Commit im GitHub-Repository gespeichert, danach baut und veröffentlicht GitHub Actions die Seite automatisch.
+
+backend:
+  name: github
+  repo: NiPacustoms/djk-website
+  branch: main
+  commit_messages:
+    create: 'Inhalt: {{collection}} „{{slug}}“ angelegt'
+    update: 'Inhalt: {{collection}} „{{slug}}“ geändert'
+    delete: 'Inhalt: {{collection}} „{{slug}}“ gelöscht'
+locale: de
+media_folder: content/uploads
+public_folder: uploads
+site_url: https://www.djkspvggherten.de
+logo_url: /assets/icon-512.png
+collections:
+- name: news
+  label: News
+  label_singular: Beitrag
+  folder: content/news
+  extension: md
+  format: frontmatter
+  create: true
+  slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  sortable_fields:
+  - date
+  - title
+  summary: '{{date}} · {{title}}'
+  fields:
+  - name: title
+    label: Überschrift
+    widget: string
+  - name: date
+    label: Datum
+    widget: datetime
+    time_format: false
+    date_format: DD.MM.YYYY
+    format: YYYY-MM-DD
+  - name: tag
+    label: Bereich
+    widget: select
+    options:
+    - Verein
+    - Jugend
+    - Damen
+    - Herren
+    - Turnen
+    - Event
+  - name: image
+    label: Bild
+    widget: image
+    hint: Querformat oder Plakat. Wird beim Veröffentlichen automatisch verkleinert.
+  - name: body
+    label: Text
+    widget: markdown
+    buttons:
+    - bold
+    - italic
+    - link
+    editor_components: []
+    hint: Absätze mit einer Leerzeile trennen.
+- name: einstellungen
+  label: Platzstatus und Termine
+  files:
+  - name: status
+    label: Platzstatus / Hinweis-Banner
+    file: content/status.json
+    fields:
+    - name: active
+      label: Hinweis anzeigen
+      widget: boolean
+      default: false
+    - name: level
+      label: Art
+      widget: select
+      options:
+      - label: Hinweis (gelb)
+        value: info
+      - label: Wichtig, z. B. Platz gesperrt (rot)
+        value: warn
+      - label: Entwarnung (grün)
+        value: ok
+      default: info
+    - name: title
+      label: Überschrift
+      widget: string
+      required: false
+      hint: z. B. Platz gesperrt
+    - name: text
+      label: Text
+      widget: string
+      required: false
+      hint: z. B. Heute fällt das Training aller Jugendteams aus.
+    - name: until
+      label: Automatisch ausblenden nach
+      widget: datetime
+      time_format: false
+      format: YYYY-MM-DD
+      required: false
+  - name: termine
+    label: Termine
+    file: content/termine.json
+    fields:
+    - name: events
+      label: Termine
+      label_singular: Termin
+      widget: list
+      summary: '{{fields.date}} · {{fields.title}}'
+      fields:
+      - name: title
+        label: Titel
+        widget: string
+      - name: date
+        label: Datum
+        widget: datetime
+        time_format: false
+        format: YYYY-MM-DD
+      - name: end
+        label: Bis (bei mehrtägigen Terminen)
+        widget: datetime
+        time_format: false
+        format: YYYY-MM-DD
+        required: false
+      - name: time
+        label: Uhrzeit
+        widget: string
+        required: false
+        hint: z. B. 19:00
+      - name: place
+        label: Ort
+        widget: string
+        required: false
+      - name: text
+        label: Beschreibung
+        widget: text
+        required: false
+- name: teams
+  label: Teams und Trainer
+  files:
+  - name: jugend
+    label: Jugend (Junioren und Juniorinnen)
+    file: content/jugend.json
+    fields:
+    - name: youthTeams
+      label: Junioren
+      label_singular: Team
+      widget: list
+      summary: '{{fields.name}} (Jg. {{fields.yearFrom}})'
+      fields:
+      - name: id
+        label: Kürzel (für Adresse, z. B. e1)
+        widget: string
+        pattern:
+        - ^[a-z0-9-]+$
+        - Nur Kleinbuchstaben, Zahlen und Bindestrich
+      - name: name
+        label: Name
+        widget: string
+      - name: label
+        label: Zusatz
+        widget: string
+        required: false
+        hint: z. B. Bambini
+      - name: yearFrom
+        label: Jahrgang von
+        widget: number
+        value_type: int
+      - name: yearTo
+        label: Jahrgang bis
+        widget: number
+        value_type: int
+      - name: training
+        label: Trainingszeiten
+        widget: string
+        hint: 'Format: Mo + Do 17:15–18:45 (Tage mit Komma oder +, Zeiten mit Gedankenstrich)'
+      - name: img
+        label: Mannschaftsfoto (Bildname)
+        widget: string
+        required: false
+      - name: fd
+        label: fussball.de-Team-ID
+        widget: string
+        required: false
+        hint: Für den automatischen Spielplan
+      - name: coaches
+        label: Trainer
+        label_singular: Trainer
+        widget: list
+        summary: '{{fields.name}}'
+        fields:
+        - name: name
+          label: Name
+          widget: string
+        - name: phone
+          label: Telefon
+          widget: string
+          required: false
+        - name: role
+          label: Rolle
+          widget: string
+          required: false
+        - name: mail
+          label: E-Mail
+          widget: string
+          required: false
+      - name: extra
+        label: Betreuer
+        widget: list
+        required: false
+        fields:
+        - name: role
+          label: Rolle
+          widget: string
+        - name: name
+          label: Name
+          widget: string
+        - name: phone
+          label: Telefon
+          widget: string
+          required: false
+    - name: girlsTeams
+      label: Juniorinnen
+      label_singular: Team
+      widget: list
+      summary: '{{fields.name}} (Jg. {{fields.yearFrom}})'
+      fields:
+      - name: id
+        label: Kürzel (für Adresse, z. B. e1)
+        widget: string
+        pattern:
+        - ^[a-z0-9-]+$
+        - Nur Kleinbuchstaben, Zahlen und Bindestrich
+      - name: name
+        label: Name
+        widget: string
+      - name: label
+        label: Zusatz
+        widget: string
+        required: false
+        hint: z. B. Bambini
+      - name: yearFrom
+        label: Jahrgang von
+        widget: number
+        value_type: int
+      - name: yearTo
+        label: Jahrgang bis
+        widget: number
+        value_type: int
+      - name: training
+        label: Trainingszeiten
+        widget: string
+        hint: 'Format: Mo + Do 17:15–18:45 (Tage mit Komma oder +, Zeiten mit Gedankenstrich)'
+      - name: img
+        label: Mannschaftsfoto (Bildname)
+        widget: string
+        required: false
+      - name: fd
+        label: fussball.de-Team-ID
+        widget: string
+        required: false
+        hint: Für den automatischen Spielplan
+      - name: coaches
+        label: Trainer
+        label_singular: Trainer
+        widget: list
+        summary: '{{fields.name}}'
+        fields:
+        - name: name
+          label: Name
+          widget: string
+        - name: phone
+          label: Telefon
+          widget: string
+          required: false
+        - name: role
+          label: Rolle
+          widget: string
+          required: false
+        - name: mail
+          label: E-Mail
+          widget: string
+          required: false
+      - name: extra
+        label: Betreuer
+        widget: list
+        required: false
+        fields:
+        - name: role
+          label: Rolle
+          widget: string
+        - name: name
+          label: Name
+          widget: string
+        - name: phone
+          label: Telefon
+          widget: string
+          required: false
+    - name: youthBoard
+      label: Jugendvorstand
+      widget: list
+      summary: '{{fields.role}}'
+      fields:
+      - name: role
+        label: Funktion
+        widget: string
+      - name: names
+        label: Namen
+        widget: list
+        field:
+          name: name
+          label: Name
+          widget: string
+      - name: phone
+        label: Telefon
+        widget: string
+        required: false
+      - name: mail
+        label: E-Mail
+        widget: string
+        required: false
+    - name: youthSponsors
+      label: Sponsoren der Jugend
+      widget: list
+      fields:
+      - name: name
+        label: Name
+        widget: string
+      - name: img
+        label: Logo (Bildname)
+        widget: string
+        required: false
+      - name: text
+        label: Text
+        widget: text
+  - name: damen
+    label: Katzenbuschladies
+    file: content/damen.json
+    fields:
+    - name: teams
+      label: Mannschaften
+      label_singular: Mannschaft
+      widget: list
+      summary: '{{fields.name}}'
+      fields:
+      - name: name
+        label: Name
+        widget: string
+      - name: league
+        label: Spielklasse
+        widget: string
+        required: false
+      - name: training
+        label: Trainingszeiten
+        widget: string
+      - name: img
+        label: Mannschaftsfoto (Bildname)
+        widget: string
+        required: false
+      - name: fd
+        label: fussball.de-Team-ID
+        widget: string
+        required: false
+      - name: coaches
+        label: Trainer und Betreuer
+        widget: list
+        summary: '{{fields.name}}'
+        fields:
+        - name: name
+          label: Name
+          widget: string
+        - name: phone
+          label: Telefon
+          widget: string
+          required: false
+        - name: role
+          label: Rolle
+          widget: string
+          required: false
+        - name: mail
+          label: E-Mail
+          widget: string
+          required: false
+    - name: board
+      label: Abteilungsvorstand
+      widget: list
+      summary: '{{fields.role}}'
+      fields:
+      - name: role
+        label: Funktion
+        widget: string
+      - name: names
+        label: Namen
+        widget: list
+        field:
+          name: name
+          label: Name
+          widget: string
+      - name: phone
+        label: Telefon
+        widget: string
+        required: false
+      - name: mail
+        label: E-Mail
+        widget: string
+        required: false
+    - name: milestones
+      label: Unser Weg
+      widget: list
+      fields:
+      - name: year
+        label: Jahr
+        widget: string
+      - name: text
+        label: Text
+        widget: string
+  - name: senioren
+    label: Herren, Alte Herren, Gehfußball
+    file: content/senioren.json
+    fields:
+    - name: groups
+      label: Gruppen
+      widget: list
+      summary: '{{fields.group}}'
+      fields:
+      - name: group
+        label: Gruppe
+        widget: string
+      - name: lead
+        label: Leitung
+        widget: list
+        required: false
+        fields:
+        - name: role
+          label: Funktion
+          widget: string
+        - name: name
+          label: Name
+          widget: string
+        - name: phone
+          label: Telefon
+          widget: string
+          required: false
+        - name: mail
+          label: E-Mail
+          widget: string
+          required: false
+      - name: teams
+        label: Mannschaften
+        label_singular: Mannschaft
+        widget: list
+        summary: '{{fields.name}}'
+        fields:
+        - name: name
+          label: Name
+          widget: string
+        - name: league
+          label: Spielklasse
+          widget: string
+          required: false
+        - name: training
+          label: Trainingszeiten
+          widget: string
+        - name: img
+          label: Mannschaftsfoto (Bildname)
+          widget: string
+          required: false
+        - name: fd
+          label: fussball.de-Team-ID
+          widget: string
+          required: false
+        - name: coaches
+          label: Trainer und Betreuer
+          widget: list
+          summary: '{{fields.name}}'
+          fields:
+          - name: name
+            label: Name
+            widget: string
+          - name: phone
+            label: Telefon
+            widget: string
+            required: false
+          - name: role
+            label: Rolle
+            widget: string
+            required: false
+          - name: mail
+            label: E-Mail
+            widget: string
+            required: false
+  - name: turnen
+    label: Turnabteilung
+    file: content/turnen.json
+    fields:
+    - name: stop
+      label: Aufnahmestopp
+      widget: boolean
+    - name: groups
+      label: Gruppen
+      widget: list
+      summary: '{{fields.name}}'
+      fields:
+      - name: id
+        label: Kürzel
+        widget: string
+      - name: name
+        label: Name
+        widget: string
+      - name: ageFrom
+        label: Alter von (Jahre)
+        widget: number
+        value_type: float
+      - name: ageTo
+        label: Alter bis (Jahre)
+        widget: number
+        value_type: float
+      - name: ageText
+        label: Altersangabe
+        widget: string
+      - name: text
+        label: Beschreibung
+        widget: text
+      - name: lead
+        label: Leitung
+        widget: string
+      - name: img
+        label: Bild (Bildname)
+        widget: string
+      - name: sessions
+        label: Termine
+        widget: list
+        summary: '{{fields.day}} {{fields.from}}–{{fields.to}}'
+        fields:
+        - name: day
+          label: Tag
+          widget: select
+          options:
+          - Mo
+          - Di
+          - Mi
+          - Do
+          - Fr
+          - Sa
+          - So
+        - name: from
+          label: Von
+          widget: string
+          hint: z. B. 16:00
+        - name: to
+          label: Bis
+          widget: string
+        - name: hall
+          label: Halle
+          widget: select
+          options:
+          - augustaschule
+          - waldschule
+        - name: focus
+          label: Schwerpunkt
+          widget: string
+          required: false
+    - name: team
+      label: Trainerinnen und Helfer
+      widget: list
+      summary: '{{fields.name}}'
+      fields:
+      - name: name
+        label: Name
+        widget: string
+      - name: role
+        label: Aufgabe
+        widget: string
+      - name: img
+        label: Foto (Bildname)
+        widget: string
+- name: verein
+  label: Verein
+  files:
+  - name: verein
+    label: Vorstand und Geschichte
+    file: content/verein.json
+    fields:
+    - name: board
+      label: Vorstand
+      widget: list
+      summary: '{{fields.role}}'
+      fields:
+      - name: role
+        label: Funktion
+        widget: string
+      - name: names
+        label: Namen
+        widget: list
+        field:
+          name: name
+          label: Name
+          widget: string
+    - name: history
+      label: Geschichte
+      widget: list
+      summary: '{{fields.year}}'
+      fields:
+      - name: year
+        label: Jahr
+        widget: string
+      - name: text
+        label: Text
+        widget: text
+    - name: historyNotes
+      label: 'Geschichte: Randnotizen'
+      widget: list
+      field:
+        name: text
+        label: Text
+        widget: text
+    - name: club
+      label: Vereinsdaten (Adresse, Mail, Social Media)
+      widget: object
+      collapsed: true
+      fields:
+      - name: name
+        label: Vereinsname
+        widget: string
+      - name: short
+        label: Kurzname
+        widget: string
+      - name: founded
+        label: Gegründet
+        widget: string
+      - name: colors
+        label: Vereinsfarben
+        widget: string
+      - name: ground
+        label: Spielstätte
+        widget: string
+      - name: address
+        label: Anschrift
+        widget: list
+        field:
+          name: line
+          label: Zeile
+          widget: string
+      - name: post
+        label: Postanschrift
+        widget: list
+        field:
+          name: line
+          label: Zeile
+          widget: string
+      - name: mail
+        label: E-Mail-Adressen
+        widget: object
+        fields:
+        - name: info
+          label: Allgemein
+          widget: string
+        - name: gv
+          label: Vorstand
+          widget: string
+        - name: jugend
+          label: Jugend
+          widget: string
+        - name: turner
+          label: Turnen
+          widget: string
+        - name: fanshop
+          label: Fanshop
+          widget: string
+      - name: register
+        label: Vereinsregister
+        widget: string
+      - name: tax
+        label: Steuernummer
+        widget: string
+      - name: represented
+        label: Vertreten durch
+        widget: string
+      - name: maps
+        label: Kartenlink
+        widget: string
+      - name: results
+        label: fussball.de-Vereinsseite
+        widget: string
+      - name: fussballde
+        label: fussball.de
+        widget: object
+        fields:
+        - name: verein
+          label: Vereins-ID
+          widget: string
+      - name: social
+        label: Social Media
+        widget: list
+        fields:
+        - name: label
+          label: Bezeichnung
+          widget: string
+        - name: handle
+          label: Name
+          widget: string
+        - name: url
+          label: Link
+          widget: string
+    - name: departments
+      label: Abteilungen (Startseite)
+      widget: list
+      fields:
+      - name: id
+        label: Kürzel
+        widget: string
+      - name: title
+        label: Titel
+        widget: string
+      - name: text
+        label: Text
+        widget: string
+      - name: href
+        label: Seite
+        widget: string
+      - name: img
+        label: Bild (Bildname)
+        widget: string
+  - name: sponsoren
+    label: Sponsoren
+    file: content/sponsoren.json
+    fields:
+    - name: sponsors
+      label: Sponsoren
+      widget: list
+      summary: '{{fields.name}}'
+      fields:
+      - name: name
+        label: Name
+        widget: string
+      - name: img
+        label: Logo (Bildname)
+        widget: string
+  - name: shop
+    label: Fanshop
+    file: content/shop.json
+    fields:
+    - name: products
+      label: Artikel
+      widget: list
+      summary: '{{fields.name}} · {{fields.price}}'
+      fields:
+      - name: name
+        label: Name
+        widget: string
+      - name: desc
+        label: Beschreibung
+        widget: string
+      - name: price
+        label: Preis
+        widget: string
+        hint: z. B. 11,95 €
+      - name: img
+        label: Bild (Bildname)
+        widget: string
+      - name: cat
+        label: Kategorie
+        widget: string
+  - name: beitraege
+    label: Beiträge
+    file: content/beitraege.json
+    fields:
+    - name: fees
+      label: Beitragsgruppen
+      widget: list
+      summary: '{{fields.group}}'
+      fields:
+      - name: group
+        label: Gruppe
+        widget: string
+      - name: fee
+        label: Anmeldegebühr
+        widget: string
+      - name: rows
+        label: Beiträge
+        widget: list
+        fields:
+        - name: label
+          label: Wer
+          widget: string
+        - name: month
+          label: Monat
+          widget: string
+        - name: half
+          label: Halbjahr
+          widget: string
+        - name: year
+          label: Jahr
+          widget: string
+  - name: vereinsheim
+    label: Vereinsheim
+    file: content/vereinsheim.json
+    fields:
+    - name: price
+      label: Miete
+      widget: string
+    - name: deposit
+      label: Kaution
+      widget: string
+    - name: capacity
+      label: Personen (max.)
+      widget: string
+    - name: rooms
+      label: Räume
+      widget: list
+      fields:
+      - name: title
+        label: Titel
+        widget: string
+      - name: text
+        label: Text
+        widget: text
+- name: ergebnisse
+  label: Ergebnisse (optional)
+  files:
+  - name: ergebnisse
+    label: Ergebnisse nachtragen
+    file: content/ergebnisse.json
+    fields:
+    - name: list
+      label: Ergebnisse
+      widget: list
+      summary: '{{fields.id}}: {{fields.home}}:{{fields.away}}'
+      hint: Spiel-ID steht am Ende des fussball.de-Links (…/spiel/<ID>).
+      fields:
+      - name: id
+        label: fussball.de-Spiel-ID
+        widget: string
+      - name: home
+        label: Tore Heim
+        widget: number
+        value_type: int
+      - name: away
+        label: Tore Gast
+        widget: number
+        value_type: int

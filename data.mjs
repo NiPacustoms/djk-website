@@ -37,7 +37,7 @@ export const clubhouse = { ...vh, rooms: vh.rooms.map((r) => [r.title, r.text]) 
 export const status = C("status");
 export const events = C("termine").events || [];
 export const matches = fs.existsSync(path.join(ROOT, "content/spiele.json")) ? C("spiele") : { updated: null, games: [] };
-export const results = fs.existsSync(path.join(ROOT, "content/ergebnisse.json")) ? C("ergebnisse") : {};
+export const results = fs.existsSync(path.join(ROOT, "content/ergebnisse.json")) ? Object.fromEntries((C("ergebnisse").list || []).map((r) => [r.id, r])) : {};
 
 // News: content/news/*.md mit Kopfzeilen (title, date, tag, image), Absätze durch Leerzeilen getrennt
 export const news = fs.readdirSync(path.join(ROOT, "content/news")).filter((f) => f.endsWith(".md")).map((f) => {

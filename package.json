@@ -1,0 +1,18 @@
+{
+  "name": "djk-spvgg-herten-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "matches": "node scripts/fetch-matches.mjs",
+    "admin:hash": "node scripts/admin-hash.mjs",
+    "test": "node tests/smoke.mjs",
+    "dev": "npx wrangler pages dev dist --d1 DB"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "wrangler": "^4.40.0"
+  }
+}

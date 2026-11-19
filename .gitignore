@@ -1,4 +1,5 @@
 node_modules/
 preview/
 .ai/codex.log
-.astro/
+.wrangler/
+.dev.vars

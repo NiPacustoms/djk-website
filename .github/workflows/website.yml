@@ -1,0 +1,60 @@
+# Baut, prüft und veröffentlicht die Website auf Cloudflare Pages.
+# Läuft bei jeder Änderung (auch aus dem CMS) und zweimal täglich für den Spielplan.
+name: Website
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 5 * * *"   # morgens (UTC)
+    - cron: "17 16 * * *"  # nachmittags (UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: website
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Spielplan von fussball.de aktualisieren
+        run: node scripts/fetch-matches.mjs
+
+      - name: Neuen Spielplan speichern
+        run: |
+          if ! git diff --quiet content/spiele.json; then
+            git config user.name "DJK Website Bot"
+            git config user.email "bot@djkspvggherten.de"
+            git add content/spiele.json
+            git commit -m "Spielplan aktualisiert [skip ci]"
+            git push
+          fi
+
+      - name: Website bauen
+        run: npm run build
+
+      - name: Qualitätsprüfung
+        run: |
+          npx --yes playwright@1.56.1 install --with-deps chromium
+          npm i --no-save playwright@1.56.1
+          npm test
+
+      - name: Auf Cloudflare Pages veröffentlichen
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=djk-spvgg-herten --branch=main
