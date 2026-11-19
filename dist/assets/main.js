@@ -116,6 +116,105 @@
     });
   });
 
+  // Mein Team: Auswahl wird nur auf diesem Gerät gespeichert
+  var FAV_KEY = "djk-myteams", STAR = '<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" fill="var(--star-fill, none)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+  var getFavs = function () { try { var a = JSON.parse(localStorage.getItem(FAV_KEY)); return Array.isArray(a) ? a : []; } catch (e) { return []; } };
+  var setFavs = function (a) { try { localStorage.setItem(FAV_KEY, JSON.stringify(a)); } catch (e) {} };
+  var escT = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var toastEl;
+  var toast = function (msg) {
+    if (!toastEl) { toastEl = document.createElement("div"); toastEl.className = "toast"; toastEl.setAttribute("role", "status"); document.body.appendChild(toastEl); }
+    toastEl.textContent = msg; toastEl.classList.add("show");
+    clearTimeout(toastEl._t); toastEl._t = setTimeout(function () { toastEl.classList.remove("show"); }, 3200);
+  };
+  window.djkSyncFavs = function () {
+    var favs = getFavs(), ids = favs.map(function (f) { return f.id; });
+    document.querySelectorAll("[data-fav]").forEach(function (b) {
+      var on = ids.indexOf(b.dataset.fav) > -1;
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.title = on ? "Aus „Mein Team“ entfernen" : "Als „Mein Team“ merken";
+      var sp = b.querySelector("span"); if (sp && !b.classList.contains("fav-sm")) sp.textContent = on ? "Mein Team" : "Als Mein Team merken";
+    });
+    var tab = document.querySelector(".tabbar .tab-find");
+    if (tab) {
+      if (!tab.dataset.orig) tab.dataset.orig = tab.innerHTML + "|" + tab.getAttribute("href");
+      if (favs.length) { tab.setAttribute("href", favs.length === 1 ? favs[0].url : "index.html#mein-team"); tab.innerHTML = STAR + "<span>Mein Team</span>"; tab.classList.add("is-fav"); }
+      else { var o = tab.dataset.orig.split("|"); tab.innerHTML = o[0]; tab.setAttribute("href", o[1]); tab.classList.remove("is-fav"); }
+    }
+    renderMyTeam(favs);
+  };
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-fav]"); if (!b) return;
+    e.preventDefault();
+    var favs = getFavs(), id = b.dataset.fav, i = favs.map(function (f) { return f.id; }).indexOf(id);
+    if (i > -1) { favs.splice(i, 1); toast(b.dataset.favName + " ist nicht mehr dein Team."); }
+    else {
+      if (favs.length >= 3) favs.shift();
+      favs.push({ id: id, name: b.dataset.favName, url: b.dataset.favUrl });
+      toast(b.dataset.favName + " gemerkt. Die Startseite zeigt es jetzt ganz oben.");
+      if (window.djkTrack) window.djkTrack("myteam", id);
+    }
+    setFavs(favs); window.djkSyncFavs();
+  });
+
+  // Karte(n) „Mein Team“ auf der Startseite
+  var mtData = document.getElementById("myteam-data"), mtBox = document.getElementById("mt-cards"), mtSec = document.getElementById("mein-team");
+  var MT = null; try { MT = mtData ? JSON.parse(mtData.textContent) : null; } catch (e) {}
+  function renderMyTeam(favs) {
+    if (!MT || !mtBox || !mtSec) return;
+    var list = favs.filter(function (f) { return MT.teams[f.id]; });
+    mtSec.hidden = !list.length;
+    if (!list.length) { mtBox.innerHTML = ""; return; }
+    var hero = document.querySelector(".hero");
+    if (hero && mtSec.compareDocumentPosition(hero) & Node.DOCUMENT_POSITION_PRECEDING) {
+      var atTop = window.scrollY < 40;
+      hero.parentNode.insertBefore(mtSec, hero);
+      if (atTop && !location.hash) window.scrollTo(0, 0);
+    }
+    var now = new Date(), p2 = function (n) { return String(n).padStart(2, "0"); };
+    var nowStr = now.getFullYear() + "-" + p2(now.getMonth() + 1) + "-" + p2(now.getDate()) + "T" + p2(now.getHours()) + ":" + p2(now.getMinutes());
+    var WD = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"], WDL = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+    var hm = function (m) { return Math.floor(m / 60) + ":" + p2(m % 60); };
+    var rel = function (date) {
+      var diff = Math.round((date - now) / 60000);
+      if (diff < 60) return "in " + Math.max(1, diff) + " Min.";
+      var dDay = Math.round((new Date(date.getFullYear(), date.getMonth(), date.getDate()) - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 864e5);
+      return dDay === 0 ? "heute" : dDay === 1 ? "morgen" : "in " + dDay + " Tagen";
+    };
+    var mins = now.getHours() * 60 + now.getMinutes();
+    var html = MT.status ? '<p class="mt-status' + (MT.status.level === "warn" ? " warn" : "") + '"><b>' + escT(MT.status.title || "Hinweis") + "</b> " + escT(MT.status.text || "") + "</p>" : "";
+    html += list.map(function (f) {
+      var t = MT.teams[f.id];
+      var g = MT.games.filter(function (x) { return x.t === f.id && x.d >= nowStr; })[0];
+      var game = '<div class="mt-row"><span>Nächstes Spiel</span><b>Gerade kein Spiel angesetzt</b></div>';
+      if (g) {
+        var p = g.d.split(/[-T:]/).map(Number), gd = new Date(p[0], p[1] - 1, p[2], p[3], p[4]);
+        game = '<div class="mt-row"><span>Nächstes Spiel <em>' + rel(gd) + '</em></span><b>' + WD[gd.getDay()] + ", " + p2(p[2]) + "." + p2(p[1]) + ". · " + p2(p[3]) + ":" + p2(p[4]) + " Uhr</b><small>" +
+          (g.f ? escT(g.o) : (g.h ? "gegen " : "bei ") + escT(g.o)) + " · " + (g.h ? "Heimspiel am Katzenbusch" : "Auswärts") + (g.x ? " · " + escT(g.x) : "") + "</small></div>";
+      }
+      var next = null;
+      for (var k = 0; k < 8 && !next; k++) {
+        var day = (now.getDay() + k) % 7;
+        t.sessions.filter(function (s) { return s.d === day && (k > 0 || s.e > mins); }).sort(function (a, b) { return a.s - b.s; }).slice(0, 1).forEach(function (s) { next = { s: s, k: k, live: k === 0 && s.s <= mins }; });
+      }
+      var train = '<div class="mt-row"><span>Nächstes Training</span><b>Zeiten auf der Teamseite</b></div>';
+      if (next) {
+        var when = next.live ? '<em class="live">läuft gerade</em>' : "<em>" + (next.k === 0 ? "heute" : next.k === 1 ? "morgen" : "") + "</em>";
+        train = '<div class="mt-row"><span>Nächstes Training ' + when + "</span><b>" + WDL[(now.getDay() + next.k) % 7] + " · " + hm(next.s.s) + "–" + hm(next.s.e) + " Uhr</b><small>" + escT(next.s.p) + "</small></div>";
+      }
+      var call = t.coach ? '<a class="btn btn-red" href="tel:+49' + t.coach.phone.replace(/\D/g, "").replace(/^0/, "") + '">' + escT(t.coach.name.split(" ")[0]) + " anrufen</a>"
+        : t.mail ? '<a class="btn btn-red" href="mailto:' + t.mail + '">Mail an die Abteilung</a>' : "";
+      return '<article class="mt-card"><div class="mt-top"><a href="' + t.url + '"><h3>' + escT(t.name) + "</h3></a>" +
+        '<button type="button" class="fav fav-sm" data-fav="' + f.id + '" data-fav-name="' + escT(t.name) + '" data-fav-url="' + t.url + '" aria-pressed="true" title="Aus „Mein Team“ entfernen">' + STAR + "<span></span></button></div>" +
+        (t.stop ? '<p class="mt-stop">Zurzeit Aufnahmestopp</p>' : "") +
+        '<div class="mt-rows">' + (t.gym ? "" : game) + train + (t.gym && t.lead ? '<div class="mt-row"><span>Leitung</span><b>' + escT(t.lead) + "</b></div>" : "") + "</div>" +
+        '<div class="mt-actions">' + call + '<a href="' + t.url + '">Teamseite</a><a href="' + (t.gamesCal || t.cal) + '">' + (t.gamesCal ? "Spiele abonnieren" : "Kalender") + "</a></div></article>";
+    }).join("");
+    mtBox.innerHTML = html;
+  }
+  window.djkSyncFavs();
+  setInterval(function () { renderMyTeam(getFavs()); }, 60000);
+
   // News-Filter
   var filters = document.querySelector(".filters");
   if (filters) {
@@ -253,18 +352,19 @@
   function card(t, girls) {
     var c = t.coaches.filter(function (x) { return x[1]; })[0] || t.coaches[0];
     var contact = c[1] ? esc(c[0]) + ', <a class="tel" href="' + tel(c[1]) + '">' + esc(c[1]) + "</a>" : esc(c[0]);
-    return '<article class="result' + (girls ? " girls" : "") + '" style="--i:' + (n++) + '"><div class="result-top"><h3>' + esc(t.name) + '</h3><span class="k k-foot">Fußball</span></div>' +
+    return '<article class="result' + (girls ? " girls" : "") + '" style="--i:' + (n++) + '"><div class="result-top"><h3>' + esc(t.name) + '</h3><span class="result-k"><span class="k k-foot">Fußball</span>' + favHtml(t.id, t.name) + '</span></div>' +
       '<div class="meta"><span><b>' + yr(t) + "</b></span><span>Training " + esc(t.training) + "</span></div>" +
       "<div>Ansprechpartner: " + contact + "</div>" +
       '<div class="result-links"><a href="team-' + t.id + '.html">Teamseite mit Spielen</a><a href="' + t.cal + '">In den Kalender</a></div></article>';
   }
   function gymCard(g) {
-    return '<article class="result gym" style="--i:' + (n++) + '"><div class="result-top"><h3>' + esc(g.name) + '</h3><span class="k k-gym">Turnen</span></div>' +
+    return '<article class="result gym" style="--i:' + (n++) + '"><div class="result-top"><h3>' + esc(g.name) + '</h3><span class="result-k"><span class="k k-gym">Turnen</span>' + favHtml(g.id, g.name) + '</span></div>' +
       '<div class="meta"><span><b>' + esc(g.ageText) + "</b></span></div>" +
       "<div>" + g.times.map(esc).join("<br>") + "</div>" +
       (D.gymStop ? '<div class="stop">Zurzeit Aufnahmestopp. Fragt nach freien Plätzen unter <a href="mailto:' + D.gymMail + '">' + D.gymMail + "</a>.</div>" : "") +
       '<div class="result-links"><a href="team-' + g.id + '.html">Zur Gruppe</a><a href="assets/kalender/' + g.id + '.ics">In den Kalender</a></div></article>';
   }
+  function favHtml(id, name) { return '<button type="button" class="fav fav-sm" data-fav="' + id + '" data-fav-name="' + esc(name) + '" data-fav-url="team-' + id + '.html" aria-pressed="false" title="Als „Mein Team“ merken">' + STAR + "<span></span></button>"; }
   function note(html) { return '<div class="result-note" style="--i:' + (n++) + '">' + html + "</div>"; }
 
   function render() {
@@ -284,6 +384,7 @@
     else if (!boys.length) html += note("Für Jahrgang " + y + " ist bei den Junioren gerade kein Team gelistet. Schreibt an " + '<a href="mailto:' + D.mail + '">' + D.mail + "</a>, wir finden eine Lösung.");
     if (!html) html = note("Für dieses Alter haben wir gerade kein passendes Angebot. Schreibt uns trotzdem gern.");
     out.innerHTML = html;
+    if (window.djkSyncFavs) window.djkSyncFavs();
     clearTimeout(finderTimer);
     if (finderTouched) finderTimer = setTimeout(function () { track("finder", String(y), (boys.length + girls.length) + " Fußball, " + gym.length + " Turnen"); }, 1200);
   }

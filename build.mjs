@@ -112,6 +112,9 @@ const ICON = {
   mail: `<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M3 6h18v12H3zM3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
 };
 
+ICON.star = `<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" fill="var(--star-fill, none)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`;
+const favBtn = (id, name, small = false) => `<button type="button" class="fav${small ? " fav-sm" : ""}" data-fav="${id}" data-fav-name="${esc(name)}" data-fav-url="${teamUrl(id)}" aria-pressed="false" title="Als „Mein Team“ merken">${ICON.star}<span>${small ? "" : "Als Mein Team merken"}</span></button>`;
+
 const NAV = [
   ["index.html", "Start"],
   ["verein.html", "Verein"],
@@ -158,7 +161,7 @@ ${statusBanner()}
 
 function tabbar(current) {
   const t = [["index.html", "Start", ICON.home], ["spielplan.html", "Spiele", ICON.cal], ["index.html#probetraining", "Finden", ICON.ball], [null, "Suche", ICON.search], ["news.html", "News", ICON.news]];
-  return `<nav class="tabbar" aria-label="Schnellzugriff">${t.map(([h, l, i]) => h ? `<a href="${h}"${!h.includes("#") && h === current ? ' aria-current="page"' : ""}>${i}<span>${l}</span></a>` : `<button type="button" class="search-open">${i}<span>${l}</span></button>`).join("")}</nav>`;
+  return `<nav class="tabbar" aria-label="Schnellzugriff">${t.map(([h, l, i]) => h ? `<a${l === "Finden" ? ' class="tab-find"' : ""} href="${h}"${!h.includes("#") && h === current ? ' aria-current="page"' : ""}>${i}<span>${l}</span></a>` : `<button type="button" class="search-open">${i}<span>${l}</span></button>`).join("")}</nav>`;
 }
 
 function footer() {
@@ -205,7 +208,7 @@ ${style}
 ${jsonld}`;
   const bodyInner = `${header(current ?? file)}
 <main id="main">
-${body.replace("__SESSIONS__", JSON.stringify(SESSIONS).replace(/</g, "\\u003c"))}
+${body.replace("__SESSIONS__", JSON.stringify(SESSIONS).replace(/</g, "\\u003c")).replace("__MYTEAM__", MYTEAM_JSON)}
 </main>
 ${footer()}
 ${tabbar(current ?? file)}
@@ -234,7 +237,7 @@ function teamCard(t) {
   const people = t.coaches.map(([n, p, role, mail]) => `<li><span>${esc(n)}${role ? ` <span class="role">${esc(role)}</span>` : ""}</span>${p ? telA(p) : mail ? mailA(mail) : ""}</li>`).join("");
   const extra = (t.extra || []).map(([r, n, p]) => `<li><span>${esc(n)} <span class="role">${esc(r)}</span></span>${telA(p)}</li>`).join("");
   return `<article class="team" id="${t.id}">
-  <div class="team-top"><h3>${esc(t.name)}</h3><span class="year">${yearText(t)}</span></div>
+  <div class="team-top"><h3>${esc(t.name)}</h3><span class="year">${yearText(t)}</span>${favBtn(t.id, t.name, true)}</div>
   <div class="training">${esc(t.training)} <span>Uhr</span></div>
   <ul class="people">${people}${extra}</ul>
   ${calLink(calendarFor(t.id, t, teamUrl(t.id)))}
@@ -249,6 +252,7 @@ function featureTeam(t, base = "") {
   ${t.img ? img(t.img, `Mannschaftsfoto ${t.name}`) : ""}
   <div class="info">
     <div><h3>${esc(t.name)}</h3>${t.league ? `<p class="league">${esc(t.league)}</p>` : ""}</div>
+    ${favBtn(id, t.name)}
     <div class="training">Training ${esc(t.training)} <span>Uhr</span></div>
     <ul class="people">${people}</ul>
     ${calLink(calendarFor(id, t, teamUrl(id)))}
@@ -281,7 +285,7 @@ function finder(base) {
           <input id="jahrgang" name="jahrgang" type="number" inputmode="numeric" min="2005" max="2025" value="2019" aria-describedby="finder-hint">
           <div class="step-btns"><button type="button" data-step="1" aria-label="Ein Jahr jünger">+</button><button type="button" data-step="-1" aria-label="Ein Jahr älter">−</button></div>
         </div>
-        <p class="finder-hint" id="finder-hint">Trainingszeiten gelten für den Sommer, im Winter können sie abweichen.</p>
+        <p class="finder-hint" id="finder-hint">Trainingszeiten gelten für den Sommer, im Winter können sie abweichen. Mit dem Stern merkt sich die Seite das Team eures Kindes.</p>
       </div>
     </div>
     <div class="results" id="finder-results" data-base="${base}" aria-live="polite"></div>
@@ -414,6 +418,11 @@ const pages = [];
     </dl>
   </div>
 </section>
+<section class="wrap my-team" id="mein-team" aria-labelledby="mt-title" hidden>
+  <div class="mt-head"><h2 id="mt-title">Mein Team</h2><p class="crumb">Nur auf diesem Gerät gespeichert.</p></div>
+  <div class="mt-cards" id="mt-cards"></div>
+</section>
+<script type="application/json" id="myteam-data">__MYTEAM__</script>
 <div class="ticker" aria-hidden="true"><div class="ticker-track">${Array(2).fill(["Bambini bis B-Jugend", "Juniorinnen U9 bis U15", "Katzenbuschladies", "Eltern-Kind-Turnen ab 1½", "Wettkampfturnen", "Herren 1 + 2", "Alte Herren Ü32 + Ü50", "Gehfußball", "Seit 1907 am Katzenbusch"].map((t) => `<span>${t}</span>`).join("")).join("")}</div></div>
 ${finder("jugend.html")}
 ${matchesBlock()}
@@ -549,7 +558,7 @@ pages.push({
     ${D.gym.groups.map((g) => { const cal = gymCalendar(g); return `<article class="group" id="${g.id}">
       ${img(g.img, "")}
       <div class="group-body">
-        <h3>${esc(g.name)}</h3>
+        <div class="team-top"><h3>${esc(g.name)}</h3>${favBtn(g.id, g.name, true)}</div>
         <p class="age">${esc(g.ageText)}</p>
         <p>${esc(g.text)}</p>
         <ul class="people">${g.sessions.map(([d, a, b, h, f]) => `<li><span><b>${({ Mo: "Montag", Di: "Dienstag", Mi: "Mittwoch", Do: "Donnerstag", Fr: "Freitag" })[d]}</b> <span class="tnum">${a}–${b}</span>${f ? ` <span class="role">${esc(f)}</span>` : ""}</span><a href="${D.gym.halls[h].map}" rel="noopener">${esc(D.gym.halls[h].name.replace("Turnhalle der ", ""))}</a></li>`).join("")}</ul>
@@ -900,6 +909,7 @@ pages.push({
     <p class="crumb"><a href="index.html">Start</a> / <a href="${back[0]}">${esc(back[1])}</a> / ${esc(t.name)}</p>
     <p class="th-dept">${esc(dept)}</p>
     <h1>${esc(t.name)}</h1>
+    <div>${favBtn(id, t.name)}</div>
     ${meta ? `<p class="lead">${esc(meta)}</p>` : ""}
   </div>
 </section>
@@ -931,6 +941,7 @@ pages.push({
     <p class="crumb"><a href="index.html">Start</a> / <a href="turnen.html">Turnabteilung</a> / ${esc(g.name)}</p>
     <p class="th-dept">Turnen</p>
     <h1>${esc(g.name)}</h1>
+    <div>${favBtn(g.id, g.name)}</div>
     <p class="lead">${esc(g.ageText)}</p>
   </div>
 </section>
@@ -1014,6 +1025,23 @@ pages.push({
   <ul class="nf-links"><li><a href="spielplan.html">Spielplan</a></li><li><a href="jugend.html">Jugend</a></li><li><a href="turnen.html">Turnen</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
 </section>`,
 });
+
+// ---------- Daten für „Mein Team“ ----------
+let MYTEAM_JSON = "{}";
+{
+  const teams = {};
+  const coachOf = (list) => { const c = list.find((x) => x[1]); return c ? { name: c[0], phone: c[1] } : null; };
+  const add = (id, name, coaches, extra = {}) => {
+    teams[id] = { name, url: teamUrl(id), cal: `assets/kalender/${id}.ics`, gamesCal: GAMES.some((g) => g.team === id) ? `assets/kalender/spiele-${id}.ics` : null,
+      sessions: SESSIONS.filter((x) => x.u === teamUrl(id)).map((x) => ({ d: x.d, s: x.s, e: x.e, p: x.p })), coach: coachOf(coaches), ...extra };
+  };
+  for (const t of [...D.youthTeams, ...D.girlsTeams]) add(t.id, t.name, [...t.coaches, ...(t.extra || []).map((e) => [e[1], e[2]])]);
+  for (const t of [...D.ladies.teams, ...D.seniors.flatMap((g) => g.teams)]) add(slugOf(t.name), t.name, t.coaches);
+  for (const g of D.gym.groups) add(g.id, g.name, [], { mail: club.mail.turner, stop: D.gym.stop, gym: true, lead: g.lead });
+  const games = upcoming.map((g) => ({ t: g.team, d: g.date, o: g.label, h: g.home ? 1 : 0, f: g.festival ? 1 : 0, c: g.competition, x: g.flagText || "" }));
+  const st = D.status && D.status.active && !(D.status.until && D.status.until < NOW.slice(0, 10)) ? { title: D.status.title, text: D.status.text, level: D.status.level } : null;
+  MYTEAM_JSON = JSON.stringify({ teams, games, status: st }).replace(/</g, "\\u003c");
+}
 
 // ---------- Ausgabe ----------
 function copyDir(src, dst) {

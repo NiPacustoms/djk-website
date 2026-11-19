@@ -12,7 +12,7 @@ export async function onRequestGet({ request, env }) {
   const db = env.DB;
   const q = (sql, ...args) => db.prepare(sql).bind(...args);
 
-  const [series, totals, prev, pages, refs, devices, finder, calendars, searches, noHits, contacts, outbound, live, installs] = await db.batch([
+  const [series, totals, prev, pages, refs, devices, finder, calendars, searches, noHits, contacts, outbound, live, installs, myteams] = await db.batch([
     q("SELECT day, COUNT(*) AS views, COUNT(DISTINCT visitor) AS visitors FROM events WHERE type = 'view' AND day >= ? GROUP BY day ORDER BY day", from),
     q("SELECT COUNT(*) AS views, COUNT(DISTINCT day || visitor) AS visitors FROM events WHERE type = 'view' AND day >= ?", from),
     q("SELECT COUNT(*) AS views, COUNT(DISTINCT day || visitor) AS visitors FROM events WHERE type = 'view' AND day >= ? AND day < ?", prevFrom, from),
@@ -27,6 +27,7 @@ export async function onRequestGet({ request, env }) {
     q("SELECT label, COUNT(*) AS n FROM events WHERE type = 'outbound' AND day >= ? GROUP BY label ORDER BY n DESC LIMIT 10", from),
     q("SELECT COUNT(DISTINCT visitor) AS n FROM events WHERE ts > ?", Date.now() - 5 * 60 * 1000),
     q("SELECT COUNT(*) AS n FROM events WHERE type = 'install' AND day >= ?", from),
+    q("SELECT label, COUNT(*) AS n FROM events WHERE type = 'myteam' AND day >= ? GROUP BY label ORDER BY n DESC LIMIT 15", from),
   ]);
 
   if (url.searchParams.get("format") === "csv") {
@@ -41,6 +42,6 @@ export async function onRequestGet({ request, env }) {
     totals: totals.results[0], previous: prev.results[0], live: live.results[0].n, installs: installs.results[0].n,
     series: series.results, pages: pages.results, refs: refs.results, devices: devices.results,
     finder: finder.results, calendars: calendars.results, searches: searches.results, noHits: noHits.results,
-    contacts: contacts.results, outbound: outbound.results,
+    contacts: contacts.results, outbound: outbound.results, myteams: myteams.results,
   });
 }

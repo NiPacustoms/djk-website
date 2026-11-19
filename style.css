@@ -656,3 +656,49 @@ td.num, th.num { text-align: right; white-space: nowrap; }
 @media (max-width: 600px) { .vb-y { writing-mode: vertical-rl; transform: rotate(180deg); } .vb-n { font-size: 0.68rem; } }
 
 @media (min-width: 1100px) { .panels { grid-template-columns: repeat(3, minmax(0, 1fr)); } .panel.span2 { grid-column: span 2; } }
+
+/* ---------- Mein Team ---------- */
+:root { --star: #e8a400; }
+.fav { display: inline-flex; align-items: center; gap: 0.45rem; font: inherit; font-weight: 800; font-size: 0.95rem; padding: 0.5rem 0.9rem; border-radius: 999px; border: 1.5px solid currentColor; background: transparent; color: inherit; cursor: pointer; justify-self: start; }
+.fav[aria-pressed="true"] { --star-fill: var(--star); color: inherit; border-color: var(--star); }
+.fav[aria-pressed="true"] svg { color: var(--star); }
+.fav:hover { background: rgba(127,127,127,0.12); }
+.fav-sm { padding: 0.3rem; border: 0; border-radius: 50%; min-width: 2.25rem; min-height: 2.25rem; justify-content: center; color: var(--muted); }
+.fav-sm span:empty { display: none; }
+.fav-sm[aria-pressed="true"] { border: 0; }
+@media (prefers-reduced-motion: no-preference) { .fav[aria-pressed="true"] svg { animation: star-pop 0.35s ease-out; } @keyframes star-pop { 50% { transform: scale(1.35) rotate(12deg); } } }
+.team-top .fav-sm { margin-left: auto; }
+.team-hero .fav, .team-hero .fav-sm { color: var(--on-green); }
+.result-k { display: inline-flex; align-items: center; gap: 0.3rem; }
+.result .fav-sm { color: var(--muted); }
+.toast { position: fixed; left: 50%; bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 150%); z-index: 80; max-width: min(28rem, calc(100vw - 2rem)); background: var(--ink); color: var(--paper); padding: 0.75rem 1.1rem; border-radius: var(--radius); font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.25); transition: transform 0.3s ease; pointer-events: none; }
+.toast.show { transform: translate(-50%, 0); }
+@media (max-width: 760px) { .toast { bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); } }
+.tabbar .tab-find.is-fav svg { color: var(--star); --star-fill: var(--star); }
+
+.my-team { padding-block: clamp(1.5rem, 4vw, 2.5rem) 0; display: grid; gap: 1rem; }
+.mt-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.mt-head h2 { font-size: var(--step-2); display: inline-flex; gap: 0.5rem; align-items: center; }
+.mt-head h2::before { content: "★"; color: var(--star); font-size: 0.8em; }
+.mt-cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+.mt-status { grid-column: 1 / -1; background: var(--notice); color: var(--notice-ink); border-radius: var(--radius); padding: 0.7rem 1rem; }
+.mt-status.warn { background: var(--red); color: var(--red-ink); }
+.mt-card { background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--star); border-radius: var(--radius); padding: 1.1rem 1.2rem 1.2rem; display: grid; gap: 0.9rem; align-content: start; }
+.mt-top { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+.mt-top a { color: var(--ink); text-decoration: none; }
+.mt-top h3 { font-size: 1.7rem; font-stretch: 75%; font-weight: 800; }
+.mt-top .fav-sm { color: var(--star); }
+.mt-stop { font-size: 0.9rem; font-weight: 700; background: var(--notice); color: var(--notice-ink); border-radius: 4px; padding: 0.3rem 0.6rem; justify-self: start; }
+.mt-rows { display: grid; gap: 0.7rem; }
+.mt-row { display: grid; gap: 0.1rem; padding-left: 0.8rem; border-left: 3px solid var(--line); }
+.mt-row > span { font-size: 0.85rem; font-weight: 700; color: var(--muted); }
+.mt-row em { font-style: normal; color: var(--red); margin-left: 0.3rem; }
+.mt-row em.live { color: var(--live); }
+.mt-row em:empty { display: none; }
+.mt-row b { font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.mt-row small { color: var(--muted); font-size: 0.92rem; }
+.mt-actions { display: flex; flex-wrap: wrap; gap: 0.6rem 1.1rem; align-items: center; }
+.mt-actions .btn { padding: 0.6rem 1rem; }
+.mt-actions a:not(.btn) { font-weight: 700; }
+.my-team, .hero { overflow-anchor: none; }
+.my-team { padding-bottom: clamp(1.5rem, 4vw, 2.5rem); }

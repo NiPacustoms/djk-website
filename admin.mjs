@@ -91,7 +91,8 @@ var k=p.get("fehler");if(k&&t[k]){m.textContent=t[k];m.hidden=false}if(p.get("ab
     <div class="panel"><h2>Suchbegriffe</h2><div id="searches"></div></div>
     <div class="panel"><h2>Suchen ohne Treffer</h2><p class="crumb">Hinweis auf fehlende Inhalte.</p><div id="nohits"></div></div>
     <div class="panel"><h2>Kalender-Abos</h2><div id="calendars"></div></div>
-    <div class="panel span2"><h2>Kontaktaufnahmen</h2><div id="contacts"></div></div>
+    <div class="panel"><h2>Als „Mein Team“ gemerkt</h2><p class="crumb">Wie oft Besucher ein Team mit dem Stern gespeichert haben.</p><div id="myteams"></div></div>
+    <div class="panel"><h2>Kontaktaufnahmen</h2><div id="contacts"></div></div>
     <div class="panel"><h2>Klicks auf andere Websites</h2><div id="outbound"></div></div>
   </div>
   <p class="crumb" style="margin-top:2rem">Gezählt wird ohne Cookies und ohne Speicherung von IP-Adressen. Besucher mit „Do Not Track“ werden nicht erfasst.</p>

@@ -29,6 +29,7 @@
       searches: [{ label: "e1", n: 18 }, { label: "probetraining", n: 11 }, { label: "isselhorst", n: 7 }, { label: "vereinsheim", n: 5 }, { label: "2016", n: 4 }],
       noHits: [{ label: "a-jugend", n: 6 }, { label: "schiedsrichter", n: 3 }, { label: "trikot", n: 2 }],
       contacts: [{ label: "Telefon · /team-e1.html", n: 9 }, { label: "Mail jugend · /jugend.html", n: 7 }, { label: "Mail turner · /turnen.html", n: 4 }],
+      myteams: [{ label: "e2", n: 11 }, { label: "f1", n: 9 }, { label: "eltern-kind", n: 7 }, { label: "u11", n: 6 }, { label: "frauen-i", n: 4 }],
       outbound: [{ label: "fussball.de", n: 64 }, { label: "instagram.com", n: 22 }, { label: "openstreetmap.org", n: 9 }],
     };
   }
@@ -138,6 +139,7 @@
     bars("#nohits", d.noHits, null, "Suchen");
     bars("#contacts", d.contacts, function (l) { var p = l.split(" · "); return p[0] + " auf " + pageName(p[1] || ""); }, "Klicks");
     bars("#outbound", d.outbound, null, "Klicks");
+    bars("#myteams", d.myteams, function (id) { return META.teams[id] || id; }, "Mal gemerkt");
     $("#csv").href = "/api/stats?days=" + d.days + "&format=csv";
     $("#csv").hidden = demo;
   }

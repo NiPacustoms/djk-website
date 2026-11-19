@@ -4,7 +4,7 @@
 import { sha256hex, berlinDay } from "../_lib.js";
 
 const BOT = /bot|crawl|spider|slurp|facebookexternalhit|preview|headless|lighthouse|pingdom|uptime|curl|wget|python|axios|node-fetch/i;
-const TYPES = new Set(["view", "finder", "calendar", "contact", "search", "outbound", "install", "share"]);
+const TYPES = new Set(["view", "finder", "calendar", "contact", "search", "outbound", "install", "share", "myteam"]);
 const clip = (v, n) => String(v ?? "").slice(0, n);
 
 function refDomain(ref, host) {
