@@ -1,0 +1,175 @@
+{
+  "team": [
+    {
+      "name": "Stefanie Szarzynski",
+      "role": "Abteilungsleitung, Übungsleitung Kindergarten- und Grundschulturnen",
+      "img": "tu_stef"
+    },
+    {
+      "name": "Joana van den Bosch",
+      "role": "Stellv. Abteilungsleitung, Leitung Wettkampfgruppe",
+      "img": "tu_joana"
+    },
+    {
+      "name": "Kathrin Mikloweit",
+      "role": "Jugendwartin, Leitung Eltern-Kind-Gruppe",
+      "img": "tu_kath"
+    },
+    {
+      "name": "Marie Szarzynski",
+      "role": "Öffentlichkeitsarbeit, Übungsleitung Kinder- und Eltern-Kind-Turnen",
+      "img": "tu_marie"
+    },
+    {
+      "name": "Yaseen Ben Mechri",
+      "role": "Gruppenhelfer Kindergarten- und Grundschulturnen",
+      "img": "tu_yaseen"
+    },
+    {
+      "name": "Pia Szarzynski",
+      "role": "Gruppenhelferin Kindergarten- und Grundschulturnen",
+      "img": "tu_pia"
+    }
+  ],
+  "groups": [
+    {
+      "id": "eltern-kind",
+      "name": "Eltern-Kind-Turnen",
+      "ageText": "1½ bis 4 Jahre, mit Mama, Papa oder einer anderen Begleitperson",
+      "text": "Klettern, balancieren, rollen und toben: Die Kleinsten entdecken mit ihren Eltern die Turnhalle.",
+      "lead": "Kathrin Mikloweit",
+      "img": "tu_g3",
+      "sessions": [
+        {
+          "day": "Mi",
+          "from": "16:00",
+          "to": "17:30",
+          "hall": "waldschule"
+        },
+        {
+          "day": "Fr",
+          "from": "16:00",
+          "to": "17:30",
+          "hall": "augustaschule"
+        }
+      ],
+      "ageFrom": 1.5,
+      "ageTo": 4
+    },
+    {
+      "id": "kindergarten",
+      "name": "Kindergartenturnen",
+      "ageText": "Kinder im Kindergartenalter",
+      "text": "Breitensport mit viel Spaß und Spiel. Bewegungslandschaften, Fangspiele und erste Turnelemente.",
+      "lead": "Stefanie Szarzynski",
+      "img": "tu_g2",
+      "sessions": [
+        {
+          "day": "Mo",
+          "from": "16:00",
+          "to": "17:00",
+          "hall": "augustaschule"
+        }
+      ],
+      "ageFrom": 3,
+      "ageTo": 6
+    },
+    {
+      "id": "grundschule",
+      "name": "Grundschulturnen",
+      "ageText": "Kinder im Grundschulalter",
+      "text": "Breitensport mit Spaß und Spiel, dazu Geräte wie Bock, Reck und Balken.",
+      "lead": "Stefanie Szarzynski",
+      "img": "tu_g4",
+      "sessions": [
+        {
+          "day": "Mo",
+          "from": "17:15",
+          "to": "18:30",
+          "hall": "augustaschule"
+        }
+      ],
+      "ageFrom": 6,
+      "ageTo": 10
+    },
+    {
+      "id": "wettkampf",
+      "name": "Wettkampfgruppe",
+      "ageText": "Schulkinder und Jugendliche im Gerätturnen",
+      "text": "Training an Sprung, Reck, Schwebebalken und Boden, dazu Ausdauer und Kraft. Die Gruppe startet bei Stadt- und Bezirksmeisterschaften.",
+      "lead": "Joana van den Bosch",
+      "img": "tu_g1",
+      "sessions": [
+        {
+          "day": "Di",
+          "from": "17:00",
+          "to": "18:30",
+          "hall": "augustaschule",
+          "focus": "Ausdauer und Krafttraining"
+        },
+        {
+          "day": "Do",
+          "from": "17:15",
+          "to": "19:15",
+          "hall": "augustaschule",
+          "focus": "Gerätturnen"
+        }
+      ],
+      "ageFrom": 7,
+      "ageTo": 18
+    }
+  ],
+  "halls": [
+    {
+      "id": "augustaschule",
+      "name": "Turnhalle der Augustaschule",
+      "area": "Herten-Süd",
+      "map": "https://www.openstreetmap.org/search?query=Augustaschule%20Herten"
+    },
+    {
+      "id": "waldschule",
+      "name": "Turnhalle der Waldschule",
+      "area": "Herten-Langenbochum",
+      "map": "https://www.openstreetmap.org/search?query=Waldschule%20Herten"
+    }
+  ],
+  "stop": true,
+  "results2023": [
+    {
+      "name": "Lia Michelle Schuler",
+      "year": "2009",
+      "points": "45,6",
+      "place": "2."
+    },
+    {
+      "name": "Mira Wiegand",
+      "year": "2010",
+      "points": "45,3",
+      "place": "3."
+    },
+    {
+      "name": "Soi Sakellariou",
+      "year": "2010",
+      "points": "53,6",
+      "place": "2."
+    },
+    {
+      "name": "Luise Jurick",
+      "year": "2011",
+      "points": "49,9",
+      "place": "3."
+    },
+    {
+      "name": "Alina Tschirne",
+      "year": "2012",
+      "points": "50,0",
+      "place": "9."
+    },
+    {
+      "name": "Estella Kiefer",
+      "year": "2014",
+      "points": "48,8",
+      "place": "2."
+    }
+  ]
+}

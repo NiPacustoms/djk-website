@@ -1,0 +1,191 @@
+{
+  "club": {
+    "name": "DJK Spvgg Herten 07 e.V.",
+    "short": "DJK Spvgg Herten",
+    "founded": "1907",
+    "colors": "rot-grün-weiß",
+    "ground": "Kampfbahn Katzenbusch",
+    "address": [
+      "Sportanlage Katzenbusch",
+      "Katzenbuschstr. 1–3",
+      "45699 Herten"
+    ],
+    "post": [
+      "Postfach 1936",
+      "45677 Herten"
+    ],
+    "mail": {
+      "info": "info@djkspvggherten.de",
+      "gv": "gv@djkspvggherten.de",
+      "jugend": "jugend@djkspvggherten.de",
+      "turner": "turner@djkspvggherten.de",
+      "fanshop": "fanshop@djkspvggherten.de"
+    },
+    "register": "Amtsgericht Recklinghausen, VR 2157",
+    "tax": "359/5731/3012",
+    "represented": "Norbert van Gemmern (1. Vorsitzender)",
+    "maps": "https://www.openstreetmap.org/search?query=Katzenbuschstra%C3%9Fe%201%2C%2045699%20Herten",
+    "results": "https://www.fussball.de/verein/djk-spvgg-07-herten-westfalen/-/id/00ES8GN8QS00005PVV0AG08LVUPGND5I",
+    "social": [
+      {
+        "label": "Instagram Jugend",
+        "handle": "@djkjugend",
+        "url": "https://www.instagram.com/djkjugend"
+      },
+      {
+        "label": "Instagram Katzenbuschladies",
+        "handle": "@katzenbuschladies",
+        "url": "https://www.instagram.com/katzenbuschladies"
+      },
+      {
+        "label": "Facebook Verein",
+        "handle": "djkspvggherten1907ev",
+        "url": "https://www.facebook.com/djkspvggherten1907ev"
+      },
+      {
+        "label": "Facebook Katzenbuschladies",
+        "handle": "katzenbuschladies",
+        "url": "https://www.facebook.com/katzenbuschladies"
+      },
+      {
+        "label": "Facebook Turnabteilung",
+        "handle": "Turnabteilung",
+        "url": "https://www.facebook.com/profile.php?id=100064556265727"
+      }
+    ],
+    "fussballde": {
+      "verein": "00ES8GN8QS00005PVV0AG08LVUPGND5I"
+    }
+  },
+  "board": [
+    {
+      "role": "1. Vorsitzender",
+      "names": [
+        "Norbert van Gemmern"
+      ]
+    },
+    {
+      "role": "2. Vorsitzender",
+      "names": [
+        "Frank Franiczek"
+      ]
+    },
+    {
+      "role": "Geschäftsführung",
+      "names": [
+        "Yvonne Kemke",
+        "Manuel Becker"
+      ]
+    },
+    {
+      "role": "Kassiererin",
+      "names": [
+        "Nadine Karrasch"
+      ]
+    },
+    {
+      "role": "Beisitzer",
+      "names": [
+        "Markus Jahn",
+        "Dominik Karrasch"
+      ]
+    }
+  ],
+  "history": [
+    {
+      "year": "1907",
+      "text": "Gründung der DJK Rot-Weiß Herten."
+    },
+    {
+      "year": "1912",
+      "text": "Gründung des SpV Herten 12, Vorgänger der Spvgg Herten."
+    },
+    {
+      "year": "1926",
+      "text": "Gründung von Teutonia Herten-Süd."
+    },
+    {
+      "year": "1929 + 1932",
+      "text": "Der SpV wird Westfalenmeister und spielt um die Westdeutsche Meisterschaft."
+    },
+    {
+      "year": "1933",
+      "text": "Aufnahme in die neu gegründete Gauliga Westfalen. 1934/35 und 1936/37 jeweils Platz vier, dreimal Remis gegen das „unschlagbare“ Schalke 04."
+    },
+    {
+      "year": "1947",
+      "text": "Fusion mit Concordia Herten zur Spvgg Herten 07/12."
+    },
+    {
+      "year": "1949",
+      "text": "Qualifikation für die II. Division. 1954/55 fehlt als Vierter nur ein Punkt zur Oberliga."
+    },
+    {
+      "year": "1963",
+      "text": "Platz drei in der II. Division und Qualifikation für die neue Regionalliga West."
+    },
+    {
+      "year": "1964",
+      "text": "Abstieg am letzten Spieltag durch einen Handelfmeter in der Schlussminute beim VfB Bottrop."
+    },
+    {
+      "year": "1971",
+      "text": "Die DJK Rot-Weiß Herten und Teutonia Herten-Süd fusionieren zur DJK 07/26 Herten."
+    },
+    {
+      "year": "1981",
+      "text": "Die Spvgg wird nach dem Wiederaufstieg Dritter der Landesliga."
+    },
+    {
+      "year": "2000",
+      "text": "Am 1. Juli fusionieren Spvgg Herten und DJK 07/26 zur DJK Spvgg Herten 07. Der neue Verein übernimmt den Platz in der Kreisliga A."
+    },
+    {
+      "year": "2004",
+      "text": "Aufstieg in die Bezirksliga."
+    },
+    {
+      "year": "2008",
+      "text": "Erneuter Aufstieg in die Bezirksliga."
+    },
+    {
+      "year": "2017",
+      "text": "Abstieg in die Kreisliga A, in der die erste Mannschaft seitdem spielt."
+    }
+  ],
+  "historyNotes": [
+    "Rudi Assauer spielte in den frühen 1960er-Jahren für die Spvgg Herten. Später organisierte er ein Freundschaftsspiel gegen Schalke 04, das den Verein aus finanziellen Problemen holte.",
+    "Mit Phil Neumann brachte die DJK Spvgg einen späteren Profi hervor.",
+    "Die Rollhockeyabteilung der Spvgg spielte viele Jahre in der Bundesliga und wurde neunmal Deutscher Meister: 1951, 1955, 1956, 1957, 1961, 1964, 1965, 1970 und 1979. Heute spielt sie eigenständig als Rollsport Spielvereinigung Herten."
+  ],
+  "departments": [
+    {
+      "id": "jugend",
+      "title": "Jugend",
+      "text": "Junioren und Juniorinnen von den Bambini bis zur B-Jugend.",
+      "href": "jugend.html",
+      "img": "t_e3"
+    },
+    {
+      "id": "damen",
+      "title": "Katzenbuschladies",
+      "text": "Drei Frauenteams, die erste spielt Landesliga.",
+      "href": "damen.html",
+      "img": "d_2"
+    },
+    {
+      "id": "senioren",
+      "title": "Herren & Alte Herren",
+      "text": "Zwei Herrenteams, Ü32, Ü50 und Gehfußball.",
+      "href": "senioren.html",
+      "img": "h_1"
+    },
+    {
+      "id": "turnen",
+      "title": "Turnen",
+      "text": "Eltern-Kind-Turnen ab 1½ Jahren, Kinderturnen und eine Wettkampfgruppe im Gerätturnen.",
+      "href": "turnen.html",
+      "img": "tu_g1"
+    }
+  ]
+}

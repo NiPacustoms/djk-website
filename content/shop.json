@@ -1,0 +1,53 @@
+{
+  "products": [
+    {
+      "name": "Trinkflasche Alu",
+      "desc": "Mit DJK-Logo und Schraubverschluss",
+      "price": "6,95 €",
+      "img": "p_flasche",
+      "cat": "Training"
+    },
+    {
+      "name": "Tasse",
+      "desc": "Kaffee- oder Teetasse",
+      "price": "11,95 €",
+      "img": "p_tasse",
+      "cat": "Fanartikel"
+    },
+    {
+      "name": "Tasse mit Streifen",
+      "desc": "Mit Logo und Vereinsstreifen",
+      "price": "11,95 €",
+      "img": "p_tasse2",
+      "cat": "Fanartikel"
+    },
+    {
+      "name": "Schlüsselband schwarz",
+      "desc": "Mit roten Streifen",
+      "price": "2,00 €",
+      "img": "p_sb1",
+      "cat": "Fanartikel"
+    },
+    {
+      "name": "Schlüsselband Platzmotiv",
+      "desc": "Mit Motiv der Kampfbahn",
+      "price": "2,00 €",
+      "img": "p_sb2",
+      "cat": "Fanartikel"
+    },
+    {
+      "name": "Schlüsselband grün",
+      "desc": "Mit Platzmotiv",
+      "price": "2,00 €",
+      "img": "p_sb3",
+      "cat": "Fanartikel"
+    },
+    {
+      "name": "Feuerzeug",
+      "desc": "Im DJK-Look",
+      "price": "2,20 €",
+      "img": "p_feuer",
+      "cat": "Fanartikel"
+    }
+  ]
+}

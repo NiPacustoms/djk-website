@@ -1,0 +1,142 @@
+{
+  "board": [
+    {
+      "role": "Abteilungsleiter",
+      "names": [
+        "Thorsten Hohoff"
+      ],
+      "phone": "0176 23489289"
+    },
+    {
+      "role": "Stellv. Abteilungsleiterin",
+      "names": [
+        "Manuela Schönfeld"
+      ]
+    },
+    {
+      "role": "Geschäftsführer",
+      "names": [
+        "Rick Dembowski"
+      ],
+      "phone": "01575 1292412",
+      "mail": "rick.dembowski@djkspvggherten.de"
+    },
+    {
+      "role": "Kassiererin",
+      "names": [
+        "Katharina Engsterhold"
+      ]
+    },
+    {
+      "role": "Stellv. Kassiererin",
+      "names": [
+        "Lena Marquardt"
+      ]
+    },
+    {
+      "role": "Kassenprüferinnen",
+      "names": [
+        "Leni Möller",
+        "Marie Burghave"
+      ]
+    }
+  ],
+  "teams": [
+    {
+      "name": "Frauen I",
+      "league": "Landesliga, Staffel 2",
+      "img": "d_1",
+      "coaches": [
+        {
+          "name": "Markus Schubert",
+          "phone": "0163 4625554",
+          "role": "Trainer"
+        },
+        {
+          "name": "Detlef Kastner",
+          "role": "Co-Trainer"
+        },
+        {
+          "name": "Marie Burghave",
+          "role": "Betreuerin"
+        },
+        {
+          "name": "Lisa Szulc",
+          "role": "Betreuerin"
+        },
+        {
+          "name": "Timo Kulak",
+          "role": "Torwarttraining"
+        }
+      ],
+      "training": "Mo + Mi 19:00–21:00",
+      "fd": "011MIBLQC8000000VTVG0001VTR8C1K7"
+    },
+    {
+      "name": "Frauen II",
+      "league": "Bezirksliga Staffel 5",
+      "img": "d_2",
+      "coaches": [
+        {
+          "name": "Rick Dembowski",
+          "phone": "01575 1292412",
+          "role": "Trainer"
+        },
+        {
+          "name": "Timo Kulak",
+          "role": "Torwarttraining"
+        }
+      ],
+      "training": "Mi + Fr 19:00–20:30",
+      "fd": "02T6GQ5D04000000VS5489BSVTHE6UUT"
+    },
+    {
+      "name": "Frauen III",
+      "league": "Kreisliga A HER/GE/RE",
+      "img": null,
+      "coaches": [
+        {
+          "name": "Thomas Krause",
+          "phone": "0172 8014451",
+          "role": "Trainer"
+        },
+        {
+          "name": "Alina Krause",
+          "role": "Co-Trainerin"
+        },
+        {
+          "name": "Timo Kulak",
+          "role": "Torwarttraining"
+        }
+      ],
+      "training": "Mi + Fr 19:00–20:30",
+      "fd": "0319G6M39S000000VS5489BRVVNAT1LG"
+    }
+  ],
+  "milestones": [
+    {
+      "year": "2004",
+      "text": "Gründung der Frauenmannschaft"
+    },
+    {
+      "year": "2014/15",
+      "text": "Aufstieg in die Bezirksliga – ungeschlagen, 28 Siege aus 28 Spielen"
+    },
+    {
+      "year": "2018",
+      "text": "Hallen-Kreismeisterinnen"
+    },
+    {
+      "year": "2021/22",
+      "text": "Bezirksliga-Meisterschaft mit 20 Siegen, einem Remis und einer Niederlage, Aufstieg in die Landesliga"
+    },
+    {
+      "year": "2022/23",
+      "text": "Debütsaison in der Landesliga auf Platz 5"
+    },
+    {
+      "year": "2025/26",
+      "text": "Start einer dritten Mannschaft in der Kreisliga"
+    }
+  ]
+}

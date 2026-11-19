@@ -1,0 +1,24 @@
+{
+  "sponsors": [
+    {
+      "name": "Staffel Group – Makler & Consults",
+      "img": "s_staffel"
+    },
+    {
+      "name": "Gutachterbüro Raabe",
+      "img": "s_raabe"
+    },
+    {
+      "name": "Hertener Stadtwerke",
+      "img": "s_stadtwerke"
+    },
+    {
+      "name": "Automobile Engbert",
+      "img": "s_engbert"
+    },
+    {
+      "name": "Bürgertraber Herten e.V.",
+      "img": "s_traber"
+    }
+  ]
+}

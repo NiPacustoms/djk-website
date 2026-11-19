@@ -1,0 +1,130 @@
+{
+  "fees": [
+    {
+      "group": "Fußballjugend",
+      "rows": [
+        {
+          "label": "1. Kind",
+          "month": "10,00 €",
+          "half": "60,00 €",
+          "year": "120,00 €"
+        },
+        {
+          "label": "2. Kind",
+          "month": "7,00 €",
+          "half": "42,00 €",
+          "year": "84,00 €"
+        },
+        {
+          "label": "Passiv",
+          "month": "7,00 €",
+          "half": "42,00 €",
+          "year": "84,00 €"
+        }
+      ],
+      "fee": "10,00 €"
+    },
+    {
+      "group": "Senioren / Seniorinnen",
+      "rows": [
+        {
+          "label": "Aktive",
+          "month": "10,00 €",
+          "half": "60,00 €",
+          "year": "120,00 €"
+        },
+        {
+          "label": "Passiv",
+          "month": "7,00 €",
+          "half": "42,00 €",
+          "year": "84,00 €"
+        }
+      ],
+      "fee": "10,00 €"
+    },
+    {
+      "group": "Alte Herren / Gehfußball",
+      "rows": [
+        {
+          "label": "Aktive",
+          "month": "10,00 €",
+          "half": "60,00 €",
+          "year": "120,00 €"
+        },
+        {
+          "label": "Passiv",
+          "month": "7,00 €",
+          "half": "42,00 €",
+          "year": "84,00 €"
+        }
+      ],
+      "fee": "10,00 €"
+    },
+    {
+      "group": "Kinderturnen",
+      "rows": [
+        {
+          "label": "1. Kind",
+          "month": "8,00 €",
+          "half": "48,00 €",
+          "year": "96,00 €"
+        },
+        {
+          "label": "2. Kind",
+          "month": "4,00 €",
+          "half": "24,00 €",
+          "year": "48,00 €"
+        },
+        {
+          "label": "Jedes weitere Kind",
+          "month": "2,00 €",
+          "half": "12,00 €",
+          "year": "24,00 €"
+        }
+      ],
+      "fee": "5,00 € pro Person"
+    },
+    {
+      "group": "Wettkampfturnen",
+      "rows": [
+        {
+          "label": "1. Kind",
+          "month": "11,50 €",
+          "half": "69,00 €",
+          "year": "138,00 €"
+        },
+        {
+          "label": "2. Kind",
+          "month": "7,50 €",
+          "half": "45,00 €",
+          "year": "90,00 €"
+        },
+        {
+          "label": "Jedes weitere Kind",
+          "month": "4,00 €",
+          "half": "24,00 €",
+          "year": "48,00 €"
+        }
+      ],
+      "fee": "5,00 € pro Person"
+    },
+    {
+      "group": "Eltern-Kind-Turnen",
+      "rows": [
+        {
+          "label": "2 Erwachsene + bis zu 2 Kinder",
+          "month": "12,00 €",
+          "half": "72,00 €",
+          "year": "144,00 €"
+        },
+        {
+          "label": "Jedes weitere Kind",
+          "month": "4,00 €",
+          "half": "24,00 €",
+          "year": "48,00 €"
+        }
+      ],
+      "fee": "5,00 € pro Person"
+    }
+  ]
+}

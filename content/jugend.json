@@ -1,0 +1,440 @@
+{
+  "youthTeams": [
+    {
+      "id": "g2",
+      "name": "G2-Jugend",
+      "label": "Bambini",
+      "coaches": [
+        {
+          "name": "Nicklas Karrasch"
+        },
+        {
+          "name": "Fynn Kampmann"
+        },
+        {
+          "name": "Julian Wessel"
+        }
+      ],
+      "extra": [
+        {
+          "role": "Betreuerin",
+          "name": "Nadine Karrasch",
+          "phone": "0152 08872011"
+        }
+      ],
+      "training": "Fr 17:00–18:00",
+      "fd": "02GSSG9B5O000000VS5489B2VVGDJV1G",
+      "yearFrom": 2021,
+      "yearTo": 2021
+    },
+    {
+      "id": "g1",
+      "name": "G1-Jugend",
+      "label": "Bambini",
+      "img": "t_g1",
+      "coaches": [
+        {
+          "name": "Sebastian Szymanek",
+          "phone": "0160 97971538"
+        },
+        {
+          "name": "Patrick Schleu",
+          "phone": "0151 24198161"
+        }
+      ],
+      "training": "Mi + Fr 17:00–18:30",
+      "fd": "01DTTGIQP0000000VV0AG811VTA8FO8N",
+      "yearFrom": 2020,
+      "yearTo": 2020
+    },
+    {
+      "id": "f2",
+      "name": "F2-Jugend",
+      "coaches": [
+        {
+          "name": "Thorsten Gringel",
+          "phone": "0170 9601008"
+        },
+        {
+          "name": "Christos Argiriu",
+          "phone": "0178 1590748"
+        },
+        {
+          "name": "Marvin Rothe",
+          "phone": "01573 4297050"
+        }
+      ],
+      "training": "Mi + Fr 17:00–18:30",
+      "fd": "027MARR3AC000000VS5489B2VSOPA3SJ",
+      "yearFrom": 2019,
+      "yearTo": 2019
+    },
+    {
+      "id": "f1",
+      "name": "F1-Jugend",
+      "coaches": [
+        {
+          "name": "Detlef Gerigk",
+          "phone": "01573 3105346"
+        },
+        {
+          "name": "Christian Bernhardt",
+          "phone": "0174 9965738"
+        },
+        {
+          "name": "Kemal Maden"
+        },
+        {
+          "name": "Oktay Güngor"
+        },
+        {
+          "name": "Ferat"
+        }
+      ],
+      "training": "Mi + Fr 17:00–18:30",
+      "fd": "011MIDFOMK000000VTVG0001VTR8C1K7",
+      "yearFrom": 2018,
+      "yearTo": 2018
+    },
+    {
+      "id": "e3",
+      "name": "E3-Jugend",
+      "img": "t_e3",
+      "coaches": [
+        {
+          "name": "Christian Zak",
+          "phone": "0179 5722427"
+        },
+        {
+          "name": "Melanie Hemmerich",
+          "phone": "0152 24878865"
+        },
+        {
+          "name": "Patrick Schmidt",
+          "phone": "0157 72605924"
+        },
+        {
+          "name": "Pascal Scheer",
+          "phone": "0176 64980662"
+        }
+      ],
+      "training": "Mo + Do 17:15–18:45",
+      "fd": "02RTDQFJAO000000VS5489B2VUMH0DRF",
+      "yearFrom": 2017,
+      "yearTo": 2017
+    },
+    {
+      "id": "e2",
+      "name": "E2-Jugend",
+      "coaches": [
+        {
+          "name": "Marcel Lange",
+          "phone": "0177 2761291"
+        },
+        {
+          "name": "Manuel Zachau",
+          "phone": "0173 1599992"
+        }
+      ],
+      "training": "Di + Do 17:15–18:45",
+      "fd": "02BBGIML30000000VS5489B2VVDBHQQ7",
+      "yearFrom": 2016,
+      "yearTo": 2016
+    },
+    {
+      "id": "e1",
+      "name": "E1-Jugend",
+      "img": "t_e1",
+      "coaches": [
+        {
+          "name": "Marc Isselhorst",
+          "phone": "0157 73197145"
+        },
+        {
+          "name": "Daniel Maaß",
+          "phone": "01573 1306965"
+        },
+        {
+          "name": "Daniel Brama",
+          "phone": "0157 30651854"
+        },
+        {
+          "name": "Michel Ritterswürden"
+        },
+        {
+          "name": "Jana Isselhorst"
+        }
+      ],
+      "training": "Di + Do 17:15–18:45",
+      "fd": "011MICSFPS000000VTVG0001VTR8C1K7",
+      "yearFrom": 2016,
+      "yearTo": 2016
+    },
+    {
+      "id": "d1",
+      "name": "D1-Jugend",
+      "coaches": [
+        {
+          "name": "Dirk Kuberski",
+          "phone": "0175 4817892"
+        },
+        {
+          "name": "Moussa Abdalla",
+          "phone": "0172 9688391"
+        },
+        {
+          "name": "Rebecca Isselhorst"
+        },
+        {
+          "name": "Marcel Isselhorst",
+          "phone": "0157 87441991"
+        }
+      ],
+      "training": "Di + Do 17:15–18:45",
+      "fd": "02EV3TDT3O000000VS5489B1VT0RKM5V",
+      "yearFrom": 2015,
+      "yearTo": 2015
+    },
+    {
+      "id": "c2",
+      "name": "C2-Jugend",
+      "img": "t_c2",
+      "coaches": [
+        {
+          "name": "Nadine Karrasch",
+          "phone": "0152 08872011"
+        },
+        {
+          "name": "Mike Jeschmund",
+          "phone": "0176 22714657"
+        },
+        {
+          "name": "Mohamed Abdalla",
+          "phone": "0160 1890117"
+        },
+        {
+          "name": "Justin Karrasch",
+          "phone": "0157 37757017"
+        }
+      ],
+      "training": "Mo, Mi + Fr 17:00–18:30",
+      "fd": "02ROSFJKAG000000VS5489B1VVTMGKD4",
+      "yearFrom": 2013,
+      "yearTo": 2013
+    },
+    {
+      "id": "c1",
+      "name": "C1-Jugend",
+      "img": "t_c1",
+      "coaches": [
+        {
+          "name": "Marc Sukowski",
+          "phone": "0179 6049451"
+        },
+        {
+          "name": "Barto Raniewicz",
+          "phone": "0172 5324778"
+        },
+        {
+          "name": "Lakshan Fernando"
+        }
+      ],
+      "training": "Mo, Di + Do 17:30–19:00",
+      "fd": "02PNTF93IC000000VS5489B2VT4FEOV2",
+      "yearFrom": 2012,
+      "yearTo": 2012
+    },
+    {
+      "id": "b",
+      "name": "B-Jugend",
+      "coaches": [
+        {
+          "name": "Dominik Karrasch",
+          "phone": "0152 08871936"
+        },
+        {
+          "name": "Ben Sandrock"
+        },
+        {
+          "name": "Loel Mau"
+        },
+        {
+          "name": "Vasilios Ragkos"
+        }
+      ],
+      "training": "Mo, Mi + Fr 17:30–19:00",
+      "fd": "02VJ83SDI8000000VS5489BSVSKQNNOC",
+      "yearFrom": 2010,
+      "yearTo": 2011
+    }
+  ],
+  "girlsTeams": [
+    {
+      "id": "u9",
+      "name": "U9-Juniorinnen",
+      "label": "F-Jugend",
+      "img": "t_u9",
+      "coaches": [
+        {
+          "name": "Raphael Wloka",
+          "phone": "0177 3222955"
+        },
+        {
+          "name": "Michelle Grochala",
+          "phone": "0176 15195663"
+        },
+        {
+          "name": "Pascal Scheer",
+          "phone": "0176 64980662"
+        }
+      ],
+      "training": "Di + Fr 17:15–18:45",
+      "fd": "02PVSC93K4000000VS5489B1VTF0A3SN",
+      "yearFrom": 2018,
+      "yearTo": 2019
+    },
+    {
+      "id": "u11",
+      "name": "U11-Juniorinnen",
+      "label": "E-Jugend",
+      "img": "t_u11",
+      "coaches": [
+        {
+          "name": "Jessy Dubielzek",
+          "phone": "0176 46082208"
+        },
+        {
+          "name": "Chiara Bacher",
+          "phone": "0176 23931368"
+        },
+        {
+          "name": "Maren Kampmann"
+        },
+        {
+          "name": "Nadine Karrasch",
+          "phone": "0152 08872011"
+        }
+      ],
+      "training": "Di + Fr 17:15–18:45",
+      "fd": "02O7HBSHVG000000VS5489B2VU92J92M",
+      "yearFrom": 2016,
+      "yearTo": 2017
+    },
+    {
+      "id": "u13",
+      "name": "U13-Juniorinnen",
+      "label": "D-Jugend",
+      "img": "t_u13",
+      "coaches": [
+        {
+          "name": "Sebastian Berg",
+          "phone": "0173 7021295"
+        },
+        {
+          "name": "Muhamed Ismailovski",
+          "phone": "0157 55750746"
+        },
+        {
+          "name": "Sascha Bacher",
+          "phone": "01573 8215854"
+        }
+      ],
+      "training": "Di + Fr 17:15–18:45",
+      "fd": "02PVSA03SK000000VS5489B1VTF0A3SN",
+      "yearFrom": 2014,
+      "yearTo": 2015
+    },
+    {
+      "id": "u15",
+      "name": "U15-Juniorinnen",
+      "label": "C-Jugend",
+      "coaches": [
+        {
+          "name": "Marcel Isselhorst",
+          "phone": "0157 87441991"
+        },
+        {
+          "name": "Lena Tekce",
+          "phone": "0176 22599682"
+        },
+        {
+          "name": "Tufan Kethüda"
+        },
+        {
+          "name": "Kay Thiele"
+        },
+        {
+          "name": "Jana Isselhorst"
+        }
+      ],
+      "training": "Di + Fr 17:15–18:45",
+      "fd": "02TL40RILK000000VS5489BSVSKABKDB",
+      "yearFrom": 2012,
+      "yearTo": 2013
+    }
+  ],
+  "youthBoard": [
+    {
+      "role": "Jugendleiter",
+      "names": [
+        "Christian Zak"
+      ],
+      "phone": "0179 5722427",
+      "mail": "zak@djkspvggherten.de"
+    },
+    {
+      "role": "Stellv. Jugendleiter",
+      "names": [
+        "Achilleas Bettas"
+      ]
+    },
+    {
+      "role": "Jugendgeschäftsführerin",
+      "names": [
+        "Yvonne Kemke"
+      ],
+      "mail": "jugend@djkspvggherten.de"
+    },
+    {
+      "role": "Kassiererin",
+      "names": [
+        "Nadine Karrasch"
+      ]
+    },
+    {
+      "role": "Stellv. Kassiererin",
+      "names": [
+        "Jennifer Maaß"
+      ]
+    },
+    {
+      "role": "Sportliche Leitung",
+      "names": [
+        "Marc Isselhorst",
+        "Marcel Isselhorst",
+        "Marcel Lange",
+        "Marc Sukowski",
+        "Lena Tekce",
+        "Jessy Dubielzek"
+      ]
+    },
+    {
+      "role": "Beisitzerin Sponsoring",
+      "names": [
+        "Melanie Hemmerich"
+      ]
+    }
+  ],
+  "youthSponsors": [
+    {
+      "name": "Paulberger Limo",
+      "img": "paulberger",
+      "text": "Paulberger Limo hat der Jugendabteilung 550 Dosen gespendet. Wir verkaufen sie bei unseren Veranstaltungen, und der gesamte Erlös fließt direkt in die Förderung unserer Kinder und Jugendlichen."
+    },
+    {
+      "name": "Elektro Abdalla",
+      "img": null,
+      "text": "Elektro Abdalla unterstützt uns seit Jahren: mit Trikots für unsere Mannschaften, vielen Sachspenden und tatkräftiger Hilfe bei Arbeiten rund um den Verein. Der Inhaber engagiert sich darüber hinaus selbst als Jugendtrainer."
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "groups": [
+    {
+      "group": "Herren",
+      "lead": [
+        {
+          "role": "Abteilungsleiter Herren 1 + 2",
+          "name": "Thorsten Gringel",
+          "phone": "0170 9601008",
+          "mail": "thorsten.gringel@djkspvggherten.de"
+        }
+      ],
+      "teams": [
+        {
+          "name": "1. Herrenmannschaft",
+          "img": "h_1",
+          "coaches": [
+            {
+              "name": "Andre Marcussen",
+              "phone": "01520 6353535"
+            },
+            {
+              "name": "Karl Englich",
+              "phone": "0176 72907632"
+            }
+          ],
+          "training": "Mi + Fr 19:00–20:30",
+          "fd": "011MI9HS44000000VTVG0001VTR8C1K7",
+          "league": "Kreisliga B, Staffel 2"
+        },
+        {
+          "name": "2. Herrenmannschaft",
+          "img": "h_2",
+          "coaches": [
+            {
+              "name": "Murat Engin",
+              "phone": "0176 80825892"
+            }
+          ],
+          "training": "Di + Do 19:00–20:30",
+          "fd": "02BMJEMP20000000VS5489B1VT2I63QP",
+          "league": "Kreisliga C, Staffel 2"
+        }
+      ]
+    },
+    {
+      "group": "Alte Herren",
+      "lead": [],
+      "teams": [
+        {
+          "name": "Alte Herren Ü32",
+          "img": null,
+          "coaches": [
+            {
+              "name": "Michael Bärwolf",
+              "phone": "0152 26165685"
+            }
+          ],
+          "training": "Mi 18:30–20:30",
+          "fd": "01A1HP2H44000000VV0AG811VSDJU768"
+        },
+        {
+          "name": "Alte Herren Ü50",
+          "img": "h_u50",
+          "coaches": [
+            {
+              "name": "Michael Bärwolf",
+              "phone": "0152 26165685"
+            }
+          ],
+          "training": "Mo 18:30–20:30",
+          "fd": "02GUQL9L4K000000VS5489B1VUD17SPI"
+        }
+      ]
+    },
+    {
+      "group": "Gehfußball",
+      "lead": [
+        {
+          "role": "Abteilungsleiter",
+          "name": "Frank Franiczek",
+          "mail": "f.franiczek@djkspvggherten.de"
+        },
+        {
+          "role": "Stellv. Abteilungsleiter",
+          "name": "Peter Walberg"
+        },
+        {
+          "role": "Kassierer",
+          "name": "Dietmar Primus"
+        }
+      ],
+      "teams": [
+        {
+          "name": "Gehfußballer Ü50",
+          "img": "h_geh",
+          "coaches": [
+            {
+              "name": "Helmut Chilla",
+              "role": "Trainer"
+            },
+            {
+              "name": "Andre Tietz",
+              "role": "Ansprechpartner",
+              "mail": "Tietz-Recklinghausen@t-online.de"
+            },
+            {
+              "name": "Manfred Demuth",
+              "role": "Ansprechpartner",
+              "mail": "ma-demuht@t-online.de"
+            }
+          ],
+          "training": "Mo 17:00–18:30"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "price": "200 €",
+  "deposit": "100 €",
+  "capacity": "60",
+  "rooms": [
+    {
+      "title": "Großer Raum",
+      "text": "Rund 40 m² mit Beamer, Leinwand, Tischen und Stühlen. Passt für Seminare, Sitzungen und Feiern mit bis zu 60 Personen."
+    },
+    {
+      "title": "Küche",
+      "text": "Kochfeld, Herd, Kühlschrank, Spüle und Gläser sind da. Besteck und Geschirr bringt ihr selbst mit."
+    },
+    {
+      "title": "Sanitär- und Waschräume",
+      "text": "Neu gefliest und modernisiert."
+    },
+    {
+      "title": "Überdachter Außenbereich",
+      "text": "Mit eigenem Ein- und Ausgang. Hier darf geraucht werden, im Vereinsheim nicht."
+    }
+  ]
+}
