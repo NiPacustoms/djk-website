@@ -714,3 +714,22 @@ td.num, th.num { text-align: right; white-space: nowrap; }
 .cal-opts a:hover { background: var(--chip); }
 .cal-opts small { padding: 0.3rem 0.7rem 0.2rem; color: var(--muted); font-size: 0.8rem; }
 .band .cal-menu summary { color: var(--on-green); }
+
+/* Klappbarer Footer (Handy) */
+.foot-col summary { list-style: none; }
+.foot-col summary::-webkit-details-marker { display: none; }
+.foot-col summary h2 { display: inline; }
+@media (min-width: 761px) { .foot-col summary { pointer-events: none; } }
+@media (max-width: 760px) {
+  .foot-grid { gap: 0; padding-block: 1.5rem 0.5rem; }
+  .foot-brand { margin-bottom: 1rem; }
+  .foot-brand img { width: 52px; height: 52px; }
+  .foot-brand p { font-size: 1.25rem; }
+  .foot-col { border-top: 1px solid rgba(255,255,255,0.14); }
+  .foot-col summary { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding-block: 0.95rem; }
+  .foot-col summary h2 { margin: 0; font-size: 1.1rem; }
+  .foot-col summary::after { content: "+"; font-family: var(--display); font-size: 1.5rem; line-height: 1; color: var(--on-green-muted); transition: transform 0.2s ease; }
+  .foot-col[open] summary::after { transform: rotate(45deg); }
+  .foot-body { padding-bottom: 1rem; }
+  .foot-legal { gap: 0.4rem 1.2rem; padding-block: 1rem 1.2rem; }
+}

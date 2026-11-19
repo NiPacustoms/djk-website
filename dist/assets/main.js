@@ -17,6 +17,11 @@
   });
   window.addEventListener("appinstalled", function () { track("install"); });
 
+  // Footer: auf dem Handy eingeklappt, am Laptop offen
+  var footMq = window.matchMedia ? matchMedia("(max-width: 760px)") : null;
+  var setFoot = function () { var small = footMq && footMq.matches; document.querySelectorAll(".foot-col").forEach(function (d) { d.open = !small; }); };
+  setFoot(); if (footMq && footMq.addEventListener) footMq.addEventListener("change", setFoot);
+
   // Mobiles Menü
   var btn = document.querySelector(".menu-btn");
   var nav = document.getElementById("nav");

@@ -174,10 +174,10 @@ function footer() {
   <span class="stripe" aria-hidden="true"></span>
   <div class="wrap foot-grid">
     <div class="foot-brand"><img src="assets/icon-512.png" width="72" height="72" alt=""><p>DJK Spvgg Herten 07 e.V.<br>Wir sind ein Team.</p></div>
-    <div><h2>Anschrift</h2><address>${club.address.join("<br>")}</address><p style="margin-top:.6rem"><a href="${club.maps}" rel="noopener">Auf der Karte zeigen</a></p></div>
-    <div><h2>Post</h2><address>${esc(club.name)}<br>${club.post.join("<br>")}</address><p style="margin-top:.6rem">${mailA(club.mail.info)}</p></div>
-    <div><h2>Verein</h2><ul><li><a href="spielplan.html">Spielplan</a></li><li><a href="termine.html">Termine</a></li><li><a href="faq.html">Fragen und Antworten</a></li><li><a href="sponsoren.html">Sponsoren</a></li><li><a href="vereinsheim.html">Vereinsheim</a></li><li><a href="mitgliedschaft.html">Mitglied werden</a></li></ul></div>
-    <div><h2>Folgt uns</h2><ul>${club.social.map((s) => `<li><a href="${s.url}" rel="noopener">${esc(s.label)}</a></li>`).join("")}</ul></div>
+    <details class="foot-col" open><summary><h2>Anschrift</h2></summary><div class="foot-body"><address>${club.address.join("<br>")}</address><p style="margin-top:.6rem"><a href="${club.maps}" rel="noopener">Auf der Karte zeigen</a></p></div></details>
+    <details class="foot-col" open><summary><h2>Post</h2></summary><div class="foot-body"><address>${esc(club.name)}<br>${club.post.join("<br>")}</address><p style="margin-top:.6rem">${mailA(club.mail.info)}</p></div></details>
+    <details class="foot-col" open><summary><h2>Verein</h2></summary><div class="foot-body"><ul><li><a href="spielplan.html">Spielplan</a></li><li><a href="termine.html">Termine</a></li><li><a href="faq.html">Fragen und Antworten</a></li><li><a href="sponsoren.html">Sponsoren</a></li><li><a href="vereinsheim.html">Vereinsheim</a></li><li><a href="mitgliedschaft.html">Mitglied werden</a></li></ul></div></details>
+    <details class="foot-col" open><summary><h2>Folgt uns</h2></summary><div class="foot-body"><ul>${club.social.map((s) => `<li><a href="${s.url}" rel="noopener">${esc(s.label)}</a></li>`).join("")}</ul></div></details>
   </div>
   <div class="wrap foot-legal">
     <span>© ${new Date().getFullYear()} ${esc(club.name)}</span>
