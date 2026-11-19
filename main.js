@@ -163,6 +163,50 @@
     setInterval(drawToday, 60000);
   }
 
+  // Countdown bis zum Anpfiff
+  document.querySelectorAll("[data-kickoff]").forEach(function (c) {
+    var el = c.querySelector(".countdown"); if (!el) return;
+    var tick = function () {
+      var p = c.dataset.kickoff.split(/[-T:]/).map(Number);
+      var k = new Date(p[0], p[1] - 1, p[2], p[3], p[4]);
+      var diff = Math.round((k - new Date()) / 60000);
+      if (diff <= 0) { el.textContent = diff > -120 ? "läuft" : ""; return; }
+      var d = Math.floor(diff / 1440), h = Math.floor((diff % 1440) / 60), m = diff % 60;
+      el.textContent = "in " + (d ? d + (d === 1 ? " Tag " : " Tagen ") : "") + (d < 2 ? h + " Std. " : "") + (d === 0 ? m + " Min." : "");
+    };
+    tick(); setInterval(tick, 30000);
+  });
+
+  // Spielplan: Filter
+  var plan = document.getElementById("plan-next");
+  if (plan) {
+    var state = { when: "next", dept: "alle", team: "", home: false };
+    var lists = { next: plan, past: document.getElementById("plan-past") };
+    var empty = document.getElementById("plan-empty");
+    var nowStr = function () { var d = new Date(); var p = function (n) { return String(n).padStart(2, "0"); }; return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + "T" + p(d.getHours()) + ":" + p(d.getMinutes()); };
+    var applyPlan = function () {
+      var now = nowStr(), shown = 0;
+      Object.keys(lists).forEach(function (k) { lists[k].hidden = k !== state.when; });
+      document.querySelectorAll(".game-day").forEach(function (day) {
+        var any = 0;
+        day.querySelectorAll(".match").forEach(function (m) {
+          var ok = (state.dept === "alle" || m.dataset.dept === state.dept) && (!state.team || m.dataset.team === state.team) && (!state.home || m.dataset.home === "1");
+          var inList = day.parentNode.id === "plan-next" ? m.dataset.date >= now : true;
+          m.hidden = !(ok && inList); if (!m.hidden) any++;
+        });
+        day.hidden = !any;
+        if (any && day.parentNode === lists[state.when]) shown++;
+      });
+      if (empty) empty.hidden = shown > 0;
+    };
+    document.querySelectorAll(".seg [data-when]").forEach(function (b) { b.addEventListener("click", function () { state.when = b.dataset.when; document.querySelectorAll(".seg [data-when]").forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); }); applyPlan(); }); });
+    document.querySelectorAll(".plan-tools [data-dept]").forEach(function (b) { b.addEventListener("click", function () { state.dept = b.dataset.dept; document.querySelectorAll(".plan-tools [data-dept]").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); }); applyPlan(); }); });
+    var sel = document.getElementById("plan-team"); if (sel) sel.addEventListener("change", function () { state.team = sel.value; applyPlan(); });
+    var chk = document.getElementById("plan-home"); if (chk) chk.addEventListener("change", function () { state.home = chk.checked; applyPlan(); });
+    var qs = location.hash.slice(1); if (qs && sel && sel.querySelector('option[value="' + qs + '"]')) { sel.value = qs; state.team = qs; }
+    applyPlan();
+  }
+
   // News: Filter per Adresse (#turnen)
   var hashTag = decodeURIComponent((location.hash || "").slice(1));
   if (filters && hashTag) {
@@ -188,14 +232,14 @@
     return '<article class="result' + (girls ? " girls" : "") + '" style="--i:' + (n++) + '"><div class="result-top"><h3>' + esc(t.name) + '</h3><span class="k k-foot">Fußball</span></div>' +
       '<div class="meta"><span><b>' + yr(t) + "</b></span><span>Training " + esc(t.training) + "</span></div>" +
       "<div>Ansprechpartner: " + contact + "</div>" +
-      '<div class="result-links"><a href="' + base + "#" + t.id + '">Alle Trainer und Infos</a><a href="' + t.cal + '">In den Kalender</a></div></article>';
+      '<div class="result-links"><a href="team-' + t.id + '.html">Teamseite mit Spielen</a><a href="' + t.cal + '">In den Kalender</a></div></article>';
   }
   function gymCard(g) {
     return '<article class="result gym" style="--i:' + (n++) + '"><div class="result-top"><h3>' + esc(g.name) + '</h3><span class="k k-gym">Turnen</span></div>' +
       '<div class="meta"><span><b>' + esc(g.ageText) + "</b></span></div>" +
       "<div>" + g.times.map(esc).join("<br>") + "</div>" +
       (D.gymStop ? '<div class="stop">Zurzeit Aufnahmestopp. Fragt nach freien Plätzen unter <a href="mailto:' + D.gymMail + '">' + D.gymMail + "</a>.</div>" : "") +
-      '<div class="result-links"><a href="turnen.html#' + g.id + '">Zur Gruppe</a><a href="assets/kalender/' + g.id + '.ics">In den Kalender</a></div></article>';
+      '<div class="result-links"><a href="team-' + g.id + '.html">Zur Gruppe</a><a href="assets/kalender/' + g.id + '.ics">In den Kalender</a></div></article>';
   }
   function note(html) { return '<div class="result-note" style="--i:' + (n++) + '">' + html + "</div>"; }
 

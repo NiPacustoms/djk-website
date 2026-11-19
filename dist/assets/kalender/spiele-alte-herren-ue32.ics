@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DJK Spvgg Herten//Spiele//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Spiele Alte Herren Ü32
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+UID:031QALKCAO000000VS5489BUVSV0FPBG-alte-herren-ue32@djkspvggherten.d
+ e
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260905T153000
+DTEND;TZID=Europe/Berlin:20260905T173000
+SUMMARY:SuS Beckhausen 05 – Alte Herren Ü32
+LOCATION:Auswärts
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/su
+ s-beckhausen-05-djk-spvgg-herten-ue32/-/spiel/031QALKCAO000000VS5489BU
+ VSV0FPBG
+END:VEVENT
+BEGIN:VEVENT
+UID:02UVQT5PN4000000VS5489BTVTU47HH3-alte-herren-ue32@djkspvggherten.d
+ e
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260912T153000
+DTEND;TZID=Europe/Berlin:20260912T173000
+SUMMARY:RW Leithe – Alte Herren Ü32
+LOCATION:Auswärts
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/rw
+ -leithe-djk-spvgg-herten-ue32/-/spiel/02UVQT5PN4000000VS5489BTVTU47HH3
+END:VEVENT
+END:VCALENDAR

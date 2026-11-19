@@ -1,0 +1,218 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DJK Spvgg Herten//Spiele//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Spiele U15-Juniorinnen
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+UID:031BRIBVN8000000VS5489BUVUR5FS5A-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260905T143000
+DTEND;TZID=Europe/Berlin:20260905T160000
+SUMMARY:TuS Eichlinghofen – U15-Juniorinnen
+LOCATION:Auswärts
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/tu
+ s-eichlinghofen-djk-spvgg-07-herten/-/spiel/031BRIBVN8000000VS5489BUVU
+ R5FS5A
+END:VEVENT
+BEGIN:VEVENT
+UID:0320LHF6CC000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260912T131500
+DTEND;TZID=Europe/Berlin:20260912T144500
+SUMMARY:U15-Juniorinnen – Wambeler SV
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/dj
+ k-spvgg-07-herten-wambeler-sv/-/spiel/0320LHF6CC000000VS5489BUVSORQI22
+END:VEVENT
+BEGIN:VEVENT
+UID:031U64Q8RS000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260919T150000
+DTEND;TZID=Europe/Berlin:20260919T163000
+SUMMARY:FC Marl o.W. – U15-Juniorinnen
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/fc-marl-ow-djk-
+ spvgg-07-herten/-/spiel/031U64Q8RS000000VS5489BUVSORQI22
+END:VEVENT
+BEGIN:VEVENT
+UID:031U64Q91O000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260926T150000
+DTEND;TZID=Europe/Berlin:20260926T163000
+SUMMARY:U15-Juniorinnen – SW Röllinghausen 9er
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-07-he
+ rten-sw-roellinghausen-9er/-/spiel/031U64Q91O000000VS5489BUVSORQI22
+END:VEVENT
+BEGIN:VEVENT
+UID:0320Q3QE0G000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260927T110000
+DTEND;TZID=Europe/Berlin:20260927T123000
+SUMMARY:U15-Juniorinnen – SV Westerholt 9er
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/dj
+ k-spvgg-07-herten-sv-westerholt-9er/-/spiel/0320Q3QE0G000000VS5489BUVS
+ ORQI22
+END:VEVENT
+BEGIN:VEVENT
+UID:031U64Q95S000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261010T150000
+DTEND;TZID=Europe/Berlin:20261010T163000
+SUMMARY:U15-Juniorinnen – 1. FFC Recklinghausen wC zg.
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-07-he
+ rten-1-ffc-recklinghausen-wc/-/spiel/031U64Q95S000000VS5489BUVSORQI22
+END:VEVENT
+BEGIN:VEVENT
+UID:032AJS7090000000VS5489BTVU989P58-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261017T133000
+DTEND;TZID=Europe/Berlin:20261017T150000
+SUMMARY:U15-Juniorinnen – SV Wacker Obercastrop
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/dj
+ k-spvgg-07-herten-sv-wacker-obercastrop/-/spiel/032AJS7090000000VS5489
+ BTVU989P58
+END:VEVENT
+BEGIN:VEVENT
+UID:032E7GBNH8000000VS5489BTVU989P58-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261024T133000
+DTEND;TZID=Europe/Berlin:20261024T150000
+SUMMARY:U15-Juniorinnen – DJK SF Katernberg 13/​19
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/dj
+ k-spvgg-07-herten-djk-sf-katernberg-13-19/-/spiel/032E7GBNH8000000VS54
+ 89BTVU989P58
+END:VEVENT
+BEGIN:VEVENT
+UID:032E7GO1JS000000VS5489BTVU989P58-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261107T120000
+DTEND;TZID=Europe/Berlin:20261107T133000
+SUMMARY:U15-Juniorinnen – ASC Leone
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/dj
+ k-spvgg-07-herten-asc-leone/-/spiel/032E7GO1JS000000VS5489BTVU989P58
+END:VEVENT
+BEGIN:VEVENT
+UID:031U64Q9TC000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261114T150000
+DTEND;TZID=Europe/Berlin:20261114T163000
+SUMMARY:FC 26 Erkenschwick 9er o.W. – U15-Juniorinnen
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/fc-26-erkenschw
+ ick-9er-ow-djk-spvgg-07-herten/-/spiel/031U64Q9TC000000VS5489BUVSORQI2
+ 2
+END:VEVENT
+BEGIN:VEVENT
+UID:031U64Q9UC000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261121T133000
+DTEND;TZID=Europe/Berlin:20261121T150000
+SUMMARY:U15-Juniorinnen – SV Titania Erkenschwick -9er-
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-07-he
+ rten-sv-titania-erkenschwick-9er/-/spiel/031U64Q9UC000000VS5489BUVSORQ
+ I22
+END:VEVENT
+BEGIN:VEVENT
+UID:031U64QA78000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261128T170000
+DTEND;TZID=Europe/Berlin:20261128T183000
+SUMMARY:SSV Buer 07/​28 -9er- – U15-Juniorinnen
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/ssv-buer-07-28-
+ 9%27er-djk-spvgg-07-herten/-/spiel/031U64QA78000000VS5489BUVSORQI22
+END:VEVENT
+BEGIN:VEVENT
+UID:031U64QACG000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261205T133000
+DTEND;TZID=Europe/Berlin:20261205T150000
+SUMMARY:U15-Juniorinnen – VfL Grafenwald -9er-
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-07-he
+ rten-vfl-grafenwald-9%27er/-/spiel/031U64QACG000000VS5489BUVSORQI22
+END:VEVENT
+BEGIN:VEVENT
+UID:0327RQM6OS000000VS5489BTVUCVBQ5B-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261219T130000
+DTEND;TZID=Europe/Berlin:20261219T143000
+SUMMARY:VfL Grafenwald 9'er – U15-Juniorinnen
+LOCATION:Auswärts
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/vf
+ l-grafenwald-9%27er-djk-spvgg-07-herten/-/spiel/0327RQM6OS000000VS5489
+ BTVUCVBQ5B
+END:VEVENT
+BEGIN:VEVENT
+UID:032N94MQES000000VS5489BUVT7T9F23-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270123T130000
+DTEND;TZID=Europe/Berlin:20270123T143000
+SUMMARY:FC 26 Erkenschwick 9er o.W. – U15-Juniorinnen
+LOCATION:Auswärts
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/fc
+ -26-erkenschwick-9er-ow-djk-spvgg-07-herten/-/spiel/032N94MQES000000VS
+ 5489BUVT7T9F23
+END:VEVENT
+BEGIN:VEVENT
+UID:032NB455DS000000VS5489BUVT7T9F23-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270130T133000
+DTEND;TZID=Europe/Berlin:20270130T150000
+SUMMARY:U15-Juniorinnen – FC 26 Erkenschwick 9er o.W.
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/dj
+ k-spvgg-07-herten-fc-26-erkenschwick-9er-ow/-/spiel/032NB455DS000000VS
+ 5489BUVT7T9F23
+END:VEVENT
+BEGIN:VEVENT
+UID:032NMEM2N4000000VS5489BUVT7T9F23-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270221T110000
+DTEND;TZID=Europe/Berlin:20270221T123000
+SUMMARY:TuS Eichlinghofen – U15-Juniorinnen
+LOCATION:Auswärts
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/tu
+ s-eichlinghofen-djk-spvgg-07-herten/-/spiel/032NMEM2N4000000VS5489BUVT
+ 7T9F23
+END:VEVENT
+BEGIN:VEVENT
+UID:031U64QB2S000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270306T150000
+DTEND;TZID=Europe/Berlin:20270306T163000
+SUMMARY:U15-Juniorinnen – FC Marl o.W.
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-07-he
+ rten-fc-marl-ow/-/spiel/031U64QB2S000000VS5489BUVSORQI22
+END:VEVENT
+BEGIN:VEVENT
+UID:031U64QBC8000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270313T133000
+DTEND;TZID=Europe/Berlin:20270313T150000
+SUMMARY:SW Röllinghausen 9er – U15-Juniorinnen
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/sw-roellinghaus
+ en-9er-djk-spvgg-07-herten/-/spiel/031U64QBC8000000VS5489BUVSORQI22
+END:VEVENT
+BEGIN:VEVENT
+UID:031U64QBJO000000VS5489BUVSORQI22-u15@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270320T120000
+DTEND;TZID=Europe/Berlin:20270320T133000
+SUMMARY:1. FFC Recklinghausen wC zg. – U15-Juniorinnen
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/1-ffc-recklingh
+ ausen-wc-djk-spvgg-07-herten/-/spiel/031U64QBJO000000VS5489BUVSORQI22
+END:VEVENT
+END:VCALENDAR

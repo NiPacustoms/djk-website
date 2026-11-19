@@ -1,0 +1,210 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DJK Spvgg Herten//Spiele//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Spiele Frauen II
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+UID:031HRV2UCC000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260906T124500
+DTEND;TZID=Europe/Berlin:20260906T144500
+SUMMARY:Frauen II – TuS Harpen
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-ii-tus-harpen/-/spiel/031HRV2UCC000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV2U8S000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260913T150000
+DTEND;TZID=Europe/Berlin:20260913T170000
+SUMMARY:SV Titania Erkenschwick – Frauen II
+LOCATION:Auswärts
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/sv-titania-erke
+ nschwick-djk-spvgg-herten-ii/-/spiel/031HRV2U8S000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV2TRS000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260920T124500
+DTEND;TZID=Europe/Berlin:20260920T144500
+SUMMARY:Frauen II – SV Eintracht Grumme
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-ii-sv-eintracht-grumme/-/spiel/031HRV2TRS000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV2TLO000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260927T131500
+DTEND;TZID=Europe/Berlin:20260927T151500
+SUMMARY:TV Brechten II – Frauen II
+LOCATION:Auswärts
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/tv-brechten-ii-
+ djk-spvgg-herten-ii/-/spiel/031HRV2TLO000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV2TB0000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261004T124500
+DTEND;TZID=Europe/Berlin:20261004T144500
+SUMMARY:Frauen II – VfL Grafenwald
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-ii-vfl-grafenwald/-/spiel/031HRV2TB0000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV2T60000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261011T150000
+DTEND;TZID=Europe/Berlin:20261011T170000
+SUMMARY:FC Marbeck – Frauen II
+LOCATION:Auswärts
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/fc-marbeck-djk-
+ spvgg-herten-ii/-/spiel/031HRV2T60000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV2STK000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261018T124500
+DTEND;TZID=Europe/Berlin:20261018T144500
+SUMMARY:Frauen II – FC Bochum 10/​21
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-ii-fc-bochum-10-21/-/spiel/031HRV2STK000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV2SNS000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261025T110000
+DTEND;TZID=Europe/Berlin:20261025T130000
+SUMMARY:TuS Gahlen – Frauen II
+LOCATION:Auswärts
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/tus-gahlen-djk-
+ spvgg-herten-ii/-/spiel/031HRV2SNS000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV2SH0000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261108T124500
+DTEND;TZID=Europe/Berlin:20261108T144500
+SUMMARY:Frauen II – Wambeler SV
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-ii-wambeler-sv/-/spiel/031HRV2SH0000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV2SB8000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261115T130000
+DTEND;TZID=Europe/Berlin:20261115T150000
+SUMMARY:Frauen II – SSV Rhade II
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-ii-ssv-rhade-ii/-/spiel/031HRV2SB8000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV2SAC000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261129T130000
+DTEND;TZID=Europe/Berlin:20261129T150000
+SUMMARY:SV Wanne 1911 – Frauen II
+LOCATION:Auswärts
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/sv-wanne-1911-d
+ jk-spvgg-herten-ii/-/spiel/031HRV2SAC000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV33H8000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261206T171500
+DTEND;TZID=Europe/Berlin:20261206T191500
+SUMMARY:SV Westfalia Huckarde – Frauen II
+LOCATION:Auswärts
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/sv-westfalia-hu
+ ckarde-djk-spvgg-herten-ii/-/spiel/031HRV33H8000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:032J2EKCNK000000VS5489BUVSGKI48U-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270103T121500
+DTEND;TZID=Europe/Berlin:20270103T141500
+SUMMARY:Frauen II – Team 7
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Vereinsturnier\nhttps://www.fussball.de/spiel/djk-spvgg-he
+ rten-ii-team-7/-/spiel/032J2EKCNK000000VS5489BUVSGKI48U
+END:VEVENT
+BEGIN:VEVENT
+UID:032J2EKCO8000000VS5489BUVSGKI48U-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270103T123000
+DTEND;TZID=Europe/Berlin:20270103T143000
+SUMMARY:Team 6 – Frauen II
+LOCATION:Auswärts
+DESCRIPTION:Vereinsturnier\nhttps://www.fussball.de/spiel/team-6-djk-s
+ pvgg-herten-ii/-/spiel/032J2EKCO8000000VS5489BUVSGKI48U
+END:VEVENT
+BEGIN:VEVENT
+UID:032J2EKCPK000000VS5489BUVSGKI48U-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270103T130000
+DTEND;TZID=Europe/Berlin:20270103T150000
+SUMMARY:Team 8 – Frauen II
+LOCATION:Auswärts
+DESCRIPTION:Vereinsturnier\nhttps://www.fussball.de/spiel/team-8-djk-s
+ pvgg-herten-ii/-/spiel/032J2EKCPK000000VS5489BUVSGKI48U
+END:VEVENT
+BEGIN:VEVENT
+UID:032I58O1H0000000VS5489BTVU989P58-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270131T110000
+DTEND;TZID=Europe/Berlin:20270131T130000
+SUMMARY:Vogelheimer SV – Frauen II
+LOCATION:Auswärts
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/vo
+ gelheimer-sv-djk-spvgg-herten-ii/-/spiel/032I58O1H0000000VS5489BTVU989
+ P58
+END:VEVENT
+BEGIN:VEVENT
+UID:032F5OFUIG000000VS5489BTVU989P58-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270221T124500
+DTEND;TZID=Europe/Berlin:20270221T144500
+SUMMARY:Frauen II – MSV Duisburg U20
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/dj
+ k-spvgg-herten-ii-msv-duisburg-u20/-/spiel/032F5OFUIG000000VS5489BTVU9
+ 89P58
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV33DO000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270307T124500
+DTEND;TZID=Europe/Berlin:20270307T144500
+SUMMARY:Frauen II – VfB Hüls
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-ii-vfb-huels/-/spiel/031HRV33DO000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV32OG000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270314T130000
+DTEND;TZID=Europe/Berlin:20270314T150000
+SUMMARY:TuS Harpen – Frauen II
+LOCATION:Auswärts
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/tus-harpen-djk-
+ spvgg-herten-ii/-/spiel/031HRV32OG000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031HRV32IO000000VS5489BTVSRD0UH9-frauen-ii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270321T124500
+DTEND;TZID=Europe/Berlin:20270321T144500
+SUMMARY:Frauen II – SV Titania Erkenschwick
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Bezirksliga\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-ii-sv-titania-erkenschwick/-/spiel/031HRV32IO000000VS5489BTVSRD0UH9
+END:VEVENT
+END:VCALENDAR

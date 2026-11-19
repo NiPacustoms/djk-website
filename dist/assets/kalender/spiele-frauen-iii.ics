@@ -1,0 +1,210 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DJK Spvgg Herten//Spiele//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Spiele Frauen III
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+UID:031J8JCFMS000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260830T170000
+DTEND;TZID=Europe/Berlin:20260830T190000
+SUMMARY:SV Westerholt 14/​19 – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/sv-westerholt-1
+ 4-19-djk-spvgg-herten-iii/-/spiel/031J8JCFMS000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCF7G000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260906T104500
+DTEND;TZID=Europe/Berlin:20260906T124500
+SUMMARY:Frauen III – Teutonia Schalke
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-iii-teutonia-schalke/-/spiel/031J8JCF7G000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCEP0000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260913T103000
+DTEND;TZID=Europe/Berlin:20260913T123000
+SUMMARY:FC Marl – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/fc-marl-djk-spv
+ gg-herten-iii/-/spiel/031J8JCEP0000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCEF8000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260920T104500
+DTEND;TZID=Europe/Berlin:20260920T124500
+SUMMARY:Frauen III – SG Eintracht Gelsenkirchen 9er
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-iii-sg-eintracht-gelsenkirchen-07-12/-/spiel/031J8JCEF8000000VS5489B
+ TVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCEBC000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260927T130000
+DTEND;TZID=Europe/Berlin:20260927T150000
+SUMMARY:SV HORST-EMSCHER 9er – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/sv-horst-emsche
+ r-djk-spvgg-herten-iii/-/spiel/031J8JCEBC000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCDNO000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261004T104500
+DTEND;TZID=Europe/Berlin:20261004T124500
+SUMMARY:Frauen III – BWW Langenbochum
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-iii-bww-langenbochum/-/spiel/031J8JCDNO000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCD2O000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261018T104500
+DTEND;TZID=Europe/Berlin:20261018T124500
+SUMMARY:Frauen III – SC Constantin Herne
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-iii-sc-constantin-herne/-/spiel/031J8JCD2O000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCCQ8000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261025T171500
+DTEND;TZID=Europe/Berlin:20261025T191500
+SUMMARY:SG Rentfort Preußen Gladbeck – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/sg-rentfort-pre
+ ussen-gladbeck-djk-spvgg-herten-iii/-/spiel/031J8JCCQ8000000VS5489BTVS
+ RD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCCF4000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261108T170000
+DTEND;TZID=Europe/Berlin:20261108T190000
+SUMMARY:ASC LEONE – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/asc-leone-djk-s
+ pvgg-herten-iii/-/spiel/031J8JCCF4000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCC7C000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261115T171500
+DTEND;TZID=Europe/Berlin:20261115T191500
+SUMMARY:Frauen III – SC Victoria Ickern
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-iii-sc-victoria-ickern/-/spiel/031J8JCC7C000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCGNC000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261206T130000
+DTEND;TZID=Europe/Berlin:20261206T150000
+SUMMARY:1. FFC Recklinghausen II – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/1-ffc-recklingh
+ ausen-ii-djk-spvgg-herten-iii/-/spiel/031J8JCGNC000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCH1C000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261213T150000
+DTEND;TZID=Europe/Berlin:20261213T170000
+SUMMARY:Frauen III – TSV Marl-Hüls
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-iii-tsv-marl-huels/-/spiel/031J8JCH1C000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:032J2EKD44000000VS5489BUVSGKI48U-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270103T134500
+DTEND;TZID=Europe/Berlin:20270103T154500
+SUMMARY:Frauen III – Team 11
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Vereinsturnier\nhttps://www.fussball.de/spiel/djk-spvgg-he
+ rten-iii-team-11/-/spiel/032J2EKD44000000VS5489BUVSGKI48U
+END:VEVENT
+BEGIN:VEVENT
+UID:032J2EKD4S000000VS5489BUVSGKI48U-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270103T140000
+DTEND;TZID=Europe/Berlin:20270103T160000
+SUMMARY:Team 10 – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Vereinsturnier\nhttps://www.fussball.de/spiel/team-10-djk-
+ spvgg-herten-iii/-/spiel/032J2EKD4S000000VS5489BUVSGKI48U
+END:VEVENT
+BEGIN:VEVENT
+UID:032J2EKD6G000000VS5489BUVSGKI48U-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270103T143000
+DTEND;TZID=Europe/Berlin:20270103T163000
+SUMMARY:Team 12 – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Vereinsturnier\nhttps://www.fussball.de/spiel/team-12-djk-
+ spvgg-herten-iii/-/spiel/032J2EKD6G000000VS5489BUVSGKI48U
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCPQS000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270214T110000
+DTEND;TZID=Europe/Berlin:20270214T130000
+SUMMARY:TSV Marl-Hüls – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/tsv-marl-huels-
+ djk-spvgg-herten-iii/-/spiel/031J8JCPQS000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCPBS000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270221T104500
+DTEND;TZID=Europe/Berlin:20270221T124500
+SUMMARY:Frauen III – 1. FFC Recklinghausen II
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-iii-1-ffc-recklinghausen-ii/-/spiel/031J8JCPBS000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCOEG000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270228T133000
+DTEND;TZID=Europe/Berlin:20270228T153000
+SUMMARY:SV Schermbeck – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/sv-schermbeck-d
+ jk-spvgg-herten-iii/-/spiel/031J8JCOEG000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCNSC000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270307T104500
+DTEND;TZID=Europe/Berlin:20270307T124500
+SUMMARY:Frauen III – SV Westerholt 14/​19
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-iii-sv-westerholt-14-19/-/spiel/031J8JCNSC000000VS5489BTVSRD0UH9
+END:VEVENT
+BEGIN:VEVENT
+UID:031J8JCN28000000VS5489BTVSRD0UH9-frauen-iii@djkspvggherten.de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270314T151500
+DTEND;TZID=Europe/Berlin:20270314T171500
+SUMMARY:Teutonia Schalke – Frauen III
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga A\nhttps://www.fussball.de/spiel/teutonia-schalk
+ e-djk-spvgg-herten-iii/-/spiel/031J8JCN28000000VS5489BTVSRD0UH9
+END:VEVENT
+END:VCALENDAR

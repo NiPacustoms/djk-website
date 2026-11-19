@@ -1,0 +1,229 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DJK Spvgg Herten//Spiele//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Spiele 1. Herrenmannschaft
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+UID:031JTN40GG000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260913T150000
+DTEND;TZID=Europe/Berlin:20260913T170000
+SUMMARY:1. Herrenmannschaft – SW Röllinghausen II
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-sw-roellinghausen-ii/-/spiel/031JTN40GG000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN40DS000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260920T150000
+DTEND;TZID=Europe/Berlin:20260920T170000
+SUMMARY:ETG Recklinghausen – 1. Herrenmannschaft
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/etg-recklinghau
+ sen-djk-spvgg-herten/-/spiel/031JTN40DS000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN3VAG000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20260927T151500
+DTEND;TZID=Europe/Berlin:20260927T171500
+SUMMARY:1. Herrenmannschaft – SuS Bertlich
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-sus-bertlich/-/spiel/031JTN3VAG000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN3V3O000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261004T131500
+DTEND;TZID=Europe/Berlin:20261004T151500
+SUMMARY:BW Westf. Langenbochum II – 1. Herrenmannschaft
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/bw-westf-langen
+ bochum-ii-djk-spvgg-herten/-/spiel/031JTN3V3O000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN3U7K000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261011T151500
+DTEND;TZID=Europe/Berlin:20261011T171500
+SUMMARY:1. Herrenmannschaft – SG Suderwich II
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-sg-suderwich-ii/-/spiel/031JTN3U7K000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN3TTG000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261018T151500
+DTEND;TZID=Europe/Berlin:20261018T171500
+SUMMARY:TuS 05 Sinsen – 1. Herrenmannschaft
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/tus-05-sinsen-d
+ jk-spvgg-herten/-/spiel/031JTN3TTG000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN3T7S000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261025T151500
+DTEND;TZID=Europe/Berlin:20261025T171500
+SUMMARY:1. Herrenmannschaft – SV Westerholt
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-sv-westerholt/-/spiel/031JTN3T7S000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:032FUUU1A0000000VS5489BUVSGKI48U-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261029T194500
+DTEND;TZID=Europe/Berlin:20261029T214500
+SUMMARY:SpVg. Westfalia Buer – 1. Herrenmannschaft
+LOCATION:Auswärts
+DESCRIPTION:Kreisfreundschaftsspiele\nhttps://www.fussball.de/spiel/sp
+ vg-westfalia-buer-djk-spvgg-herten/-/spiel/032FUUU1A0000000VS5489BUVSG
+ KI48U
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN3SPK000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261108T130000
+DTEND;TZID=Europe/Berlin:20261108T150000
+SUMMARY:SV Hochlar 28 II – 1. Herrenmannschaft
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/sv-hochlar-28-i
+ i-djk-spvgg-herten/-/spiel/031JTN3SPK000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN3S90000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261115T153000
+DTEND;TZID=Europe/Berlin:20261115T173000
+SUMMARY:FC Leusberg – 1. Herrenmannschaft
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/fc-leusberg-djk
+ -spvgg-herten/-/spiel/031JTN3S90000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN3RQK000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261129T143000
+DTEND;TZID=Europe/Berlin:20261129T163000
+SUMMARY:1. Herrenmannschaft – FC Marl II
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-fc-marl-ii/-/spiel/031JTN3RQK000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN4HJC000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20261206T143000
+DTEND;TZID=Europe/Berlin:20261206T163000
+SUMMARY:1. Herrenmannschaft – DJK SV GW Erkenschwick
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-djk-sv-gw-erkenschwick/-/spiel/031JTN4HJC000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN44FG000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270214T150000
+DTEND;TZID=Europe/Berlin:20270214T170000
+SUMMARY:DJK SV GW Erkenschwick – 1. Herrenmannschaft
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-sv-gw-erken
+ schwick-djk-spvgg-herten/-/spiel/031JTN44FG000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN4FDO000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270228T150000
+DTEND;TZID=Europe/Berlin:20270228T170000
+SUMMARY:1. Herrenmannschaft – SuS Hervest-Dorsten
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-sus-hervest-dorsten/-/spiel/031JTN4FDO000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN4E1G000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270307T150000
+DTEND;TZID=Europe/Berlin:20270307T170000
+SUMMARY:DJK Germania Lenkerbeck – 1. Herrenmannschaft
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-germania-le
+ nkerbeck-djk-spvgg-herten/-/spiel/031JTN4E1G000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN4DD0000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270314T150000
+DTEND;TZID=Europe/Berlin:20270314T170000
+SUMMARY:1. Herrenmannschaft – TSV Westerholt
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-tsv-westerholt/-/spiel/031JTN4DD0000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN4CAO000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270321T130000
+DTEND;TZID=Europe/Berlin:20270321T150000
+SUMMARY:SW Röllinghausen II – 1. Herrenmannschaft
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/sw-roellinghaus
+ en-ii-djk-spvgg-herten/-/spiel/031JTN4CAO000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN4C7C000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270404T150000
+DTEND;TZID=Europe/Berlin:20270404T170000
+SUMMARY:1. Herrenmannschaft – ETG Recklinghausen
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-etg-recklinghausen/-/spiel/031JTN4C7C000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN4AF0000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270411T150000
+DTEND;TZID=Europe/Berlin:20270411T170000
+SUMMARY:SuS Bertlich – 1. Herrenmannschaft
+LOCATION:Auswärts
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/sus-bertlich-dj
+ k-spvgg-herten/-/spiel/031JTN4AF0000000VS5489BUVVKNMR0J
+END:VEVENT
+BEGIN:VEVENT
+UID:031JTN4A48000000VS5489BUVVKNMR0J-1-herrenmannschaft@djkspvggherten
+ .de
+DTSTAMP:20261119T114421Z
+DTSTART;TZID=Europe/Berlin:20270418T150000
+DTEND;TZID=Europe/Berlin:20270418T170000
+SUMMARY:1. Herrenmannschaft – BW Westf. Langenbochum II
+LOCATION:Sportanlage Katzenbusch\, Katzenbuschstr. 1–3\, 45699 Herten
+DESCRIPTION:Kreisliga B\nhttps://www.fussball.de/spiel/djk-spvgg-herte
+ n-bw-westf-langenbochum-ii/-/spiel/031JTN4A48000000VS5489BUVVKNMR0J
+END:VEVENT
+END:VCALENDAR
