@@ -92,14 +92,19 @@ function buildIcs(id, name, evs, desc) {
       "END:VEVENT"].join("\r\n");
   });
   CALS[id] = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//DJK Spvgg Herten//Training//DE", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
-    `X-WR-CALNAME:${icsText("Training " + name)}`, "X-WR-TIMEZONE:Europe/Berlin",
+    `X-WR-CALNAME:${icsText("Training " + name)}`, "X-WR-TIMEZONE:Europe/Berlin", "REFRESH-INTERVAL;VALUE=DURATION:P1D", "X-PUBLISHED-TTL:P1D",
     "BEGIN:VTIMEZONE", "TZID:Europe/Berlin",
     "BEGIN:DAYLIGHT", "TZOFFSETFROM:+0100", "TZOFFSETTO:+0200", "TZNAME:CEST", "DTSTART:19700329T020000", "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU", "END:DAYLIGHT",
     "BEGIN:STANDARD", "TZOFFSETFROM:+0200", "TZOFFSETTO:+0100", "TZNAME:CET", "DTSTART:19701025T030000", "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU", "END:STANDARD",
     "END:VTIMEZONE", ...events, "END:VCALENDAR"].join("\r\n").split("\r\n").map((l) => { const out = []; let rest = l; while (rest.length > 70) { out.push(rest.slice(0, 70)); rest = rest.slice(70); } out.push(rest); return out.join("\r\n "); }).join("\r\n") + "\r\n";
   return `assets/kalender/${id}.ics`;
 }
-const calLink = (href) => (href ? `<a class="cal" href="${href}"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></svg>Trainingszeiten in den Kalender</a>` : "");
+const calLink = (href, label = "Trainingszeiten abonnieren") => {
+  if (!href) return "";
+  const abs = `${SITE_URL}/${href}`, webcal = abs.replace(/^https:/, "webcal:");
+  return `<details class="cal-menu"><summary class="cal"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></svg>${label}</summary>
+<div class="cal-opts"><a href="${webcal}">iPhone, Mac, Outlook</a><a href="https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcal)}" rel="noopener">Google Kalender, Android</a><a href="${href}" download>Datei herunterladen (.ics)</a><small>Als Abo aktualisieren sich Änderungen automatisch.</small></div></details>`;
+};
 
 // ---------- Symbole ----------
 const ICON = {
@@ -348,7 +353,7 @@ function matchIcs(id, name, games) {
     return ["BEGIN:VEVENT", `UID:${g.id}-${g.team}@djkspvggherten.de`, `DTSTAMP:${now}`, `DTSTART;TZID=Europe/Berlin:${start}`, `DTEND;TZID=Europe/Berlin:${end}`,
       `SUMMARY:${icsText(title)}`, `LOCATION:${icsText(g.home ? KATZENBUSCH : "Auswärts")}`, `DESCRIPTION:${icsText(g.competition + (g.url ? "\n" + g.url : ""))}`, "END:VEVENT"].join("\r\n");
   });
-  CALS[id] = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//DJK Spvgg Herten//Spiele//DE", "CALSCALE:GREGORIAN", "METHOD:PUBLISH", `X-WR-CALNAME:${icsText(name)}`, "X-WR-TIMEZONE:Europe/Berlin", ...ev, "END:VCALENDAR"]
+  CALS[id] = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//DJK Spvgg Herten//Spiele//DE", "CALSCALE:GREGORIAN", "METHOD:PUBLISH", `X-WR-CALNAME:${icsText(name)}`, "X-WR-TIMEZONE:Europe/Berlin", "REFRESH-INTERVAL;VALUE=DURATION:PT6H", "X-PUBLISHED-TTL:PT6H", "BEGIN:VTIMEZONE", "TZID:Europe/Berlin", "BEGIN:DAYLIGHT", "TZOFFSETFROM:+0100", "TZOFFSETTO:+0200", "TZNAME:CEST", "DTSTART:19700329T020000", "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU", "END:DAYLIGHT", "BEGIN:STANDARD", "TZOFFSETFROM:+0200", "TZOFFSETTO:+0100", "TZNAME:CET", "DTSTART:19701025T030000", "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU", "END:STANDARD", "END:VTIMEZONE", ...ev, "END:VCALENDAR"]
     .join("\r\n").split("\r\n").map((l) => { const o = []; let r = l; while (r.length > 70) { o.push(r.slice(0, 70)); r = r.slice(70); } o.push(r); return o.join("\r\n "); }).join("\r\n") + "\r\n";
   return `assets/kalender/${id}.ics`;
 }
@@ -371,7 +376,7 @@ function matchesBlock() {
   if (!GAMES.length) return "";
   return `<section class="wrap section" id="spiele" aria-labelledby="games-title">
   <div class="section-head news-head"><div><h2 id="games-title">Spiele</h2><p>${matchesUpdated ? `Stand ${matchesUpdated} Uhr, Daten von fussball.de.` : ""}</p></div>
-    <div class="slider-nav"><a class="more" href="spielplan.html">Ganzer Spielplan</a><a class="more" href="${homeGamesCal}">Heimspiele abonnieren</a></div></div>
+    <div class="slider-nav"><a class="more" href="spielplan.html">Ganzer Spielplan</a>${calLink(homeGamesCal, "Heimspiele abonnieren")}</div></div>
   <div class="flag-cards">${flagship("1. Herrenmannschaft")}${flagship("Frauen I")}</div>
   <div class="games-cols">
     <div><h3>Als Nächstes</h3><ol class="matches">${upcoming.slice(0, 7).map((g) => matchRow(g)).join("")}</ol></div>
@@ -877,7 +882,7 @@ pages.push({
     <div class="filters" role="group" aria-label="Abteilung">${["alle", "jugend", "juniorinnen", "damen", "herren"].map((d, i) => `<button type="button" data-dept="${d}" aria-pressed="${i === 0}">${d === "alle" ? "Alle" : DEPT_LABEL[d]}</button>`).join("")}</div>
     <label class="plan-select"><span>Team</span><select id="plan-team"><option value="">Alle Teams</option>${teamsWithGames.map(([id, n]) => `<option value="${id}">${esc(n)}</option>`).join("")}</select></label>
     <label class="plan-check"><input type="checkbox" id="plan-home"> Nur Heimspiele</label>
-    <a class="cal" href="${homeGamesCal}">${"Heimspiele abonnieren"}</a>
+    ${calLink(homeGamesCal, "Heimspiele abonnieren")}
   </div>
   <p class="plan-empty" id="plan-empty" hidden>Für diese Auswahl gibt es gerade keine Spiele.</p>
   <ol class="game-days" id="plan-next">${byDay(upcoming).map(dayBlock).join("")}</ol>
@@ -918,7 +923,7 @@ pages.push({
     <aside class="team-facts">
       <div class="fact"><span>Training</span><b>${esc(t.training)} Uhr</b><small>Kampfbahn Katzenbusch</small></div>
       <div class="fact"><span>Ansprechpartner</span><ul class="people">${people}</ul></div>
-      <div class="fact"><span>Kalender</span>${calLink(`assets/kalender/${id}.ics`).replace("Trainingszeiten in den Kalender", "Training abonnieren")}${gamesCal ? calLink(gamesCal).replace("Trainingszeiten in den Kalender", "Spiele abonnieren") : ""}</div>
+      <div class="fact" id="kalender"><span>Kalender</span>${calLink(`assets/kalender/${id}.ics`, "Training abonnieren")}${gamesCal ? calLink(gamesCal, "Spiele abonnieren") : ""}</div>
       ${t.fd ? `<div class="fact"><span>fussball.de</span><a href="https://www.fussball.de/mannschaft/-/saison/2627/team-id/${t.fd}" rel="noopener">Tabelle und Ergebnisse</a></div>` : ""}
     </aside>
     <div class="team-games">
@@ -951,7 +956,7 @@ pages.push({
     <aside class="team-facts">
       ${g.sessions.map(([d, a, b, h, f]) => `<div class="fact"><span>${({ Mo: "Montag", Di: "Dienstag", Mi: "Mittwoch", Do: "Donnerstag", Fr: "Freitag" })[d]}${f ? " · " + esc(f) : ""}</span><b class="tnum">${a}–${b} Uhr</b><a href="${D.gym.halls[h].map}" rel="noopener">${esc(D.gym.halls[h].name)}, ${esc(D.gym.halls[h].area)}</a></div>`).join("")}
       <div class="fact"><span>Leitung</span><b>${esc(g.lead)}</b>${mailA(club.mail.turner)}</div>
-      <div class="fact"><span>Kalender</span>${calLink(`assets/kalender/${g.id}.ics`).replace("Trainingszeiten in den Kalender", "Termine abonnieren")}</div>
+      <div class="fact" id="kalender"><span>Kalender</span>${calLink(`assets/kalender/${g.id}.ics`, "Termine abonnieren")}</div>
     </aside>
     <div class="prose"><h2>Was wir machen</h2><p>${esc(g.text)}</p><p><a href="turnen.html">Alle Gruppen der Turnabteilung</a> · <a href="mitgliedschaft.html">Beiträge</a></p></div>
   </div>
@@ -975,7 +980,7 @@ pages.push({
     </div>
     <div class="prose"><h2>Nächste Heimspiele</h2>
       ${homeSoon.length ? `<ol class="matches">${homeSoon.map((g) => matchRow(g)).join("")}</ol>` : `<p class="plan-empty">Gerade sind keine Heimspiele angesetzt.</p>`}
-      <p><a class="cal" href="${homeGamesCal}">Alle Heimspiele abonnieren</a></p>
+      ${calLink(homeGamesCal, "Alle Heimspiele abonnieren")}
     </div>
   </div>
 </section>`,

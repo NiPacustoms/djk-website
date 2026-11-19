@@ -704,3 +704,15 @@ td.num, th.num { text-align: right; white-space: nowrap; }
 .mt-actions a:not(.btn) { font-weight: 700; }
 .my-team, .hero { overflow-anchor: none; }
 .my-team { padding-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+
+/* Kalender-Abo-Menü */
+.cal-menu { position: relative; justify-self: start; }
+.cal-menu summary { list-style: none; cursor: pointer; color: var(--accent); text-decoration: underline; text-underline-offset: 0.18em; }
+.cal-menu summary::-webkit-details-marker { display: none; }
+.cal-menu summary::after { content: "▾"; font-size: 0.8em; margin-left: 0.2rem; text-decoration: none; display: inline-block; }
+.cal-menu[open] summary::after { transform: rotate(180deg); }
+.cal-opts { position: absolute; z-index: 20; top: calc(100% + 0.4rem); left: 0; min-width: 15rem; display: grid; gap: 0.1rem; padding: 0.4rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+.cal-opts a { padding: 0.55rem 0.7rem; border-radius: 4px; font-weight: 700; text-decoration: none; color: var(--ink); }
+.cal-opts a:hover { background: var(--chip); }
+.cal-opts small { padding: 0.3rem 0.7rem 0.2rem; color: var(--muted); font-size: 0.8rem; }
+.band .cal-menu summary { color: var(--on-green); }

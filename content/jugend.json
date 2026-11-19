@@ -99,7 +99,6 @@
     {
       "id": "e3",
       "name": "E3-Jugend",
-      "img": "t_e3",
       "coaches": [
         {
           "name": "Christian Zak",
@@ -139,7 +138,8 @@
       "training": "Di + Do 17:15–18:45",
       "fd": "02BBGIML30000000VS5489B2VVDBHQQ7",
       "yearFrom": 2016,
-      "yearTo": 2016
+      "yearTo": 2016,
+      "img": "t_e2"
     },
     {
       "id": "e1",

@@ -208,7 +208,7 @@
         '<button type="button" class="fav fav-sm" data-fav="' + f.id + '" data-fav-name="' + escT(t.name) + '" data-fav-url="' + t.url + '" aria-pressed="true" title="Aus „Mein Team“ entfernen">' + STAR + "<span></span></button></div>" +
         (t.stop ? '<p class="mt-stop">Zurzeit Aufnahmestopp</p>' : "") +
         '<div class="mt-rows">' + (t.gym ? "" : game) + train + (t.gym && t.lead ? '<div class="mt-row"><span>Leitung</span><b>' + escT(t.lead) + "</b></div>" : "") + "</div>" +
-        '<div class="mt-actions">' + call + '<a href="' + t.url + '">Teamseite</a><a href="' + (t.gamesCal || t.cal) + '">' + (t.gamesCal ? "Spiele abonnieren" : "Kalender") + "</a></div></article>";
+        '<div class="mt-actions">' + call + '<a href="' + t.url + '">Teamseite</a><a href="' + t.url + '#kalender">Kalender abonnieren</a></div></article>';
     }).join("");
     mtBox.innerHTML = html;
   }
@@ -355,14 +355,14 @@
     return '<article class="result' + (girls ? " girls" : "") + '" style="--i:' + (n++) + '"><div class="result-top"><h3>' + esc(t.name) + '</h3><span class="result-k"><span class="k k-foot">Fußball</span>' + favHtml(t.id, t.name) + '</span></div>' +
       '<div class="meta"><span><b>' + yr(t) + "</b></span><span>Training " + esc(t.training) + "</span></div>" +
       "<div>Ansprechpartner: " + contact + "</div>" +
-      '<div class="result-links"><a href="team-' + t.id + '.html">Teamseite mit Spielen</a><a href="' + t.cal + '">In den Kalender</a></div></article>';
+      '<div class="result-links"><a href="team-' + t.id + '.html">Teamseite mit Spielen</a><a href="team-' + t.id + '.html#kalender">Training abonnieren</a></div></article>';
   }
   function gymCard(g) {
     return '<article class="result gym" style="--i:' + (n++) + '"><div class="result-top"><h3>' + esc(g.name) + '</h3><span class="result-k"><span class="k k-gym">Turnen</span>' + favHtml(g.id, g.name) + '</span></div>' +
       '<div class="meta"><span><b>' + esc(g.ageText) + "</b></span></div>" +
       "<div>" + g.times.map(esc).join("<br>") + "</div>" +
       (D.gymStop ? '<div class="stop">Zurzeit Aufnahmestopp. Fragt nach freien Plätzen unter <a href="mailto:' + D.gymMail + '">' + D.gymMail + "</a>.</div>" : "") +
-      '<div class="result-links"><a href="team-' + g.id + '.html">Zur Gruppe</a><a href="assets/kalender/' + g.id + '.ics">In den Kalender</a></div></article>';
+      '<div class="result-links"><a href="team-' + g.id + '.html">Zur Gruppe</a><a href="team-' + g.id + '.html#kalender">Termine abonnieren</a></div></article>';
   }
   function favHtml(id, name) { return '<button type="button" class="fav fav-sm" data-fav="' + id + '" data-fav-name="' + esc(name) + '" data-fav-url="team-' + id + '.html" aria-pressed="false" title="Als „Mein Team“ merken">' + STAR + "<span></span></button>"; }
   function note(html) { return '<div class="result-note" style="--i:' + (n++) + '">' + html + "</div>"; }

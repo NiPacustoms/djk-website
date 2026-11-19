@@ -30,7 +30,7 @@ for (const file of htmlFiles) {
   const base = /<base href="\/">/.test(html) ? DIST : path.dirname(file);
   for (const m of html.matchAll(/(?:href|src)="([^"#?]+)(?:[#?][^"]*)?"/g)) {
     const u = m[1];
-    if (/^(https?:|mailto:|tel:|data:|\/\/|\/api\/)/.test(u) || u === "") continue;
+    if (/^(https?:|webcal:|mailto:|tel:|data:|\/\/|\/api\/)/.test(u) || u === "") continue;
     const target = u.startsWith("/") ? path.join(DIST, u) : path.join(base, u);
     const ok = fs.existsSync(target) || fs.existsSync(target + ".html") || fs.existsSync(path.join(target, "index.html"));
     if (!ok) fail(rel, "Link ins Leere: " + u);
