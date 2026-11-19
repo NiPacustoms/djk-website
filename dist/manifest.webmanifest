@@ -1,0 +1,33 @@
+{
+  "name": "DJK Spvgg Herten 07 e.V.",
+  "short_name": "DJK Herten",
+  "lang": "de",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7f3",
+  "theme_color": "#0d4a2c",
+  "icons": [
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mannschaft finden",
+      "url": "./jugend.html#probetraining"
+    },
+    {
+      "name": "Neuigkeiten",
+      "url": "./news.html"
+    }
+  ]
+}
