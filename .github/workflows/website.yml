@@ -27,6 +27,8 @@ env:
 jobs:
   build-deploy:
     runs-on: ubuntu-24.04
+    outputs:
+      target: ${{ steps.ziel.outputs.target }}
     steps:
       - uses: actions/checkout@v4
 
@@ -51,7 +53,9 @@ jobs:
           fi
 
       - name: Zieladresse festlegen
+        id: ziel
         run: |
+          if [ -n "$CF_TOKEN" ]; then echo "target=cloudflare" >> "$GITHUB_OUTPUT"; else echo "target=pages" >> "$GITHUB_OUTPUT"; fi
           if [ -n "$CF_TOKEN" ]; then
             echo "SITE_URL=${{ vars.SITE_URL || 'https://www.djkspvggherten.de' }}" >> "$GITHUB_ENV"
           else
@@ -86,6 +90,14 @@ jobs:
         with:
           path: dist
 
+  pages:
+    needs: build-deploy
+    if: needs.build-deploy.outputs.target == 'pages'
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Auf GitHub Pages veröffentlichen
-        if: env.CF_TOKEN == ''
+        id: deployment
         uses: actions/deploy-pages@v4
