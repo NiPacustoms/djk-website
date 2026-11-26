@@ -288,7 +288,7 @@ function finder(base) {
         <label for="jahrgang">Geburtsjahr des Kindes</label>
         <div class="year-row">
           <input id="jahrgang" name="jahrgang" type="number" inputmode="numeric" min="2005" max="2025" value="2019" aria-describedby="finder-hint">
-          <div class="step-btns"><button type="button" data-step="1" aria-label="Ein Jahr jünger">+</button><button type="button" data-step="-1" aria-label="Ein Jahr älter">−</button></div>
+          <div class="step-btns"><button type="button" data-step="-1" aria-label="Ein Jahr älter">−</button><button type="button" data-step="1" aria-label="Ein Jahr jünger">+</button></div>
         </div>
         <p class="finder-hint" id="finder-hint">Trainingszeiten gelten für den Sommer, im Winter können sie abweichen. Mit dem Stern merkt sich die Seite das Team eures Kindes.</p>
       </div>

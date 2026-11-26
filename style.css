@@ -733,3 +733,37 @@ td.num, th.num { text-align: right; white-space: nowrap; }
   .foot-body { padding-bottom: 1rem; }
   .foot-legal { gap: 0.4rem 1.2rem; padding-block: 1rem 1.2rem; }
 }
+
+/* ---------- Tippflächen: mindestens 44 × 44 px (WCAG 2.5.5) ---------- */
+:root { --tap: 2.75rem; }
+.icon-btn { height: var(--tap); min-width: var(--tap); }
+.fav-sm { min-width: var(--tap); min-height: var(--tap); }
+.fav { min-height: var(--tap); }
+.year-row { align-items: stretch; }
+.step-btns { flex-direction: row; gap: 0.5rem; }
+.step-btns button { min-width: 3.25rem; min-height: var(--tap); font-size: 1.5rem; }
+.filters button, .seg button, .day-tabs button, .slide-btn, .search-close { min-height: var(--tap); }
+.slide-btn { width: var(--tap); height: var(--tap); }
+.plan-select select { min-height: var(--tap); }
+.plan-check { min-height: var(--tap); padding-inline: 0.25rem; }
+.plan-check input { width: 1.4rem; height: 1.4rem; }
+.cal-menu summary, .cal, .team-link, .more, .contact a, .result-links a, .mt-actions a:not(.btn), .nf-links a, .crumb a, .people a, .tel, .roles dd a, .m-link {
+  display: inline-flex; align-items: center; min-height: var(--tap);
+}
+.cal-opts a { min-height: var(--tap); display: flex; align-items: center; }
+.people li { align-items: center; padding-top: 0; }
+.foot-grid li a, .foot-legal a { display: inline-flex; align-items: center; min-height: var(--tap); }
+.foot-grid ul { gap: 0; }
+.foot-legal { gap: 0 1.2rem; }
+.share { min-height: var(--tap); }
+.tabbar a, .tabbar button { min-height: 3rem; }
+/* Ganze Spielzeile antippbar (Teamname als „gestreckter“ Link), Ergebnis-Link liegt darüber */
+.match { position: relative; }
+.m-team::after { content: ""; position: absolute; inset: 0; }
+.m-side, .m-link { position: relative; z-index: 1; }
+.m-link { padding-block: 0; }
+:root { --tap: 2.875rem; }
+.fact a { display: inline-flex; align-items: center; min-height: var(--tap); }
+.crumb a { min-width: var(--tap); justify-content: center; }
+.today-list a::after { content: ""; position: absolute; inset: 0; }
+.prose > a, .split > .prose > a { display: inline-flex; align-items: center; min-height: var(--tap); justify-self: start; }
