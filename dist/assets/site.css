@@ -47,6 +47,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
+picture { display: contents; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 6rem; }
 body {
   margin: 0; background: var(--paper); color: var(--ink);
@@ -385,7 +386,7 @@ td.num, th.num { text-align: right; white-space: nowrap; }
   .hero-cta { animation-delay: 0.4s; }
   .hero-facts { animation-delay: 0.52s; }
   @keyframes enter { from { opacity: 0; transform: translateY(0.6em); } }
-  .hero > img { animation: kenburns 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .hero > picture > img { animation: kenburns 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   @keyframes kenburns { from { transform: scale(1.12); } }
 }
 
@@ -466,7 +467,7 @@ td.num, th.num { text-align: right; white-space: nowrap; }
 
 /* Turnen-Seite */
 .page-hero { position: relative; color: var(--on-green); background: var(--green-deep); overflow: hidden; }
-.page-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+.page-hero > picture > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
 .page-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--scrim), rgba(6,32,19,0.25) 80%); }
 .page-hero .wrap { position: relative; z-index: 1; padding-block: clamp(8rem, 18vw, 13rem) clamp(2rem, 4vw, 3rem); display: grid; gap: 0.9rem; }
 .page-hero .crumb, .page-hero .crumb a { color: var(--on-green-muted); }
@@ -554,7 +555,7 @@ td.num, th.num { text-align: right; white-space: nowrap; }
 .game-day h3 { position: sticky; top: 4.5rem; background: var(--paper); padding-block: 0.4rem; z-index: 2; font-size: 1.3rem; }
 
 .team-hero { position: relative; color: var(--on-green); background: var(--green-deep); overflow: hidden; }
-.team-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.team-hero > picture > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 .team-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--scrim), rgba(6,32,19,0.2) 85%); }
 .team-hero.no-img::after { background: linear-gradient(120deg, var(--green-deep), var(--green)); }
 .team-hero.no-img::before { content: ""; position: absolute; right: -6%; top: -30%; width: 40%; aspect-ratio: 1; z-index: 1; background: linear-gradient(135deg, var(--red) 0 33%, #1d7a4b 33% 66%, var(--white) 66%); opacity: 0.16; transform: rotate(18deg); }

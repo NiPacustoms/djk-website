@@ -25,7 +25,7 @@ ${style}
 <body class="admin">
 <header class="site-head admin-head">
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="../assets/icon-512.png" width="40" height="40" alt=""><span>DJK Admin<small>Website-Verwaltung</small></span></a>
+    <a class="brand" href="index.html"><img src="../assets/logo-96.png" width="40" height="40" alt=""><span>DJK Admin<small>Website-Verwaltung</small></span></a>
     <nav class="admin-nav" aria-label="Admin"><a href="statistik.html">Statistik</a><a href="cms/">Inhalte</a><a href="../index.html">Zur Website</a><a href="/api/logout">Abmelden</a></nav>
   </div>
   <span class="stripe" aria-hidden="true"></span>

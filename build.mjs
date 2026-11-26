@@ -35,11 +35,46 @@ const mailA = (m) => `<a href="mailto:${esc(m)}">${esc(m)}</a>`;
 const yearText = (t) => (t.years[0] === t.years[1] ? `Jg. ${t.years[0]}` : `Jg. ${t.years[0]}–${t.years[1]}`);
 const fmtDate = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
 
-function img(key, alt, { cls = "", eager = false, sizes = "" } = {}) {
+// Bildvarianten fürs Handy: kleinere Breiten als AVIF (modern) und WebP (Rückfall), Ergebnis wird zwischengespeichert
+const VARIANT_WIDTHS = [480, 800];
+const VDIR = path.join(ROOT, "assets/img/v");
+fs.mkdirSync(VDIR, { recursive: true });
+const VARIANTS = {};
+{
+  const jobs = [];
+  for (const [key, [w]] of Object.entries(SIZES)) {
+    const src = path.join(ROOT, "assets/img", key + ".webp");
+    if (!fs.existsSync(src)) continue;
+    const widths = [...VARIANT_WIDTHS.filter((x) => x < w - 80), w];
+    VARIANTS[key] = widths;
+    for (const vw of widths) for (const fmt of ["avif", "webp"]) {
+      if (fmt === "webp" && vw === w) continue; // Original ist schon WebP
+      const out = path.join(VDIR, `${key}-${vw}.${fmt}`);
+      if (fs.existsSync(out) && fs.statSync(out).mtimeMs >= fs.statSync(src).mtimeMs) continue;
+      jobs.push(() => sharp(src).resize({ width: vw })[fmt](fmt === "avif" ? { quality: 52, effort: 4 } : { quality: 72 }).toFile(out));
+    }
+  }
+  // Hochkant-Ausschnitt des Tors für den Aufmacher auf dem Handy (Tor mittig)
+  const torSrc = path.join(ROOT, "assets/img/tor.webp");
+  if (SIZES.tor) {
+    const [tw, th] = SIZES.tor, cw = Math.round(th * 0.64), left = Math.max(0, Math.min(tw - cw, Math.round(tw * 0.53 - cw / 2)));
+    for (const fmt of ["avif", "webp"]) {
+      const out = path.join(VDIR, `tor-hoch.${fmt}`);
+      if (!fs.existsSync(out)) jobs.push(() => sharp(torSrc).extract({ left, top: 0, width: cw, height: th })[fmt](fmt === "avif" ? { quality: 52 } : { quality: 74 }).toFile(out));
+    }
+  }
+  for (let i = 0; i < jobs.length; i += 6) await Promise.all(jobs.slice(i, i + 6).map((j) => j()));
+  if (jobs.length) console.log(`${jobs.length} Bildvarianten erzeugt.`);
+}
+
+function img(key, alt, { cls = "", eager = false, sizes = "(max-width: 760px) 100vw, 640px", artMobile = null } = {}) {
   if (key && /[\/.]/.test(key)) key = upKey(path.basename(key));
   const s = SIZES[key];
   if (!s) throw new Error("Bild fehlt: " + key);
-  return `<img src="assets/img/${key}.webp" width="${s[0]}" height="${s[1]}" alt="${esc(alt)}"${cls ? ` class="${cls}"` : ""}${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${sizes ? ` sizes="${sizes}"` : ""}>`;
+  const widths = VARIANTS[key] || [s[0]];
+  const set = (fmt) => widths.map((w) => (fmt === "webp" && w === s[0] ? `assets/img/${key}.webp ${w}w` : `assets/img/v/${key}-${w}.${fmt} ${w}w`)).join(", ");
+  const mobile = artMobile ? `<source media="(max-width: 760px)" type="image/avif" srcset="assets/img/v/${artMobile}.avif"><source media="(max-width: 760px)" type="image/webp" srcset="assets/img/v/${artMobile}.webp">` : "";
+  return `<picture>${mobile}<source type="image/avif" srcset="${set("avif")}" sizes="${sizes}"><source type="image/webp" srcset="${set("webp")}" sizes="${sizes}"><img src="assets/img/${key}.webp" width="${s[0]}" height="${s[1]}" alt="${esc(alt)}"${cls ? ` class="${cls}"` : ""}${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}></picture>`;
 }
 
 // ---------- Trainingskalender (.ics) ----------
@@ -140,7 +175,7 @@ function header(current) {
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="DJK Spvgg Herten, Startseite">
-      <img src="assets/icon-512.png" width="46" height="46" alt="">
+      <img src="assets/logo-96.png" width="46" height="46" alt="">
       <span>DJK Spvgg Herten<small>seit 1907 am Katzenbusch</small></span>
     </a>
     <nav class="nav" id="nav" aria-label="Hauptmenü">${links}<a class="nav-cta" href="jugend.html#probetraining">Probetraining</a></nav>
@@ -173,7 +208,7 @@ function footer() {
   return `<footer class="site-foot">
   <span class="stripe" aria-hidden="true"></span>
   <div class="wrap foot-grid">
-    <div class="foot-brand"><img src="assets/icon-512.png" width="72" height="72" alt=""><p>DJK Spvgg Herten 07 e.V.<br>Wir sind ein Team.</p></div>
+    <div class="foot-brand"><img src="assets/logo-144.png" width="72" height="72" alt=""><p>DJK Spvgg Herten 07 e.V.<br>Wir sind ein Team.</p></div>
     <details class="foot-col" open><summary><h2>Anschrift</h2></summary><div class="foot-body"><address>${club.address.join("<br>")}</address><p style="margin-top:.6rem"><a href="${club.maps}" rel="noopener">Auf der Karte zeigen</a></p></div></details>
     <details class="foot-col" open><summary><h2>Post</h2></summary><div class="foot-body"><address>${esc(club.name)}<br>${club.post.join("<br>")}</address><p style="margin-top:.6rem">${mailA(club.mail.info)}</p></div></details>
     <details class="foot-col" open><summary><h2>Verein</h2></summary><div class="foot-body"><ul><li><a href="spielplan.html">Spielplan</a></li><li><a href="termine.html">Termine</a></li><li><a href="faq.html">Fragen und Antworten</a></li><li><a href="sponsoren.html">Sponsoren</a></li><li><a href="vereinsheim.html">Vereinsheim</a></li><li><a href="mitgliedschaft.html">Mitglied werden</a></li></ul></div></details>
@@ -211,7 +246,7 @@ ${themeInit}
 ${fonts}
 ${style}
 ${jsonld}`;
-  const bodyInner = `${header(current ?? file)}
+  let bodyInner = `${header(current ?? file)}
 <main id="main">
 ${body.replace("__SESSIONS__", JSON.stringify(SESSIONS).replace(/</g, "\\u003c")).replace("__MYTEAM__", MYTEAM_JSON)}
 </main>
@@ -220,6 +255,7 @@ ${tabbar(current ?? file)}
 <script type="application/json" id="search-data">${SEARCH_JSON}</script>
 ${script}`;
   // Vorschau: Startseite ohne eigenes Dokumentgerüst (wird beim Veröffentlichen ergänzt)
+  if (mode === "preview") bodyInner = bodyInner.replace(/<picture>(?:<source[^>]*>)*(<img[^>]*>)<\/picture>/g, "$1");
   if (mode === "preview" && home) return `${headInner}\n${bodyInner}\n`;
   return `<!doctype html>
 <html lang="de"${mode === "dist" ? ' data-analytics="on"' : ""}>
@@ -407,7 +443,7 @@ const pages = [];
     file: "index.html", home: true, current: "index.html", jsonld,
     desc: "Fußball von den Bambini bis zu den Gehfußballern, Frauenfußball und Turnen: die DJK Spvgg Herten 07 e.V. an der Kampfbahn Katzenbusch in Herten.",
     body: `<section class="hero">
-  ${img("tor", "Das historische Eingangstor der Kampfbahn Katzenbusch", { eager: true })}
+  ${img("tor", "Das historische Eingangstor der Kampfbahn Katzenbusch", { eager: true, sizes: "100vw", artMobile: "tor-hoch" })}
   <div class="wrap">
     <h1 class="hero-title"><span>Seit 1907</span> <span>am Katzenbusch.</span></h1>
     <p class="hero-sub">Fußball und Turnen in Herten-Süd. Für Kinder ab 1½ Jahren bis zu den Gehfußballern Ü50.</p>
