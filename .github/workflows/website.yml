@@ -1,4 +1,6 @@
-# Baut, prüft und veröffentlicht die Website auf Cloudflare Pages.
+# Baut, prüft und veröffentlicht die Website.
+# Ziel: Cloudflare Pages (mit Statistik und Admin-Login), sobald die Secrets CLOUDFLARE_API_TOKEN und
+# CLOUDFLARE_ACCOUNT_ID hinterlegt sind. Bis dahin: GitHub Pages (alles außer Statistik und Login).
 # Läuft bei jeder Änderung (auch aus dem CMS) und zweimal täglich für den Spielplan.
 name: Website
 
@@ -6,16 +8,21 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "17 5 * * *"   # morgens (UTC)
-    - cron: "17 16 * * *"  # nachmittags (UTC)
+    - cron: "17 5 * * *"
+    - cron: "17 16 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: website
   cancel-in-progress: false
+
+env:
+  CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
 jobs:
   build-deploy:
@@ -43,6 +50,17 @@ jobs:
             git push
           fi
 
+      - name: Zieladresse festlegen
+        run: |
+          if [ -n "$CF_TOKEN" ]; then
+            echo "SITE_URL=${{ vars.SITE_URL || 'https://www.djkspvggherten.de' }}" >> "$GITHUB_ENV"
+          else
+            OWNER="${GITHUB_REPOSITORY%%/*}"; REPO="${GITHUB_REPOSITORY#*/}"
+            echo "SITE_URL=${{ vars.SITE_URL }}" | grep -q "https" && echo "SITE_URL=${{ vars.SITE_URL }}" >> "$GITHUB_ENV" \
+              || echo "SITE_URL=https://${OWNER,,}.github.io/${REPO}" >> "$GITHUB_ENV"
+            echo "ANALYTICS=off" >> "$GITHUB_ENV"
+          fi
+
       - name: Website bauen
         run: npm run build
 
@@ -55,8 +73,19 @@ jobs:
           npm run test:tap
 
       - name: Auf Cloudflare Pages veröffentlichen
+        if: env.CF_TOKEN != ''
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=djk-spvgg-herten --branch=main
+
+      - name: GitHub Pages vorbereiten
+        if: env.CF_TOKEN == ''
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Auf GitHub Pages veröffentlichen
+        if: env.CF_TOKEN == ''
+        uses: actions/deploy-pages@v4

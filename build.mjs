@@ -24,7 +24,11 @@ const upKey = (name) => "up-" + name.replace(/\.[a-z0-9]+$/i, "").toLowerCase().
 }
 const CSS = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
 const JS = fs.readFileSync(path.join(ROOT, "main.js"), "utf8");
-const SITE_URL = "https://www.djkspvggherten.de";
+// Adresse der Website. Für GitHub Pages setzt der Workflow SITE_URL (z. B. https://nipacustoms.github.io/djk-website).
+const SITE_URL = (process.env.SITE_URL || "https://www.djkspvggherten.de").replace(/\/$/, "");
+const SITE_PATH = new URL(SITE_URL).pathname.replace(/\/?$/, "/");
+// Statistik braucht das Cloudflare-Backend. Auf GitHub Pages wird sie mit ANALYTICS=off abgeschaltet.
+const ANALYTICS = process.env.ANALYTICS !== "off";
 let SEARCH_JSON = "[]";
 const { club } = D;
 
@@ -231,7 +235,7 @@ function page({ file, title, desc, body, current, home = false, jsonld = "" }, m
     + (mode === "dist" ? `\n<script>if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("sw.js")})</script>` : "");
   const themeInit = `<script>try{var t=localStorage.getItem("djk-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>`;
   const url = `${SITE_URL}/${home ? "" : file}`;
-  const headInner = `${file === "404.html" && mode === "dist" ? '<base href="/">' : ""}<title>${esc(fullTitle)}</title>
+  const headInner = `${file === "404.html" && mode === "dist" ? `<base href="${SITE_PATH}">` : ""}<title>${esc(fullTitle)}</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${url}">
@@ -258,7 +262,7 @@ ${script}`;
   if (mode === "preview") bodyInner = bodyInner.replace(/<picture>(?:<source[^>]*>)*(<img[^>]*>)<\/picture>/g, "$1");
   if (mode === "preview" && home) return `${headInner}\n${bodyInner}\n`;
   return `<!doctype html>
-<html lang="de"${mode === "dist" ? ' data-analytics="on"' : ""}>
+<html lang="de"${mode === "dist" && ANALYTICS ? ' data-analytics="on"' : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -1138,7 +1142,7 @@ self.addEventListener("install", (e) => { e.waitUntil(caches.open(C).then((c) =>
 self.addEventListener("activate", (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== C).map((k) => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", (e) => {
   const r = e.request; if (r.method !== "GET" || new URL(r.url).origin !== location.origin) return;
-  const u = new URL(r.url); if (u.pathname.startsWith("/api/") || u.pathname.startsWith("/admin")) return;
+  const u = new URL(r.url); if (u.pathname.includes("/api/") || u.pathname.includes("/admin/")) return;
   if (r.mode === "navigate") { e.respondWith(fetch(r).then((res) => { const cp = res.clone(); caches.open(C).then((c) => c.put(r, cp)); return res; }).catch(() => caches.match(r).then((m) => m || caches.match("index.html")))); return; }
   e.respondWith(caches.match(r).then((m) => m || fetch(r).then((res) => { if (res.ok) { const cp = res.clone(); caches.open(C).then((c) => c.put(r, cp)); } return res; })));
 });

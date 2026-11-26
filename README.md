@@ -27,6 +27,13 @@ npm run dev         # Website mit Backend und lokaler Datenbank auf http://local
 ```
 Für `npm run dev` einmalig: `npx wrangler d1 execute djk-statistik --local --file=schema.sql` und eine Datei `.dev.vars` mit `ADMIN_PASSWORD_HASH=…` und `SESSION_SECRET=…` anlegen.
 
+## Schnellstart mit GitHub Pages (kostenlos, ca. 5 Minuten)
+1. Repository auf GitHub anlegen (öffentlich, ohne README) und diesen Ordner hochladen.
+2. Repository → Settings → Pages → Source: „GitHub Actions“.
+3. Fertig: Die Seite läuft unter `https://<benutzer>.github.io/<repository>/`, der Spielplan aktualisiert sich zweimal täglich, Kalender-Abos und CMS funktionieren.
+Statistik und Admin-Login brauchen das Cloudflare-Backend (siehe unten). Sobald die Cloudflare-Secrets hinterlegt sind, veröffentlicht derselbe Workflow automatisch dort.
+Eigene Domain auf GitHub Pages: unter Settings → Pages eintragen und die Repository-Variable `SITE_URL` auf die Domain setzen.
+
 ## Einmalige Einrichtung (ca. 30 Minuten)
 
 ### 1. GitHub
