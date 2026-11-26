@@ -1,5 +1,5 @@
 // Offline-Unterstützung: Seiten zuerst aus dem Netz, Dateien zuerst aus dem Cache.
-const C = "djk-v1795712346339";
+const C = "djk-v1795719088219";
 const PRE = ["./","index.html","jugend.html","damen.html","senioren.html","turnen.html","verein.html","mitgliedschaft.html","vereinsheim.html","kinderschutz.html","news.html","fanshop.html","sponsoren.html","kontakt.html","impressum.html","datenschutz.html","spielplan.html","termine.html","faq.html","404.html","assets/site.css","assets/main.js","assets/icon-512.png"];
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(C).then((c) => c.addAll(PRE)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== C).map((k) => caches.delete(k)))).then(() => self.clients.claim())); });

@@ -784,3 +784,67 @@ td.num, th.num { text-align: right; white-space: nowrap; }
   .gym-card, .flag-card { scroll-snap-align: start; }
 }
 h1, h2 { overflow-wrap: anywhere; } .page-head > * { min-width: 0; }
+
+/* ---------- Optische Überarbeitung: Rasen, Kreidelinien, ruhigere Abstände ---------- */
+/* Gemähter Rasen: breite Mähstreifen, dazu Mittellinie und Mittelkreis in Kreide. Nur auf grünen Flächen. */
+.band, .site-foot { position: relative; isolation: isolate; }
+.band::before, .site-foot::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: repeating-linear-gradient(90deg, transparent 0 7rem, rgba(255,255,255,0.035) 7rem 14rem);
+}
+@media (min-width: 900px) {
+  .band:has(.finder)::after {
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 0 11rem, rgba(255,255,255,0.08) 11rem calc(11rem + 2px), transparent calc(11rem + 2px)),
+      linear-gradient(90deg, transparent calc(50% - 1px), rgba(255,255,255,0.08) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px));
+  }
+  /* Eingabe bleibt beim Durchscrollen der Ergebnisse im Blick */
+  .finder > :first-child { position: sticky; top: 6rem; }
+}
+
+/* Abteilungen: Jugend groß, Turnen breit – keine Lücke mehr */
+@media (min-width: 900px) {
+  .depts { grid-template-columns: 1.2fr 1fr 1fr; grid-template-rows: repeat(2, minmax(15rem, auto)); }
+  .depts .dept { min-height: 0; }
+  .depts .dept:first-child { grid-row: span 2; }
+  .depts .dept:nth-child(4) { grid-column: span 2; }
+  .depts .dept:nth-child(4) img { object-position: 50% 30%; }
+}
+
+/* News-Leiste fluchtet mit dem Inhalt */
+@media (min-width: 720px) {
+  .slider { padding-inline: max(32px, calc((100% - var(--wrap)) / 2 + 16px)); scroll-padding-inline: max(32px, calc((100% - var(--wrap)) / 2 + 16px)); }
+}
+.slide img { object-position: 50% 0; }
+
+/* Service-Leiste: Spalten mit Trennlinien statt Kartenreihe, weniger Leerraum */
+.band-surface > .section { padding-block: clamp(2rem, 4vw, 3rem); }
+.contacts { gap: 0; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+.contact { background: none; border: 0; border-radius: 0; padding: 1rem 1.5rem; border-left: 1px solid var(--line); }
+@media (max-width: 719px) { .contact { border-left: 0; border-top: 1px solid var(--line); padding-inline: 0; } .contact:first-child { border-top: 0; } }
+
+/* Sponsoren: ruhige Logoleiste, kein doppelter Abstand zum Footer */
+.logos div { border: 0; }
+main > section:last-child { padding-bottom: clamp(2.5rem, 5vw, 3.5rem); }
+.site-foot { margin-top: 0; }
+
+/* Footer: Marke links, vier Spalten daneben, Links am Desktop dichter */
+@media (min-width: 1000px) {
+  .foot-grid { grid-template-columns: 1.5fr repeat(4, minmax(0, 1fr)); padding-block: 3.5rem 2.5rem; }
+}
+.foot-brand { align-items: flex-start; }
+.foot-legal { align-items: center; }
+@media (min-width: 761px) and (pointer: fine) {
+  .foot-grid li a, .foot-legal a { min-height: 2rem; }
+}
+
+/* Handy: Aufmacher dunkler hinterlegen, damit der Text vor dem Tor ruhig steht */
+@media (max-width: 760px) {
+  .hero::after { background: linear-gradient(to top, var(--scrim) 0%, rgba(6,32,19,0.75) 55%, rgba(6,32,19,0.3) 100%); }
+}
+.site-foot::before { background: repeating-linear-gradient(90deg, transparent 0 7rem, rgba(255,255,255,0.02) 7rem 14rem); }
+.section:has(+ .band-surface) { padding-bottom: clamp(1.5rem, 3vw, 2rem); }
+@media (min-width: 720px) { .contact:first-child { border-left: 0; padding-left: 0; } }
+.logos { grid-template-columns: repeat(auto-fill, minmax(min(calc(50% - var(--s-md)), 11rem), 1fr)); }
+@media (max-width: 719px) { .logos div { padding: 0.75rem; } }

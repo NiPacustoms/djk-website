@@ -319,6 +319,8 @@ Eigene Werte statt Umkehrung: `{colors.dark-paper}`, `{colors.dark-surface}`, `{
 
 Fast flach. Karten setzen sich durch eine 1-px-Linie (`{colors.line}`) und weiße Fläche ab, nicht durch Schatten. Schatten gibt es nur bei schwebenden Elementen: Suchfenster, Abo-Menü, Tooltip im Diagramm, Bestätigungs-Hinweis. Tiefe entsteht durch Fotos mit dunklem Verlauf von unten (Aufmacher, Abteilungs-Kacheln, Teamseiten-Kopf).
 
+**Rasen-Motiv:** Grüne Flächen (Bänder und Footer) tragen breite Mähstreifen (7rem, weiß mit 2–3,5 % Deckkraft). Nur das Band mit dem Teamfinder zeigt zusätzlich Mittellinie und Mittelkreis in Kreide (8 % Deckkraft, ab 900 px). Keine weiteren Spielfeld-Linien, damit das Motiv das eine Erkennungszeichen bleibt.
+
 ## Shapes
 
 | Token | Einsatz |
