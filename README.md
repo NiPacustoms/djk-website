@@ -13,6 +13,10 @@ Läuft kostenlos auf Cloudflare Pages.
 - **Statistik** ohne Cookies und ohne IP-Speicherung (`functions/`), Daten in Cloudflare D1.
 - **Qualitätsprüfung** (`npm test`): Links, Bilder, Überschriften, Formularbeschriftungen, JS-Fehler, Handy-Layout.
 
+## Design und KI-Werkzeuge
+- `DESIGN.md` beschreibt Farben, Schriften, Abstände, Komponenten und Regeln im Google-DESIGN.md-Format. KI-Werkzeuge bauen damit neue Seiten im DJK-Look. Geprüft mit `npm run design:lint` (Teil von `npm test`), inklusive Kontrastprüfung.
+- `AGENTS.md` erklärt KI-Werkzeugen, wie das Projekt gebaut und geprüft wird.
+
 ## Lokal arbeiten
 ```bash
 npm install

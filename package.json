@@ -6,13 +6,16 @@
     "build": "node build.mjs",
     "matches": "node scripts/fetch-matches.mjs",
     "admin:hash": "node scripts/admin-hash.mjs",
-    "test": "node tests/smoke.mjs",
-    "dev": "npx wrangler pages dev dist --d1 DB"
+    "test": "node scripts/design-lint.mjs && node tests/smoke.mjs",
+    "dev": "npx wrangler pages dev dist --d1 DB",
+    "design:lint": "node scripts/design-lint.mjs",
+    "test:tap": "node tests/tap-targets.mjs"
   },
   "dependencies": {
     "sharp": "^0.33.5"
   },
   "devDependencies": {
+    "@google/design.md": "^0.4.0",
     "wrangler": "^4.40.0"
   }
 }

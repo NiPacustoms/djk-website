@@ -46,11 +46,13 @@ jobs:
       - name: Website bauen
         run: npm run build
 
-      - name: Qualitätsprüfung
+      - name: Qualitätsprüfung (DESIGN.md, Links, Layout, Tippflächen)
         run: |
           npx --yes playwright@1.56.1 install --with-deps chromium
           npm i --no-save playwright@1.56.1
           npm test
+          (cd dist && python3 -m http.server 8768 >/dev/null 2>&1 &) && sleep 1
+          npm run test:tap
 
       - name: Auf Cloudflare Pages veröffentlichen
         uses: cloudflare/wrangler-action@v3
