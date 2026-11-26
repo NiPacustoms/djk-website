@@ -109,6 +109,7 @@ rounded:
 spacing:
   xs: 4px
   sm: 8px
+  ms: 12px
   md: 16px
   lg: 24px
   xl: 32px
@@ -308,7 +309,7 @@ Eigene Werte statt Umkehrung: `{colors.dark-paper}`, `{colors.dark-surface}`, `{
 ## Layout
 
 - Inhaltsbreite höchstens `{spacing.content-max}`, linksbündig, Seitenrand `{spacing.gutter}` (Handy `{spacing.gutter-mobile}`).
-- **Abstandsstufen:** nur `{spacing.xs}`, `{spacing.sm}`, `{spacing.md}`, `{spacing.lg}`, `{spacing.xl}`, `{spacing.2xl}`. Abschnitte im Abstand `{spacing.section}`, auf dem Handy `{spacing.section-mobile}`.
+- **Abstandsstufen:** nur `{spacing.xs}` (4), `{spacing.sm}` (8), `{spacing.ms}` (12), `{spacing.md}` (16), `{spacing.lg}` (24), `{spacing.xl}` (32), `{spacing.2xl}` (48). Im CSS als `var(--s-xs)` bis `var(--s-2xl)`, keine freien Werte bei `gap`. Abschnitte im Abstand `{spacing.section}`, auf dem Handy `{spacing.section-mobile}`.
 - Abstände zwischen Geschwistern mit `gap` in Flex oder Grid, keine Einzel-Ränder.
 - Karten-Raster passen sich an (`auto-fill`/`auto-fit`), auf dem Handy eine Spalte.
 - **Tippflächen** mindestens `{spacing.tap}` hoch und breit (Telefonnummern, Sterne, Filter, Abo-Menü, Footer-Links). Ganze Spielzeilen und Trainingszeilen sind über einen gestreckten Link antippbar.
