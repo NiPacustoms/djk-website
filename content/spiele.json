@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26T17:05:19.460Z",
+  "updated": "2026-11-26T18:53:15.383Z",
   "source": "fussball.de",
   "games": [
     {
@@ -987,23 +987,6 @@
       "teamName": "Frauen I",
       "isHome": true,
       "opponent": "FC Fleckenberg/​Grafschaft"
-    },
-    {
-      "id": "031RJAEM2O000000VS5489BTVTPHHFPR",
-      "date": "2026-09-22T17:30",
-      "ageClass": null,
-      "competition": "Kreisliga C",
-      "home": "DJK Spvgg. Herten 2",
-      "homeId": "02BBGIML30000000VS5489B2VVDBHQQ7",
-      "away": "SV Hochlar 28 II",
-      "awayId": "023SOEP9BK000000VS548985VTD6GGR5",
-      "url": "https://www.fussball.de/spiel/djk-spvgg-herten-2-sv-hochlar-28-ii/-/spiel/031RJAEM2O000000VS5489BTVTPHHFPR",
-      "hasScore": true,
-      "flag": null,
-      "team": "e2",
-      "teamName": "E2-Jugend",
-      "isHome": true,
-      "opponent": "SV Hochlar 28 II"
     },
     {
       "id": "031P02HFM0000000VS5489BTVT8K11BC",
