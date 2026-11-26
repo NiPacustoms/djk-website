@@ -783,3 +783,4 @@ td.num, th.num { text-align: right; white-space: nowrap; }
   .gym-cards::-webkit-scrollbar, .flag-cards::-webkit-scrollbar { display: none; }
   .gym-card, .flag-card { scroll-snap-align: start; }
 }
+h1, h2 { overflow-wrap: anywhere; } .page-head > * { min-width: 0; }

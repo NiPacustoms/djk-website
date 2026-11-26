@@ -7,6 +7,8 @@ import { createRequire } from "node:module";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const DIST = path.join(ROOT, "dist");
+// Unterordner, wenn die Seite z. B. auf GitHub Pages unter /djk-website/ liegt
+const PREFIX = process.env.SITE_URL ? new URL(process.env.SITE_URL).pathname.replace(/\/?$/, "/") : "/";
 const problems = [];
 const fail = (f, msg) => problems.push(`${f}: ${msg}`);
 const htmlFiles = [];
@@ -27,9 +29,10 @@ for (const file of htmlFiles) {
     if (/type="(hidden|checkbox)"/.test(m[0]) && !/type="checkbox"/.test(m[0])) continue;
     if (!new RegExp(`for="${m[1]}"|aria-label`).test(html) && !/aria-label/.test(m[0]) && !/<label[^>]*>\s*<input[^>]*id="${m[1]}"/.test(html)) fail(rel, "Eingabefeld ohne Beschriftung: " + m[1]);
   }
-  const base = /<base href="\/">/.test(html) ? DIST : path.dirname(file);
-  for (const m of html.matchAll(/(?:href|src)="([^"#?]+)(?:[#?][^"]*)?"/g)) {
-    const u = m[1];
+  const base = /<base href=/.test(html) ? DIST : path.dirname(file);
+  for (const m of html.replace(/<base [^>]*>/, "").matchAll(/(?:href|src)="([^"#?]+)(?:[#?][^"]*)?"/g)) {
+    let u = m[1];
+    if (u.startsWith(PREFIX) && PREFIX !== "/") u = "/" + u.slice(PREFIX.length);
     if (/^(https?:|webcal:|mailto:|tel:|data:|\/\/|\/api\/)/.test(u) || u === "") continue;
     const target = u.startsWith("/") ? path.join(DIST, u) : path.join(base, u);
     const ok = fs.existsSync(target) || fs.existsSync(target + ".html") || fs.existsSync(path.join(target, "index.html"));
@@ -43,6 +46,7 @@ try { chromium = createRequire(import.meta.url)("playwright").chromium; } catch 
 if (chromium) {
   const server = http.createServer((req, res) => {
     let p = decodeURIComponent(req.url.split("?")[0]);
+    if (PREFIX !== "/" && p.startsWith(PREFIX)) p = "/" + p.slice(PREFIX.length);
     let f = path.join(DIST, p.endsWith("/") ? p + "index.html" : p);
     if (!fs.existsSync(f) && fs.existsSync(f + ".html")) f += ".html";
     if (!fs.existsSync(f)) { res.writeHead(404); return res.end(); }
@@ -58,7 +62,7 @@ if (chromium) {
   const pages = htmlFiles.map((f) => path.relative(DIST, f)).filter((f) => !f.startsWith("admin/cms"));
   for (const rel of pages) {
     current = rel;
-    await page.goto(`http://localhost:${port}/${rel}`, { waitUntil: "load" });
+    await page.goto(`http://localhost:${port}${PREFIX}${rel}`, { waitUntil: "load" });
     if (await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1)) fail(rel, "seitliches Scrollen auf dem Handy");
   }
   await browser.close(); server.close();
