@@ -5,6 +5,7 @@ import path from "node:path";
 import * as D from "./data.mjs";
 import { writeAdmin } from "./admin.mjs";
 import sharp from "sharp";
+import { createHash } from "node:crypto";
 
 const ROOT = path.dirname(new URL(import.meta.url).pathname);
 const SIZES = JSON.parse(fs.readFileSync(path.join(ROOT, "sizes.json"), "utf8"));
@@ -24,6 +25,8 @@ const upKey = (name) => "up-" + name.replace(/\.[a-z0-9]+$/i, "").toLowerCase().
 }
 const CSS = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
 const JS = fs.readFileSync(path.join(ROOT, "main.js"), "utf8");
+// Versionskennung: neue Datei-Adresse bei jeder Änderung, damit Browser und Offline-Speicher nie alte Gestaltung zeigen
+const ASSET_V = createHash("sha1").update(CSS + JS).digest("hex").slice(0, 10);
 // Adresse der Website. Für GitHub Pages setzt der Workflow SITE_URL (z. B. https://nipacustoms.github.io/djk-website).
 const SITE_URL = (process.env.SITE_URL || "https://www.djkspvggherten.de").replace(/\/$/, "");
 const SITE_PATH = new URL(SITE_URL).pathname.replace(/\/?$/, "/");
@@ -230,8 +233,8 @@ function page({ file, title, desc, body, current, home = false, jsonld = "" }, m
   const fonts = mode === "preview"
     ? `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400..800&display=swap">`
     : `<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>`;
-  const style = mode === "preview" ? `<style>${CSS}</style>` : `<link rel="stylesheet" href="assets/site.css">`;
-  const script = (mode === "preview" ? `<script>${JS}</script>` : `<script src="assets/main.js" defer></script>`)
+  const style = mode === "preview" ? `<style>${CSS}</style>` : `<link rel="stylesheet" href="assets/site.css?v=${ASSET_V}">`;
+  const script = (mode === "preview" ? `<script>${JS}</script>` : `<script src="assets/main.js?v=${ASSET_V}" defer></script>`)
     + (mode === "dist" ? `\n<script>if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("sw.js")})</script>` : "");
   const themeInit = `<script>try{var t=localStorage.getItem("djk-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>`;
   const url = `${SITE_URL}/${home ? "" : file}`;
@@ -1137,7 +1140,7 @@ const MANIFEST = JSON.stringify({
 }, null, 2);
 const SW = `// Offline-Unterstützung: Seiten zuerst aus dem Netz, Dateien zuerst aus dem Cache.
 const C = "djk-v${Date.now()}";
-const PRE = ${JSON.stringify(["./", "index.html", ...pages.map((p) => p.file).filter((f) => f !== "index.html" && !f.startsWith("team-")), "assets/site.css", "assets/main.js", "assets/icon-512.png"])};
+const PRE = ${JSON.stringify(["./", "index.html", ...pages.map((p) => p.file).filter((f) => f !== "index.html" && !f.startsWith("team-")), `assets/site.css?v=${ASSET_V}`, `assets/main.js?v=${ASSET_V}`, "assets/icon-512.png"])};
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(C).then((c) => c.addAll(PRE)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== C).map((k) => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", (e) => {
