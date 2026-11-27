@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26T18:56:42.863Z",
+  "updated": "2026-11-27T15:04:51.717Z",
   "source": "fussball.de",
   "games": [
     {
@@ -3514,8 +3514,8 @@
       "away": "DJK Spvgg. Herten",
       "awayId": "011MIBLQC8000000VTVG0001VTR8C1K7",
       "url": "https://www.fussball.de/spiel/sv-fortuna-freudenberg-ii-djk-spvgg-herten/-/spiel/031GB43GTO000000VS5489BTVVG7L386",
-      "hasScore": true,
-      "flag": null,
+      "hasScore": false,
+      "flag": "Absetzung",
       "team": "frauen-i",
       "teamName": "Frauen I",
       "isHome": false,
