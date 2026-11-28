@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-28T00:03:00.032Z",
+  "updated": "2026-11-28T14:12:48.871Z",
   "source": "fussball.de",
   "games": [
     {
@@ -69,23 +69,6 @@
       "teamName": "C2-Jugend",
       "isHome": true,
       "opponent": "TSV Marl-Hüls U14 II"
-    },
-    {
-      "id": "02U3Q9UCGK000000VS5489BTVV378D77",
-      "date": "2026-06-13T09:00",
-      "ageClass": null,
-      "competition": "Kreisliga A",
-      "home": "SG Eintracht Gelsenkirchen 07/​12",
-      "homeId": "023O6C5PPG000000VS548984VVA56K3S",
-      "away": "DJK Spvgg. 07 Herten o.W.",
-      "awayId": "02PVSA03SK000000VS5489B1VTF0A3SN",
-      "url": "https://www.fussball.de/spiel/sg-eintracht-gelsenkirchen-07-12-djk-spvgg-07-herten-ow/-/spiel/02U3Q9UCGK000000VS5489BTVV378D77",
-      "hasScore": true,
-      "flag": null,
-      "team": "u13",
-      "teamName": "U13-Juniorinnen",
-      "isHome": false,
-      "opponent": "SG Eintracht Gelsenkirchen 07/​12"
     },
     {
       "id": "02VSTQO2EC000000VS5489BTVUKESBFG",
@@ -698,23 +681,6 @@
       "teamName": "B-Jugend",
       "isHome": true,
       "opponent": "Teut. SuS Waltrop"
-    },
-    {
-      "id": "031S728CCO000000VS5489BTVTPHHFPR",
-      "date": "2026-09-19T10:00",
-      "ageClass": null,
-      "competition": "Kinderfußball",
-      "home": "SV Westerholt II",
-      "homeId": "02IJS41DLK000000VS5489B2VVQ9C6A6",
-      "away": "DJK Spvgg. Herten 2",
-      "awayId": "027MARR3AC000000VS5489B2VSOPA3SJ",
-      "url": "https://www.fussball.de/spiel/sv-westerholt-ii-djk-spvgg-herten-2/-/spiel/031S728CCO000000VS5489BTVTPHHFPR",
-      "hasScore": false,
-      "flag": "Absetzung",
-      "team": "f2",
-      "teamName": "F2-Jugend",
-      "isHome": false,
-      "opponent": "SV Westerholt II"
     },
     {
       "id": "2026-09-19T10:00-SF Stuckenbusch-Hochlarmark - Kinderfestival-DJK Spvgg. Herten 2",
@@ -1752,23 +1718,6 @@
       "teamName": "1. Herrenmannschaft",
       "isHome": true,
       "opponent": "SG Suderwich II"
-    },
-    {
-      "id": "032CVDISV0000000VS5489BUVV5V31CI",
-      "date": "2026-10-15T17:00",
-      "ageClass": null,
-      "competition": "Kreisfreundschaftsspiele",
-      "home": "TSV Marl-Hüls II",
-      "homeId": "027V337038000000VS5489B1VVIQNL7N",
-      "away": "DJK Spvgg. Herten 1",
-      "awayId": "011MIDFOMK000000VTVG0001VTR8C1K7",
-      "url": "https://www.fussball.de/spiel/tsv-marl-huels-ii-djk-spvgg-herten-1/-/spiel/032CVDISV0000000VS5489BUVV5V31CI",
-      "hasScore": false,
-      "flag": "o.E.",
-      "team": "f1",
-      "teamName": "F1-Jugend",
-      "isHome": false,
-      "opponent": "TSV Marl-Hüls II"
     },
     {
       "id": "031RJAEMR8000000VS5489BTVTPHHFPR",
@@ -3362,7 +3311,7 @@
       "awayId": "027MARR3AC000000VS5489B2VSOPA3SJ",
       "url": "https://www.fussball.de/spiel/sickingmuehler-sv-1-djk-spvgg-herten-2/-/spiel/031S728DTC000000VS5489BTVTPHHFPR",
       "hasScore": false,
-      "flag": null,
+      "flag": "o.E.",
       "team": "f2",
       "teamName": "F2-Jugend",
       "isHome": false,
@@ -3412,8 +3361,8 @@
       "away": "JSG Lenkerbeck/​Fenerbahce D1",
       "awayId": "02OUVMUPS8000000VS5489B1VV6PMIAF",
       "url": "https://www.fussball.de/spiel/djk-spvgg-07-herten-jsg-lenkerbeck-fenerbahce-d1/-/spiel/031RH35KU0000000VS5489BUVVE0O1R6",
-      "hasScore": true,
-      "flag": null,
+      "hasScore": false,
+      "flag": "Ausfall",
       "team": "d1",
       "teamName": "D1-Jugend",
       "isHome": true,
@@ -3429,8 +3378,8 @@
       "away": "SV Vestia Disteln 2",
       "awayId": "01L9M7RKH4000000VV0AG811VS9BQ5HH",
       "url": "https://www.fussball.de/spiel/djk-spvgg-07-herten-2-sv-vestia-disteln-2/-/spiel/031R0UI6QS000000VS5489BUVVE0O1R6",
-      "hasScore": true,
-      "flag": null,
+      "hasScore": false,
+      "flag": "Ausfall",
       "team": "c2",
       "teamName": "C2-Jugend",
       "isHome": true,
@@ -5152,6 +5101,23 @@
       "teamName": "Frauen I",
       "isHome": true,
       "opponent": "TV Brechten"
+    },
+    {
+      "id": "031U68POMG000000VS5489BUVSORQI22",
+      "date": "2027-04-17T10:45",
+      "ageClass": null,
+      "competition": "Kreisliga A",
+      "home": "SSV Buer 07/​28 U13",
+      "homeId": "0257JGQD0K000000VS548984VS56IJGM",
+      "away": "DJK Spvgg. 07 Herten",
+      "awayId": "02PVSA03SK000000VS5489B1VTF0A3SN",
+      "url": "https://www.fussball.de/spiel/ssv-buer-07-28-u13-djk-spvgg-07-herten/-/spiel/031U68POMG000000VS5489BUVSORQI22",
+      "hasScore": true,
+      "flag": null,
+      "team": "u13",
+      "teamName": "U13-Juniorinnen",
+      "isHome": false,
+      "opponent": "SSV Buer 07/​28 U13"
     },
     {
       "id": "031JTN4A48000000VS5489BUVVKNMR0J",
