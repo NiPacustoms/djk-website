@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T15:04:51.717Z",
+  "updated": "2026-11-28T00:03:00.032Z",
   "source": "fussball.de",
   "games": [
     {
@@ -52,23 +52,6 @@
       "teamName": "G1-Jugend",
       "isHome": false,
       "opponent": "DJK Spvgg. 07 Herten 1 - Kinderfestival"
-    },
-    {
-      "id": "02U6DIONOG000000VS5489BUVT5HDAB3",
-      "date": "2026-06-06T12:15",
-      "ageClass": null,
-      "competition": "Kreisliga A",
-      "home": "DJK Spvgg. 07 Herten o.W.",
-      "homeId": "02O7HBSHVG000000VS5489B2VU92J92M",
-      "away": "VfL Grafenwald II o.W.",
-      "awayId": "02RC22TM4O000000VS5489B2VSNP44Q8",
-      "url": "https://www.fussball.de/spiel/djk-spvgg-07-herten-ow-vfl-grafenwald-ii/-/spiel/02U6DIONOG000000VS5489BUVT5HDAB3",
-      "hasScore": true,
-      "flag": null,
-      "team": "u11",
-      "teamName": "U11-Juniorinnen",
-      "isHome": true,
-      "opponent": "VfL Grafenwald II o.W."
     },
     {
       "id": "02VSTQO28K000000VS5489BTVUKESBFG",
@@ -3395,8 +3378,8 @@
       "away": "VfL Grafenwald I",
       "awayId": "02PVIOS94C000000VS5489B2VTB2M2VN",
       "url": "https://www.fussball.de/spiel/djk-spvgg-07-herten-vfl-grafenwald-i/-/spiel/031U68PKP4000000VS5489BUVSORQI22",
-      "hasScore": true,
-      "flag": null,
+      "hasScore": false,
+      "flag": "Absetzung",
       "team": "u13",
       "teamName": "U13-Juniorinnen",
       "isHome": true,
@@ -3413,28 +3396,11 @@
       "awayId": "011MIDFOMK000000VTVG0001VTR8C1K7",
       "url": "https://www.fussball.de/spiel/sv-vestia-disteln-1-djk-spvgg-herten-1/-/spiel/031S71BT1G000000VS5489BTVTPHHFPR",
       "hasScore": false,
-      "flag": null,
+      "flag": "Absetzung",
       "team": "f1",
       "teamName": "F1-Jugend",
       "isHome": false,
       "opponent": "SV Vestia Disteln 1"
-    },
-    {
-      "id": "031RJ85RDK000000VS5489BTVTPHHFPR",
-      "date": "2026-11-28T12:00",
-      "ageClass": null,
-      "competition": "Kreisliga C",
-      "home": "TSV Raesfeld 2",
-      "homeId": "011MICFOJS000000VTVG0001VTR8C1K7",
-      "away": "DJK Spvgg. Herten",
-      "awayId": "011MICSFPS000000VTVG0001VTR8C1K7",
-      "url": "https://www.fussball.de/spiel/tsv-raesfeld-2-djk-spvgg-herten/-/spiel/031RJ85RDK000000VS5489BTVTPHHFPR",
-      "hasScore": true,
-      "flag": null,
-      "team": "e1",
-      "teamName": "E1-Jugend",
-      "isHome": false,
-      "opponent": "TSV Raesfeld 2"
     },
     {
       "id": "031RH35KU0000000VS5489BUVVE0O1R6",
@@ -3480,8 +3446,8 @@
       "away": "DJK Spvgg. 07 Herten",
       "awayId": "02TL40RILK000000VS5489BSVSKABKDB",
       "url": "https://www.fussball.de/spiel/ssv-buer-07-28-9%27er-djk-spvgg-07-herten/-/spiel/031U64QA78000000VS5489BUVSORQI22",
-      "hasScore": true,
-      "flag": null,
+      "hasScore": false,
+      "flag": "Absetzung",
       "team": "u15",
       "teamName": "U15-Juniorinnen",
       "isHome": false,
@@ -3945,6 +3911,23 @@
       "teamName": "E2-Jugend",
       "isHome": false,
       "opponent": "FC 96 Recklinghausen 2"
+    },
+    {
+      "id": "031RJ85RDK000000VS5489BTVTPHHFPR",
+      "date": "2026-12-09T17:45",
+      "ageClass": null,
+      "competition": "Kreisliga C",
+      "home": "TSV Raesfeld 2",
+      "homeId": "011MICFOJS000000VTVG0001VTR8C1K7",
+      "away": "DJK Spvgg. Herten",
+      "awayId": "011MICSFPS000000VTVG0001VTR8C1K7",
+      "url": "https://www.fussball.de/spiel/tsv-raesfeld-2-djk-spvgg-herten/-/spiel/031RJ85RDK000000VS5489BTVTPHHFPR",
+      "hasScore": true,
+      "flag": null,
+      "team": "e1",
+      "teamName": "E1-Jugend",
+      "isHome": false,
+      "opponent": "TSV Raesfeld 2"
     },
     {
       "id": "031RJ85RQ8000000VS5489BTVTPHHFPR",
